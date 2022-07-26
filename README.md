@@ -27,6 +27,13 @@ venv\scripts\activate
 
 ```
 
+> PARA DESACTIVAR EL ENTORNO VIRTUAL
+## Desactivar el Entorno virtual_
+```sh
+deactivate
+
+```
+
 ## _Clonar el repositorio_
 ```sh
 git clone direccion del repositorio
