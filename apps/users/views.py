@@ -49,7 +49,8 @@ class SignUp(user_authenticate,CreateView):
         user = authenticate(username=username, password=password)
         login(self.request, user)
         messages.success(self.request, 'USUARIO CREADO EXITOSAMENTE')
-        return redirect('perfilUsuario')
+        return redirect('index')
+        #return redirect('perfilUsuario')
 
     def handle_no_permission(self):
         '''
@@ -73,13 +74,17 @@ def login_view(request):
             login(request, user)
             if request.GET.get('next'):
                 return HttpResponseRedirect(request.GET['next'])
-
+            
+            '''
             if user.is_superuser:
                 messages.success(request, 'Bienvenido ADMINISTRADOR: {}'.format(user.username))
                 return redirect('perfilAdmin')
             else:
                 messages.success(request, 'Bienvenido USUARIO: {}'.format(user.username))
                 return redirect('perfilUsuario')
+            '''
+            
+            return redirect('index')
 
         else:
             messages.error(request, 'Usuario o contraseña no validos')
