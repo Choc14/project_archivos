@@ -44,6 +44,9 @@ git clone direccion del repositorio
 ```sh
 cd project_archivos
 python -m pip install -r requirements.txt
+
+> Si instala nuevas librerias o dependencias ejecutar el siguiente comando
+pip freeze > requirements.txt
 ```
 
 
