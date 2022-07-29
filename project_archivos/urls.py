@@ -11,11 +11,14 @@ from . import views
 #AGREGAR URLS
 from django.urls import path, include
 
+# DECORADOR
+from django.contrib.auth.decorators import login_required
+
 
 
 urlpatterns = [
-    path('', views.index, name = 'index'),
-    path('users/',include('apps.users.urls')),
+    path('', login_required(views.index), name = 'index'),
+    path('',include('apps.users.urls')),
     path('admin/', admin.site.urls),
 ]
 
