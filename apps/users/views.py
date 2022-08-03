@@ -75,14 +75,14 @@ def login_view(request):
             if request.GET.get('next'):
                 return HttpResponseRedirect(request.GET['next'])
             
-            '''
+            
             if user.is_superuser:
                 messages.success(request, 'Bienvenido ADMINISTRADOR: {}'.format(user.username))
-                return redirect('perfilAdmin')
+               
             else:
                 messages.success(request, 'Bienvenido USUARIO: {}'.format(user.username))
-                return redirect('perfilUsuario')
-            '''
+               
+           
             
             return redirect('index')
 
@@ -98,4 +98,4 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     messages.success(request, 'Sesión cerrada exitosamente')
-    return redirect('login')    
+    return redirect('users:login')    
