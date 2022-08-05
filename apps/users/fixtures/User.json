@@ -1,0 +1,21 @@
+[
+{
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$8w4EpmKigDjEkI7F7zBshT$IPrEaOyygmmB5JIGm1nHFRf3wuhOKXdt32wLX7Bz3DE=",
+        "last_login": "2022-08-05T22:39:10.631Z",
+        "is_superuser": true,
+        "username": "choc1403",
+        "first_name": "",
+        "last_name": "",
+        "email": "eloicx@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2022-08-05T22:36:31.721Z",
+        "image": "",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

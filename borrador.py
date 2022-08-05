@@ -1,8 +1,9 @@
 import os
 
-from funciones.menu import *
+from func.funciones.menu import *
 
 def main():
+    
     '''
     Funcion en donde desplaza un menu.
     '''
@@ -22,10 +23,10 @@ def main():
         borrar()
 
     elif decide == 2:
-        print('ESTA FUNCION AUN NO SE HA ESTABLECIDO')
+        respaldo()
 
     elif decide == 3:
-        print('ESTA FUNCION AUN NO SE HA ESTABLECIDO')
+        restablecer()
    
     elif decide == 0:
         print('adios')
@@ -36,4 +37,5 @@ def main():
 
 
 if __name__ == '__main__':
+    
     main()
