@@ -3,6 +3,9 @@ import os
 from funciones.menu import *
 
 def main():
+    '''
+    Funcion en donde desplaza un menu.
+    '''
     
     print('Elige una opcion'.center(60,'-'))
     
