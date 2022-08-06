@@ -22,7 +22,7 @@ from django.contrib.auth import authenticate
 from .decoradores import *
 
 # Modulos
-from django.contrib.auth.models import User
+from .models import User
 
 # Create your views here.
 

@@ -56,3 +56,38 @@ cd apps
 django-admin startapp nombre_de_la_aplicacion
 
 ```
+
+## Comandos de git
+> Agregar cambios
+```sh
+git add -A
+
+```
+
+> Comentar los cambios
+```sh
+git commit -m " mensaje "
+
+```
+
+> Subir los cambios al repositorio
+```sh
+git push origin master
+
+```
+
+> Ver si se hizo un cambio otro
+```sh
+git pull
+
+```
+
+> Si agrego cambio otro tenemos que ver que cambios hizo e incorporarlo a nuestro campu
+```sh
+git status 
+git add -A
+git commit -m "SE INCORPORO LOS CAMBIOS"
+
+Ya podemos seguir trabajando
+
+```
