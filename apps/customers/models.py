@@ -24,5 +24,5 @@ class Customer(models.Model):
     id_type = models.ForeignKey(Id, null=False, blank=False, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.first_name + " " + self.last_name

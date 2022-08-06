@@ -1,0 +1,16 @@
+[
+{
+    "model": "customers.id",
+    "pk": 1,
+    "fields": {
+        "id_type": "DPI"
+    }
+},
+{
+    "model": "customers.id",
+    "pk": 2,
+    "fields": {
+        "id_type": "Pasaporte"
+    }
+}
+]
