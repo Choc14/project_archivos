@@ -1,22 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<style>
-    .imagen {
-        display: flex;
-        align-items: center;
-        justify-content: end;
-
-    }
-</style>
-
 
 {% block content %}
-<div class="col">
-    <div class="row">
+<div class="col p1" style="margin-bottom: 20rem;">
+    <div class="row" style="height: 25vh; margin-bottom: 3rem; margin-top: 3rem;">
         <div class="col">
             <h1>BIENVENIDO <span style="text-transform: uppercase;">{{user.username}}</span></h1>
-            <p>Cargo: <span>{% if user.is_superuser %} Administrador {% else %} Usuario {% endif %} </span></p>
+            <p> {{ user.get_full_name }} </p>
+            <p>Cargo: <span style="text-transform: uppercase;">{{ user.get_type_user }} </span></p>
+            
 
         </div>
         <div class="col " style="display: flex; align-items:center; justify-content:end; ">
@@ -25,50 +18,96 @@
         </div>
     </div>
     <hr class="dropdown-divider">
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="card ">
-                <div class="card-body">
-                    <h5 class="card-title">Productos</h5>
-                    <hr class="dropdown-divider">
-                    <p class="card-text">En este apartado estan registrados todos los productos.</p>
-                    <p class="card-text">Productos registrados: <span> </span>.</p>
-                    <div class="text-center">
-                        <a href="#" class="btn btn-dark">Go somewhere</a>
+    <div class="row" style="height: 25vh; margin-bottom: 4rem; margin-top: 4rem; display: flex; align-items: center; justify-content: center;">
+        <div class="col-12">
+            <h4>MODELOS</h4>
+            <hr class="dropdown-divider">
+            
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="card ">
+                        <div class="card-body">
+                            <h5 class="card-title">Productos</h5>
+                            <hr class="dropdown-divider">
+                            <p class="card-text">En este apartado estan registrados todos los productos.</p>
+                            <p class="card-text">Productos registrados: <span> {{ product_count }} </span>.</p>
+                            <div class="text-center">
+                                <a href="#" class="btn btn-dark">VER</a>
+                            </div>
+        
+                        </div>
                     </div>
+                </div>
+        
+                <div class="col-sm-4">
+                    <div class="card ">
+                        <div class="card-body">
+                            <h5 class="card-title">Clientes</h5>
+                            <hr class="dropdown-divider">
+                            <p class="card-text">En este apartado estan registrados todos los clientes.</p>
+                            <p class="card-text">Clientes registrados: <span> {{ customer_count }} </span>.</p>
+                            <div class="text-center">
+                                <a href="#" class="btn btn-dark">VER</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Usuarios</h5>
+                            <hr class="dropdown-divider">
+                            <p class="card-text">En este apartado estan registrados todos los usuarios.</p>
+                            <p class="card-text">Usuarios registrados: <span> {{ user_count }} </span>.</p>
+                            <div class="text-center">
+                                <a href="#" class="btn btn-dark">VER</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                </div>
             </div>
         </div>
-        <div class="col-sm-4">
-            <div class="card ">
-                <div class="card-body">
-                    <h5 class="card-title">Clientes</h5>
-                    <hr class="dropdown-divider">
-                    <p class="card-text">En este apartado estan registrados todos los clientes.</p>
-                    <p class="card-text">Clientes registrados: <span> </span>.</p>
-                    <div class="text-center">
-                        <a href="#" class="btn btn-dark">Go somewhere</a>
+
+        
+
+    
+        
+        <div class="col-12" style="margin-top: 5rem;">
+            <h4>FACTURAS</h4>
+            <hr class="dropdown-divider">
+            <div class="row text-center">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">GENERAR UNA FACTURA</p>
+                            <div class="text-center">
+                                <a href="#" class="btn btn-dark">VER</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Usuarios</h5>
-                    <hr class="dropdown-divider">
-                    <p class="card-text">En este apartado estan registrados todos los usuarios.</p>
-                    <p class="card-text">Usuarios registrados: <span> </span>.</p>
-                    <div class="text-center">
-                        <a href="#" class="btn btn-dark">Go somewhere</a>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">FACTURAS GENERADAS <span> </span></p>
+                            <div class="text-center">
+                                <a href="#" class="btn btn-dark">VER</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
+
+
         </div>
+
+
+
     </div>
-    <hr class="dropdown-divider">
-   
+
 
 
 
