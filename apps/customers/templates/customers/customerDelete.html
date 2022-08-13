@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block content%}
+    <div class="col">
+        <form method="post">
+            {% csrf_token %}
+            <h2>¿Desea eliminar el cliente <span>{{customer.title}}</span>  ?</h2>
+            <div class="boton">
+                <button class="btn btn-danger" type="submit">Sí, eliminar</button>
+                <a class= "btn btn-default" href="{% url 'customers:Cliente' %}">Cancelar</a>
+            </div>
+
+        </form>
+
+    </div>
+{%endblock%}

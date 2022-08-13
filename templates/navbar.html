@@ -1,3 +1,8 @@
+{% load static %}
+
+{% url 'products:Producto' as Producto%}
+{% url 'customers:Cliente' as Cliente%}
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light rounded ">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,8 +17,8 @@
                         ARCHIVO
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">CLIENTES</a></li>
-                        <li><a class="dropdown-item" href="#">PRODUCTOS</a></li>                        
+                        <li><a class="dropdown-item" href="{{Cliente}}">CLIENTES</a></li>
+                        <li><a class="dropdown-item" href="{{Producto}}">PRODUCTOS</a></li>
                         <li><a class="dropdown-item" href="#">USUARIOS</a></li>
                         
                         {% if user.is_superuser %}

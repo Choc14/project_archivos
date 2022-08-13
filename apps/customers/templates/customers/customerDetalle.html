@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block content %}
+<div class="h1">
+    {{message}}
+</div>
+
+
+<div class="h5">
+    Nombres del Cliente: <span>{{customer.first_name}}</span>
+</div>
+
+
+<div class="h5">
+    Apellidos del Cliente: <span>{{customer.first_name}}</span>
+</div>
+
+
+<div class="h5">
+    Correo: <span>{{customer.addres}}</span>
+</div>
+
+
+<div class="h5">
+    Teléfono: <span>{{customer.phone_number}}</span>
+</div>
+
+
+<div class="h5">
+    Fecha de nacimiento: <span>{{customer.date_birth}}</span>
+</div>
+
+
+<div class="h5">
+    Ciudad: <span>{{customer.city}}</span>
+</div>
+
+
+<div class="h5">
+    Id: <span>{{customer.id_type}}</span>
+</div>
+
+
+<div class="h5">
+    Fecha de ingreso: <span>{{customer.created_at}}</span>
+</div>
+
+<br>
+
+
+<div class="d-grid gap-2 col-6 mx-auto">
+    <a class="btn btn-dark" type="button" href="{% url 'customers:Cliente' %}">Regresar</a>
+
+</div>
+{% endblock %}

@@ -19,9 +19,9 @@ from django.contrib.auth.decorators import login_required
 urlpatterns = [
     path('', login_required(views.index), name = 'index'),
     path('',include('apps.users.urls')),
-    path('products/',login_required( include('apps.products.urls'))),
-    path('customers/',login_required(include('apps.customers.urls'))),
-    path('invoices/',login_required(include('apps.invoices.urls'))),
+    path('products/',include('apps.products.urls')),
+    path('customers/',include('apps.customers.urls')),
+    path('invoices/',include('apps.invoices.urls')),
     path('admin/', admin.site.urls),
 ]
 

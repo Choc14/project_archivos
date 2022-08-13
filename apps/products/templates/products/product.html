@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="col-12">
+        <h2>{{ message }}</h2>
+    </div>
+    {% if product_list %}
+
+      <div class="col-12">
+          <table class="table">
+            <thead>
+              <td>Nombre del producto</td>
+              <td>Descripción</td>
+              <td>Precio</td>
+              <td>Categoría</td>
+              <td>Fecha de creación</td>
+
+
+            </thead>
+            <tbody>
+              {% for producto in product_list %}
+                <tr>
+                  <td>{{producto.title}}</td>
+                  <td>{{producto.description}}</td>
+                  <td>{{producto.price}}</td>
+                  <td>{{producto.category}}</td>
+                  <td>{{producto.created_at}}</td>
+
+                  <td>
+                      <a class="btn btn-outline-dark" href="{% url 'products:Detalle' producto.id %}">Mostrar</a>
+                      <a class="btn btn-outline-dark" href="{% url 'products:Actualizar' producto.id %}">Editar</a>
+                      <a class="btn btn-outline-dark" href="{% url 'products:Eliminar' producto.id %}">Eliminar</a>
+                  </td>
+                </tr>
+              {% endfor %}
+
+            </tbody>
+          </table>
+
+      </div>
+    {% else%}
+      <div class="col-12">
+        <h2 >No se ha encontrado ningún producto</h2>
+        <a class="btn btn-primary" href="{% url 'products:Crear' %}"> Agregar</a>
+
+
+      </div>
+    {% endif %}
+
+
+{% endblock %}
+
