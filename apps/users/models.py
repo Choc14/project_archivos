@@ -11,5 +11,16 @@ class User(AbstractUser):
         if self.image:
             return '{}{}'.format(MEDIA_URL, self.image)
         return '{}{}'.format(STATIC_URL, 'img/usuario.png')
+    
+    def get_type_user(self):
+        if self.is_superuser:
+            return f'ADMINISTRADOR'
+        return f'USUARIO'
+    
+    def get_full_name(self):
+        if self.first_name == '' and self.last_name == '':
+            return f'----'
+        return 'Nombre: {} Apellido: {}'.format(self.first_name, self.last_name)
+        
 
     
