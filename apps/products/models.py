@@ -2,7 +2,7 @@ import uuid
 from django.db import models
 from django.utils.text import slugify
 from django.db.models.signals import pre_save
-
+from project_archivos.settings import MEDIA_URL, STATIC_URL
 
 
 # Create your models here.
@@ -25,6 +25,11 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_image(self):
+        if self.image:
+            return '{}{}'.format(MEDIA_URL, self.image)
+        return '{}{}'.format(STATIC_URL,'img/product/sin-imagen.png')
 
 
 def set_slug(sender, instance, *args, **kwargs): 

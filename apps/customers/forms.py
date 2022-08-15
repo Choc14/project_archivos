@@ -21,7 +21,7 @@ class customerForm(forms.ModelForm):
         labels = {
             'first_name': 'Nombres',
             'last_name': 'Apellidos',
-            'addres': 'Correo',
+            'addres': 'Direccion',
             'phone_number': 'Telefono',
             'date_birth': 'Fecha de nacimiento',
             'city': 'Ciudad',
@@ -33,7 +33,7 @@ class customerForm(forms.ModelForm):
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'addres': forms.EmailInput(attrs={'class': 'form-control'}),
+            'addres': forms.TextInput(attrs={'class': 'form-control'}),
             'phone_number': forms.TextInput(attrs={'class': 'form-control'}),
             'date_birth': forms.TextInput(attrs = {'class': 'form-control', 'type': 'date'}),
             'city': forms.Select(attrs={'class': 'form-control'}),

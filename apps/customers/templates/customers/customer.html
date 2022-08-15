@@ -4,59 +4,85 @@
 
 {% block content %}
 
-    <div class="col-12">
-        <h2>{{ message }}</h2>
+
+{% if customer_list %}
+<div class="row" style="margin-top: 5rem;">
+  <div class="d-flex justify-content-center">
+    <h2>{{ message }}</h2>
+
+  </div>
+</div>
+{% include 'customers/snippets/breadcrumb.html'%}
+
+
+<div class="row">
+  <div class="row">
+    <div class="col">
+      <div class="d-flex justify-content-start">
+        <a class="btn btn-dark" href="{% url 'customers:Crear'%}">Agregar: </a>
+      </div>
     </div>
-    {% if customer_list %}
-
-      <div class="col-12">
-          <table class="table">
-            <thead>
-              <td>Nombres</td>
-              <td>Apellidos</td>
-              <td>Correo</td>
-              <td>Teléfono</td>
-              <td>Fecha de nacimiento</td>
-              <td>Ciudad</td>
-              <td>Id</td>
-              <td>Fecha de ingreso</td>
-
-
-            </thead>
-            <tbody>
-              {% for customer in customer_list %}
-                <tr>
-                  <td>{{customer.first_name}}</td>
-                  <td>{{customer.last_name}}</td>
-                  <td>{{customer.addres}}</td>
-                  <td>{{customer.phone_number}}</td>
-                  <td>{{customer.date_birth}}</td>
-                  <td>{{customer.city}}</td>
-                  <td>{{customer.id_type}}</td>
-                  <td>{{customer.created_at}}</td>
-
-
-                  <td>
-                      <a class="btn btn-outline-dark" href="{% url 'customers:Detalle' customer.id %}">Mostrar</a>
-                      <a class="btn btn-outline-dark" href="{% url 'customers:Actualizar' customer.id %}">Editar</a>
-                      <a class="btn btn-outline-dark" href="{% url 'customers:Eliminar' customer.id %}">Eliminar</a>
-                  </td>
-                </tr>
-              {% endfor %}
-
-            </tbody>
-          </table>
+    <div class="col">
+      <div class="d-flex justify-content-end">
+        <a class="btn btn-outline-dark" href="#">GENERAR REPORTE</a>
 
       </div>
-    {% else%}
-      <div class="col-12">
-        <h2 >No se ha encontrado ningún cliente</h2>
-        <a class="btn btn-primary" href="{% url 'customers:Crear' %}"> Agregar</a>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 2rem;">
+    <div class="col">
+      <table class="table table-hover caption-top">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>            
+            <th scope="col">Correo</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Fecha de nacimiento</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">Identificador</th>
+            <th scope="col">Fecha de creacion</th>
+
+          </tr>
 
 
-      </div>
-    {% endif %}
+        </thead>
+        <tbody>
+          {% for customer in customer_list %}
+          <tr>
+            <td>{{customer.first_name}} {{customer.last_name}}</td>            
+            <td>{{customer.addres}}</td>
+            <td>{{customer.phone_number}}</td>
+            <td>{{customer.date_birth}}</td>
+            <td>{{customer.city}}</td>
+            <td>{{customer.id_type}}</td>
+            <td>{{customer.created_at}}</td>
+
+
+            <td>
+              <a class="btn btn-outline-dark" href="{% url 'customers:Detalle' customer.id %}">Mostrar</a>
+              <a class="btn btn-outline-dark" href="{% url 'customers:Actualizar' customer.id %}">Editar</a>
+              <a class="btn btn-outline-dark" href="{% url 'customers:Eliminar' customer.id %}">Eliminar</a>
+            </td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+
+</div>
+{% else%}
+<div class="col-12">
+  <h2>No se ha encontrado ningún cliente</h2>
+  <a class="btn btn-primary" href="{% url 'customers:Crear' %}"> Agregar</a>
+
+
+</div>
+{% endif %}
 
 
 {% endblock %}
-

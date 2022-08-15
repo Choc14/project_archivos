@@ -11,6 +11,8 @@ from django.views.generic.detail import DetailView
 from .models import Product
 from .forms import productForm
 
+from .utils import breadcrumb
+
 # Create your views here.
 class productoList(ListView):
     template_name = 'products/product.html'
@@ -20,6 +22,7 @@ class productoList(ListView):
         context = super().get_context_data(**kwargs)
         context['message'] = 'Listado de Productos'
         context['title'] = 'Producto'
+        context['breadcrumb'] = breadcrumb()
 
 
         return context

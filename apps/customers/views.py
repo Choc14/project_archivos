@@ -11,6 +11,8 @@ from django.views.generic.detail import DetailView
 from .models import Customer
 from .forms import customerForm
 
+from .utils import breadcrumb
+
 # Create your views here.
 class customerList(ListView):
     template_name = 'customers/customer.html'
@@ -20,6 +22,7 @@ class customerList(ListView):
         context = super().get_context_data(**kwargs)
         context['message'] = 'Listado de Clientes'
         context['title'] = 'Cliente'
+        context['breadcrumb'] = breadcrumb()
 
 
         return context
