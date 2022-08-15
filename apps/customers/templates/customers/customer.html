@@ -32,10 +32,11 @@
 
   <div class="row" style="margin-top: 2rem;">
     <div class="col">
+
       <table class="table table-hover caption-top">
         <thead>
           <tr>
-            <th scope="col">Nombre</th>            
+            <th scope="col">Nombre</th>
             <th scope="col">Correo</th>
             <th scope="col">Teléfono</th>
             <th scope="col">Fecha de nacimiento</th>
@@ -50,7 +51,7 @@
         <tbody>
           {% for customer in customer_list %}
           <tr>
-            <td>{{customer.first_name}} {{customer.last_name}}</td>            
+            <td>{{customer.first_name}} {{customer.last_name}}</td>
             <td>{{customer.addres}}</td>
             <td>{{customer.phone_number}}</td>
             <td>{{customer.date_birth}}</td>
@@ -62,7 +63,7 @@
             <td>
               <a class="btn btn-outline-dark" href="{% url 'customers:Detalle' customer.id %}">Mostrar</a>
               <a class="btn btn-outline-dark" href="{% url 'customers:Actualizar' customer.id %}">Editar</a>
-              <a class="btn btn-outline-dark" href="{% url 'customers:Eliminar' customer.id %}">Eliminar</a>
+              <a class="btn btn-outline-dark" href="{% url 'customers:Eliminar' customer.id %}">Eliminar</a>              
             </td>
           </tr>
           {% endfor %}

@@ -2,54 +2,83 @@
 {% load static%}
 
 {% block content %}
-<div class="h1">
-    {{message}}
+<div class="row" style="margin-top: 3rem;">
+    <div class="col">
+        <div class="d-flex justify-content-center" >
+            <div class="h1">{{message}}</div>
+           
+        </div>
+
+    </div>
 </div>
 
+<div class="row">
+    <div class="col">
+        <div class="d-flex justify-content-center" >
+            {% include 'customers/snippets/breadcrumb.html'%}
 
-<div class="h5">
-    Nombres del Cliente: <span>{{customer.first_name}}</span>
+        </div>
+
+    </div>
 </div>
 
+<div class="row">
+    <div class="col">
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Nombre del Cliente: </span>
+            <span class="p2" style="color: red;"> {{customer.first_name}}</span>
+        </div>
+        
+        
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Apellido del Cliente:</span>
+            <span class="p2" style="color: red;">  {{customer.last_name}}</span>
+        </div>
+        
+        
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Direccion: </span>
+            <span class="p2" style="color: red;"> {{customer.addres}}</span>
+        </div>
+        
+        
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Teléfono: </span>
+            <span class="p2" style="color: red;"> {{customer.phone_number}}</span>
+        </div>
+        
+        
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Fecha de nacimiento: </span>
+            <span class="p2" style="color: red;"> {{customer.date_birth}}</span>
+        </div>
+        
+        
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Ciudad: </span>
+            <span class="p2" style="color: red;">  {{customer.city}}</span>
+        </div>
+        
+        
+        <div class="h5"style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Identificador: </span>
+            <span class="p2" style="color: red;">  {{customer.id_type}}</span>
+        </div>
+        
+        
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Fecha de creacion: </span>
+            <span class="p2" style="color: red;"> {{customer.created_at}}</span>
+        </div>
 
-<div class="h5">
-    Apellidos del Cliente: <span>{{customer.last_name}}</span>
+    </div>
 </div>
 
-
-<div class="h5">
-    Direccion: <span>{{customer.addres}}</span>
-</div>
-
-
-<div class="h5">
-    Teléfono: <span>{{customer.phone_number}}</span>
-</div>
-
-
-<div class="h5">
-    Fecha de nacimiento: <span>{{customer.date_birth}}</span>
-</div>
-
-
-<div class="h5">
-    Ciudad: <span>{{customer.city}}</span>
-</div>
-
-
-<div class="h5">
-    Identificador: <span>{{customer.id_type}}</span>
-</div>
-
-
-<div class="h5">
-    Fecha de creacion: <span>{{customer.created_at}}</span>
-</div>
 
 <br>
 
 
-<div class="d-grid gap-2 col-6 mx-auto">
+<div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 3rem;">
     <a class="btn btn-dark" type="button" href="{% url 'customers:Cliente' %}">Regresar</a>
 
 </div>

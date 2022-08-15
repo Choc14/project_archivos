@@ -2,16 +2,20 @@
 {% load static%}
 
 {% block content%}
-    <div class="col">
+<div class="col">
+    <div class="d-flex justify-content-center" style="height: 50vh; align-items: center; display: flex;">
         <form method="post">
             {% csrf_token %}
-            <h2>¿Desea eliminar el producto <span>{{producto.title}}</span>  ?</h2>
+            <h2>¿Desea eliminar el producto <span>{{product.title}}</span> ?</h2>
             <div class="boton">
                 <button class="btn btn-danger" type="submit">Sí, eliminar</button>
-                <a class= "btn btn-default" href="{% url 'products:Producto' %}">Cancelar</a>
+                <a class="btn btn-default" href="{% url 'products:Producto' %}">Cancelar</a>
             </div>
 
         </form>
 
     </div>
+
+
+</div>
 {%endblock%}

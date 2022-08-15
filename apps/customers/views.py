@@ -58,6 +58,11 @@ class customerUpdate(UpdateView):
 class customerDelete(DeleteView):
     model = Customer
     template_name = 'customers/customerDelete.html'
+    def get_context_data(self, **kwargs) :
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Eliminar'
+
+        return context
     success_url = reverse_lazy('customers:Cliente')
 
 class customerDetalle(DetailView):
@@ -68,5 +73,6 @@ class customerDetalle(DetailView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Detalle'
         context['message'] = 'Detalle'
+        context['breadcrumb'] = breadcrumb()
 
         return context

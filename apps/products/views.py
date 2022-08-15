@@ -58,6 +58,13 @@ class productoUpdate(UpdateView):
 class productoDelete(DeleteView):
     model = Product
     template_name = 'products/productDelete.html'
+    
+    def get_context_data(self, **kwargs) :
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Eliminar'
+        
+
+        return context
     success_url = reverse_lazy('products:Producto')
 
 class productoDetalle(DetailView):
@@ -68,5 +75,6 @@ class productoDetalle(DetailView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Detalle'
         context['message'] = 'Detalle'
+        context['breadcrumb'] = breadcrumb()
 
         return context
