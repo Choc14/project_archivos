@@ -8,8 +8,8 @@ app_name = 'customers'
 urlpatterns = [
 
     path('', login_required(views.customerList.as_view()), name='Cliente'),
-    path('crear/', views.customerCreate.as_view(), name='Crear'),
-    path('actualizar/<int:pk>/', views.customerUpdate.as_view(), name='Actualizar'),
-    path('eliminar/<int:pk>/', views.customerDelete.as_view(), name='Eliminar'),
-    path('detalle/<int:pk>/', views.customerDetalle.as_view(), name='Detalle'),
+    path('crear/', login_required(views.customerCreate.as_view()), name='Crear'),
+    path('actualizar/<int:pk>/', login_required(views.customerUpdate.as_view()), name='Actualizar'),
+    path('eliminar/<int:pk>/', login_required(views.customerDelete.as_view()), name='Eliminar'),
+    path('detalle/<int:pk>/', login_required(views.customerDetalle.as_view()), name='Detalle'),
 ]
