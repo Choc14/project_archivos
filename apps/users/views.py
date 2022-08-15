@@ -26,6 +26,8 @@ from .models import User
 
 # Create your views here.
 
+
+
 class SignUp(user_authenticate,CreateView):
     '''
     MODULO PARA REGISTRO DE USUARIOS
@@ -98,4 +100,27 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     messages.success(request, 'Sesión cerrada exitosamente')
-    return redirect('users:login')    
+    return redirect('users:login')
+
+class CreateUser(user_admin, CreateView):
+    
+    model = User
+    form_class = RegistroForm    
+    template_name = 'users/signup.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['title'] = 'Crear Usuario'
+       
+       
+
+        return context
+
+  
+
+    def handle_no_permission(self):
+        '''
+        Si el usuario esta registrado lo regresa al inicio
+        :return:
+        '''
+        return HttpResponseRedirect(reverse('index'))
