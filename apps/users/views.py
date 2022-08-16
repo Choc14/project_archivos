@@ -1,9 +1,9 @@
 # URL
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
-
+from django.db.models import Q
 
 # LIBRERIAS PARA EL CRUD
 from django.views.generic import CreateView, UpdateView, DeleteView
@@ -11,7 +11,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
 # FORMS
-from .forms import RegistroForm
+from .forms import RegistroForm, UpdateUserForm
 
 # Login
 from django.contrib.auth import login
@@ -20,7 +20,7 @@ from django.contrib.auth import authenticate
 
 # Decoradores
 from .decoradores import *
-
+from .bread import breadcrumb
 # Modulos
 from .models import User
 
@@ -40,6 +40,7 @@ class SignUp(user_authenticate,CreateView):
         context = super().get_context_data()
         context['title'] = 'Register'
         context['messages.success'] = 'BIENVENIDO'
+        context['info'] = 'Registrar' 
        
 
         return context
@@ -111,10 +112,15 @@ class CreateUser(user_admin, CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
         context['title'] = 'Crear Usuario'
-       
-       
-
+        context['info'] = 'Crear Usuario' 
+        
         return context
+    
+    def form_valid(self, form):
+        form.save()
+
+
+        return redirect('users:list')
 
   
 
@@ -124,3 +130,60 @@ class CreateUser(user_admin, CreateView):
         :return:
         '''
         return HttpResponseRedirect(reverse('index'))
+
+class ListUser(ListView):
+    queryset = User.objects.all().order_by('-id')
+    template_name = 'users/list.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['message'] = 'Listado de Usuarios'
+        context['title'] = 'Usuarios'
+        context['breadcrumb'] = breadcrumb()
+        return context
+
+class DeleteUser(DeleteView):
+    model = User
+    template_name = 'users/delete.html'
+    
+    def get_context_data(self, **kwargs) :
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Eliminar'
+        context['update'] = True
+        
+
+        return context
+    success_url = reverse_lazy('users:list')
+
+
+
+        
+
+class UpdateUser(UpdateView):
+    model = User
+    form_class = UpdateUserForm
+    template_name = 'users/update.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Editar'
+        context['update'] = True
+        context['info'] = 'Actualizar'
+                
+
+        return context
+    success_url = reverse_lazy('users:list')
+
+    
+
+class DetailUser(DetailView):
+    model = User
+    template_name = 'users/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Detalle'
+        context['message'] = 'Detalle'
+        context['update'] = True
+        context['breadcrumb'] = breadcrumb()
+
+        return context

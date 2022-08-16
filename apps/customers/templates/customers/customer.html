@@ -77,9 +77,14 @@
 
 </div>
 {% else%}
-<div class="col-12">
-  <h2>No se ha encontrado ningún cliente</h2>
-  <a class="btn btn-primary" href="{% url 'customers:Crear' %}"> Agregar</a>
+<div class="row">
+  <div class="col">
+    <div class="d-flex justify-content-center" style="height: 50vh; align-items: center; display: flex;">
+      <h2>No se ha encontrado ningún cliente</h2>
+      <a class="btn btn-outline-dark" href="{% url 'customers:Crear' %}"  style="margin-left: 0.5rem;"> Agregar</a>
+    </div>
+  </div>
+  
 
 
 </div>

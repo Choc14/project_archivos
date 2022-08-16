@@ -3,18 +3,19 @@
     "model": "users.user",
     "pk": 1,
     "fields": {
-        "password": "pbkdf2_sha256$320000$JvjqivVyrrKu8rFrLS2uBn$Gm80PCuJqiBERwmKJ46Ve+ZPYnI3OkWoH+tfcJ1KOoY=",
+        "password": "pbkdf2_sha256$320000$lOt8XoizHHZE6YD8egDUVY$G7Bd7v6l58wVXFGwNNBjHS+KrVw3Ul40jVaGPFTdaBY=",
         "last_login": null,
         "is_superuser": true,
         "username": "choc1403",
-        "first_name": "",
-        "last_name": "",
+        "first_name": "Juan Carlos",
+        "last_name": "Choc Xol",
         "email": "eloicx@gmail.com",
         "is_staff": true,
         "is_active": true,
-        "date_joined": "2022-08-15T18:31:44.561Z",
+        "date_joined": "2022-08-15T23:20:02.023Z",
         "image": "",
         "user_type": "ADMINISTRADOR",
+        "created_at": "2022-08-15T23:20:02.690Z",
         "groups": [],
         "user_permissions": []
     }

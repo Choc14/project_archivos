@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+{% if user_list %}
+<div class="row" style="margin-top: 5rem;">  
+  <div class="d-flex justify-content-center">
+    
+    <h2>{{ message }}</h2>
+
+  </div>
+</div>
+{% include 'users/snippets/breadcrumb.html'%}
+
+<div class="row">
+  <!--BOTONES DE AGREGAR Y GENERAR REPORTE-->
+  <div class="row">
+    <div class="col">
+      <div class="d-flex justify-content-start">
+        <a class="btn btn-dark" href="{% url 'users:create'%}">Agregar: </a>
+      </div>
+    </div>
+    <div class="col">
+      <div class="d-flex justify-content-end">
+        <a class="btn btn-outline-dark" href="#">GENERAR REPORTE</a>
+
+      </div>
+    </div>
+  </div>
+
+  <!--APARTADO DONDE SE MUESTRA EL LISTADO DE PRODUCTOS-->
+  <div class="row" style="margin-top: 2rem;">
+    <div class="col">
+      <table class="table table-hover caption-top ">
+        <thead>          
+          <tr>
+            <th scope="col">Nombre del Usuario</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Tipo de usuario</th>            
+            
+
+          </tr>
+
+
+
+        </thead>
+        <tbody>
+          {% for usuario in user_list %}
+          <tr>
+            <td scope="row">{{usuario.get_full_name}}</td>
+            
+            <td>{{usuario.username}}</td>
+            <td>{{usuario.user_type}}</td>
+
+            
+            
+
+            <td>
+              <a class="btn btn-outline-dark" href="{% url 'users:detail' usuario.id %}">Mostrar</a>
+              {% if user.is_superuser %}
+              <a class="btn btn-outline-dark" href="{% url 'users:update' usuario.id %}">Editar</a>
+              <a class="btn btn-outline-dark" href="{% url 'users:delete' usuario.id %}">Eliminar</a>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+</div>
+{% else%}
+<div class="row">
+  <div class="col">
+    <div class="d-flex justify-content-center" style="height: 50vh; align-items: center; display: flex;">
+      <h2>No se ha encontrado ningún producto</h2>
+      <a class="btn btn-outline-dark" href="{% url 'users:create'%}" style="margin-left: 0.5rem;"> Agregar</a>
+
+    </div>
+  </div>
+  
+
+
+</div>
+{% endif %}
+
+
+{% endblock %}

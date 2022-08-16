@@ -11,7 +11,10 @@ urlpatterns = [
     path('signUp/', views.SignUp.as_view(), name = 'signUp'),
     path('accounts/login/',views.login_view, name='login'),
     path('logout/',views.logout_view, name='logout'),
-    path('users/create/', login_required(views.CreateUser.as_view()), name='create') 
-    
+    path('users/create/', login_required(views.CreateUser.as_view()), name='create'),
+    path('users/list/', views.ListUser.as_view(), name='list'), 
+    path('users/delete/<int:pk>/', views.DeleteUser.as_view(), name='delete'),
+    path('users/update/<int:pk>/', views.UpdateUser.as_view(), name='update'),
+    path('users/detail/<int:pk>/',views.DetailUser.as_view(), name='detail' )
 
 ]

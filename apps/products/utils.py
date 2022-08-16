@@ -1,4 +1,4 @@
-from itertools import product
+
 from django.urls import reverse
 
 def breadcrumb(products = True):

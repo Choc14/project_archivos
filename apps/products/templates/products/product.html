@@ -81,11 +81,19 @@
 </div>
 {% else%}
 <div class="row">
-  <h2>No se ha encontrado ningún producto</h2>
-  <a class="btn btn-primary" href="{% url 'products:Crear' %}"> Agregar</a>
+  <div class="col-12">
+    <div class="d-flex justify-content-center" style="height: 50vh; align-items: center; display: flex;">
+      <h2>No se ha encontrado ningún producto</h2>
+      <a class="btn btn btn-outline-dark" href="{% url 'products:Crear' %}"  style="margin-left: 0.5rem;">Agregar</a>
 
-
+     
+      
+      
+    </div>
+  </div>
 </div>
+
+
 {% endif %}
 
 

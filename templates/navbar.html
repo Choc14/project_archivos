@@ -3,6 +3,7 @@
 
 {% url 'products:Producto' as Producto%}
 {% url 'customers:Cliente' as Cliente%}
+{% url 'users:list' as Usuarios %}
 
 
 <link rel="stylesheet" href="{% static 'css/navbar.css'%}" />
@@ -25,9 +26,9 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{Cliente}}">CLIENTES</a></li>
                         <li><a class="dropdown-item" href="{{Producto}}">PRODUCTOS</a></li>
-                        <li><a class="dropdown-item" href="#">USUARIOS</a></li>
+                        <li><a class="dropdown-item" href="{{Usuarios}}">USUARIOS</a></li>
                         
-                        {% if user.is_superuser %}
+                        {% if user.is_superuser or update %}
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="#">CAMBIO DE USUARIO</a></li>                        
                         <li><a class="dropdown-item" href="#">CAMBIO DE CLAVE</a></li>

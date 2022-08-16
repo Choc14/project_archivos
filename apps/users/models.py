@@ -13,6 +13,7 @@ class User(AbstractUser):
 
     image = models.ImageField(upload_to='users/', null=True, blank=True)
     user_type = models.CharField(choices=USER_TYPE, default='USUARIO', null=True, blank=True, max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def get_image(self):
         if self.image:
