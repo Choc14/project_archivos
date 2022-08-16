@@ -16,3 +16,19 @@ def index(request):
         
     }
     return render(request,template,context)
+
+def about(request):
+    template = 'about.html'
+    context = {
+        'title': 'Acerca de:'
+
+    }
+    return render(request, template, context)
+    
+def help(request):
+    template = 'help.html'
+    context = {
+        'title': 'Acerca de:'
+
+    }
+    return render(request, template, context)

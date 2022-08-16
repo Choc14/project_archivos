@@ -141,7 +141,7 @@ class ListUser(ListView):
         context['breadcrumb'] = breadcrumb()
         return context
 
-class DeleteUser(DeleteView):
+class DeleteUser(user_admin, DeleteView):
     model = User
     template_name = 'users/delete.html'
     
@@ -152,13 +152,21 @@ class DeleteUser(DeleteView):
         
 
         return context
+
+    def handle_no_permission(self):
+        '''
+        Si el usuario esta registrado lo regresa al inicio
+        :return:
+        '''
+        return HttpResponseRedirect(reverse('index'))
+
     success_url = reverse_lazy('users:list')
 
 
 
         
 
-class UpdateUser(UpdateView):
+class UpdateUser(user_admin, UpdateView):
     model = User
     form_class = UpdateUserForm
     template_name = 'users/update.html'
@@ -171,6 +179,13 @@ class UpdateUser(UpdateView):
                 
 
         return context
+
+    def handle_no_permission(self):
+        '''
+        Si el usuario esta registrado lo regresa al inicio
+        :return:
+        '''
+        return HttpResponseRedirect(reverse('index'))
     success_url = reverse_lazy('users:list')
 
     
