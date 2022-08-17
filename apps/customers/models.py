@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 # Create your models here.
 class City(models.Model):
@@ -23,6 +24,8 @@ class Customer(models.Model):
     city = models.ForeignKey(City, null=False, blank=False, on_delete=models.CASCADE)
     id_type = models.ForeignKey(Id, null=False, blank=False, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    
 
     def __str__(self):
         return self.first_name + " " + self.last_name

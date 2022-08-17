@@ -21,7 +21,7 @@ class customerList(ListView):
     queryset = Customer.objects.all().order_by('-id')
 
     def get_context_data(self, **kwargs):
-        archivo.subir()
+        archivo.subir(Customer)
         context = super().get_context_data(**kwargs)
         context['message'] = 'Listado de Clientes'
         context['title'] = 'Cliente'

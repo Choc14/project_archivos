@@ -28,11 +28,8 @@ class productoList(ListView):
     template_name = 'products/product.html'
     queryset = Product.objects.all().order_by('-id')
 
- 
-        
-
     def get_context_data(self, **kwargs):   
-        archivo.subir()   
+        archivo.subir(Product)   
         context = super().get_context_data(**kwargs)
         context['message'] = 'Listado de Productos'
         context['title'] = 'Producto'

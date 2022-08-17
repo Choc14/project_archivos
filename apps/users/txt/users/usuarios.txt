@@ -22,3 +22,11 @@ Nombre de usuario: choc1403ss
 Tipo de usuario: USUARIO
 Fecha de creacion: 2022-08-15
 
+-----------------------------4------------------------------
+Nombre del usuario: 
+Apellido del usuario: 
+Correo Electronico: adminever12@gmail.com
+Nombre de usuario: EverAdmin11
+Tipo de usuario: ADMINISTRADOR
+Fecha de creacion: 2022-08-16
+

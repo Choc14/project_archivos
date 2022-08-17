@@ -1,15 +1,17 @@
 import os
 
-from .models import Customer
+
 
 class ArchivoCliente:
-    customer_list = Customer.objects.all()
+    
     ruta_archivo = 'apps/customers/txt/customers/clientes.txt'
 
     @classmethod
-    def agregar_producto(cls):
+    def agregar_cliente(cls, Customer):
+        customer_list = Customer.objects.all()
+
         with open(cls.ruta_archivo, 'a', encoding='utf8') as archivo:
-            for cliente in cls.customer_list:
+            for cliente in customer_list:
                 archivo.write(f'{cliente.id}'.center(60,'-'))
                 archivo.write(f'\n')
                 archivo.write(f'Nombre del cliente: {cliente.first_name}\n')
@@ -27,12 +29,13 @@ class ArchivoCliente:
 
 
     @classmethod
-    def eliminar_producto(cls):
+    def eliminar_cliente(cls):
         os.remove(cls.ruta_archivo)
         print(f'Archivo eliminado: {cls.ruta_archivo}')
 
     @classmethod
-    def subir(cls):
-        cls.eliminar_producto()
-        cls.agregar_producto()
+    def subir(cls, Customer):
+        cls.agregar_cliente(Customer)
+        cls.eliminar_cliente()
+        cls.agregar_cliente(Customer)
 

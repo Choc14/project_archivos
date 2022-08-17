@@ -14,9 +14,9 @@ from apps.customers.generador import ArchivoCliente as archvc
 
 def index(request):
 
-    archvp.subir()
-    archvu.subir()
-    archvc.subir()
+    archvp.subir(Product)
+    archvu.subir(User)
+    archvc.subir(Customer)
 
     template = 'index.html'
     context = {

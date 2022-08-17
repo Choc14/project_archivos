@@ -3,13 +3,15 @@ import os
 from .models import User
 
 class ArchivoUsuario:
-    user_list = User.objects.all()
+    
     ruta_archivo = 'apps/users/txt/users/usuarios.txt'
 
     @classmethod
-    def agregar_producto(cls):
+    def agregar_usurio(cls, User):
+        user_list = User.objects.all()
+
         with open(cls.ruta_archivo, 'a', encoding='utf8') as archivo:
-            for usuario in cls.user_list:
+            for usuario in user_list:
                 archivo.write(f'{usuario.id}'.center(60,'-'))
                 archivo.write(f'\n')
                 archivo.write(f'Nombre del usuario: {usuario.first_name}\n')
@@ -24,12 +26,13 @@ class ArchivoUsuario:
 
 
     @classmethod
-    def eliminar_producto(cls):
+    def eliminar_usuario(cls):
         os.remove(cls.ruta_archivo)
         print(f'Archivo eliminado: {cls.ruta_archivo}')
 
     @classmethod
-    def subir(cls):
+    def subir(cls, User):
+        cls.agregar_producto(User)
         cls.eliminar_producto()
-        cls.agregar_producto()
+        cls.agregar_producto(User)
 

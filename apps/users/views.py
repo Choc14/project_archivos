@@ -139,7 +139,7 @@ class ListUser(ListView):
     queryset = User.objects.all().order_by('-id')
     template_name = 'users/list.html'
     def get_context_data(self, **kwargs):
-        archivo.subir()
+        archivo.subir(User)
         context = super().get_context_data(**kwargs)
         context['message'] = 'Listado de Usuarios'
         context['title'] = 'Usuarios'

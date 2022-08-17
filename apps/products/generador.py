@@ -1,15 +1,17 @@
 import os
 
-from .models import Product
+
 
 class ArchivoProducto:
-    product_list = Product.objects.all()
+    
     ruta_archivo = 'apps/products/txt/products/producto.txt'
 
     @classmethod
-    def agregar_producto(cls):
+    def agregar_producto(cls, Product):
+        product_list = Product.objects.all()
+
         with open(cls.ruta_archivo, 'a', encoding='utf8') as archivo:
-            for producto in cls.product_list:
+            for producto in product_list:
                 archivo.write(f'{producto.id}'.center(60,'-'))
                 archivo.write(f'\n')
                 archivo.write(f'Nombre del producto: {producto.title}\n')
@@ -29,7 +31,8 @@ class ArchivoProducto:
         print(f'Archivo eliminado: {cls.ruta_archivo}')
 
     @classmethod
-    def subir(cls):
+    def subir(cls, Product):
+        cls.agregar_producto(Product)
         cls.eliminar_producto()
-        cls.agregar_producto()
+        cls.agregar_producto(Product)
 

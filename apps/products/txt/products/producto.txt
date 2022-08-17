@@ -1,14 +1,12 @@
 -----------------------------1------------------------------
-Nombre del producto: Prueba
-Descripcion: no es una prueba
-Price: 12.00
-Categoria: ahh
-Fecha de creacion: 2022-08-16
+Nombre del producto: dsa
+Descripcion: dsa
+Price: 21.00
+Fecha de creacion: 2022-08-17
 
 -----------------------------2------------------------------
-Nombre del producto: ahhh
-Descripcion: dsads
-Price: 431.00
-Categoria: ahh
+Nombre del producto: dsadsdsadsadsa
+Descripcion: dsa
+Price: 58.00
 Fecha de creacion: 2022-08-17
 
