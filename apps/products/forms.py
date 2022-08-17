@@ -27,7 +27,8 @@ class productForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'rows': '3'}),
             'category': forms.CheckboxSelectMultiple(attrs={'type': 'checkbox'}),
-            'image': forms.FileInput(attrs={'type':'checkbox', 'name':'image', 'type':'file', 'accept':'image'}),
+            'image': forms.FileInput(attrs={'type':'checkbox', 'name':'image', 'type':'file', 'accept':'image',
+            'class': 'form-control'}),
             'price': forms.TextInput(
                 attrs={'class': 'form-control', 'type': 'number', 'step': '0.01', 'min': '1'}),
 
