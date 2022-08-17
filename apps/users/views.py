@@ -21,8 +21,12 @@ from django.contrib.auth import authenticate
 # Decoradores
 from .decoradores import *
 from .bread import breadcrumb
+
 # Modulos
 from .models import User
+
+# Clases
+from .generador import ArchivoUsuario as archivo
 
 # Create your views here.
 
@@ -135,6 +139,7 @@ class ListUser(ListView):
     queryset = User.objects.all().order_by('-id')
     template_name = 'users/list.html'
     def get_context_data(self, **kwargs):
+        archivo.subir()
         context = super().get_context_data(**kwargs)
         context['message'] = 'Listado de Usuarios'
         context['title'] = 'Usuarios'

@@ -13,12 +13,15 @@ from .forms import customerForm
 
 from .utils import breadcrumb
 
+from .generador import ArchivoCliente as archivo
+
 # Create your views here.
 class customerList(ListView):
     template_name = 'customers/customer.html'
     queryset = Customer.objects.all().order_by('-id')
 
     def get_context_data(self, **kwargs):
+        archivo.subir()
         context = super().get_context_data(**kwargs)
         context['message'] = 'Listado de Clientes'
         context['title'] = 'Cliente'
