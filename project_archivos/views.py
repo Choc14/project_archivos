@@ -6,7 +6,18 @@ from apps.customers.models import Customer
 from apps.products.models import Product
 from apps.users.models import User
 
-def index(request):    
+# CLASE
+from apps.products.generador import ArchivoProducto as archvp
+from apps.users.generador import ArchivoUsuario as archvu
+from apps.customers.generador import ArchivoCliente as archvc
+
+
+def index(request):
+
+    archvp.subir()
+    archvu.subir()
+    archvc.subir()
+
     template = 'index.html'
     context = {
         'title':'INICIO',

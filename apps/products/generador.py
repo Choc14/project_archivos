@@ -1,0 +1,35 @@
+import os
+
+from .models import Product
+
+class ArchivoProducto:
+    product_list = Product.objects.all()
+    ruta_archivo = 'apps/products/txt/products/producto.txt'
+
+    @classmethod
+    def agregar_producto(cls):
+        with open(cls.ruta_archivo, 'a', encoding='utf8') as archivo:
+            for producto in cls.product_list:
+                archivo.write(f'{producto.id}'.center(60,'-'))
+                archivo.write(f'\n')
+                archivo.write(f'Nombre del producto: {producto.title}\n')
+                archivo.write(f'Descripcion: {producto.description}\n')
+                archivo.write(f'Price: {producto.price}\n')
+                for categoria in producto.category.all():
+                    archivo.write(f'Categoria: {categoria}\n')
+                
+                fecha = producto.created_at.strftime('%Y-%m-%d')
+                archivo.write(f'Fecha de creacion: {fecha}\n')
+                archivo.write(f'\n')
+
+
+    @classmethod
+    def eliminar_producto(cls):
+        os.remove(cls.ruta_archivo)
+        print(f'Archivo eliminado: {cls.ruta_archivo}')
+
+    @classmethod
+    def subir(cls):
+        cls.eliminar_producto()
+        cls.agregar_producto()
+
