@@ -8,6 +8,7 @@ from datetime import datetime
 # JSON
 from django.forms import model_to_dict
 
+
 # Create your models here.
 class City(models.Model):
     name_city = models.CharField(max_length=50)
