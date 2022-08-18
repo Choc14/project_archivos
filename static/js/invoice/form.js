@@ -83,13 +83,13 @@ var vents = {
 };
 
 $(function () {
-    /*
+    
     $('.select2').select2({
         theme: "bootstrap4",
         language: 'es'
     });
     
-
+    /*
     $('#date_joined').datetimepicker({
         format: 'YYYY-MM-DD',
         date: moment().format("YYYY-MM-DD"),
@@ -144,3 +144,4 @@ $(function () {
         }
     });
 });
+

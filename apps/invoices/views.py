@@ -53,6 +53,7 @@ class CreateInvoice(CreateView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Nueva Factura'
         context['action'] = 'add'
+        context['message'] = 'Nueva Factura'
 
         return context
     success_url = reverse_lazy('index')

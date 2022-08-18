@@ -17,14 +17,14 @@ class InvoiceForm(forms.ModelForm):
         ]
 
         labels = {
-            'customer': 'Cliente',            
+            'customer': 'CLIENTE',            
             'iva': 'IVA',
-            'subtotal': 'SubTotal',
+            'subtotal': 'SUBTOTAL',
             'total': 'TOTAL'
         }
         
         widgets = {
-            'customer': forms.Select(attrs={'class': 'form-control'}),            
+            'customer': forms.Select(attrs={'class': 'form-control select2'}),            
             'iva': forms.TextInput(attrs={'class': 'form-control'}),
             'subtotal': forms.TextInput(attrs={'readonly': True,'class': 'form-control'}),
             'total': forms.TextInput(attrs={'readonly': True,'class': 'form-control'})

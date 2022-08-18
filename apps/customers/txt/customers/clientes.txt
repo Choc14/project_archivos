@@ -1,0 +1,10 @@
+-----------------------------1------------------------------
+Nombre del cliente: Juan Carlos Eloi
+Apellido del cliente: Xol
+Direccion: Diagonal 2 8-66
+Numero de telefono: 39046965
+Fecha de cumpleaños: 2022-08-12
+Ciudad: Coban
+Identificador: DPI
+Fecha de creacion: 2022-08-17
+
