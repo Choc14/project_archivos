@@ -1,18 +1,23 @@
+# REDIRECCIONAR
 from django.shortcuts import render
-from django.db.models import Q
 from django.urls import reverse_lazy
 
+# CRUD
 from django.views.generic import CreateView
 from django.views.generic.list import ListView
 from django.views.generic import UpdateView
 from django.views.generic import DeleteView
 from django.views.generic.detail import DetailView
+from django.db.models import Q
 
+# MODELOS
 from .models import Customer
 from .forms import customerForm
 
+# BREADCRUMB
 from .utils import breadcrumb
 
+# GENERADOR DE TXT
 from .generador import ArchivoCliente as archivo
 
 # Create your views here.

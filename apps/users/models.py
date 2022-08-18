@@ -1,8 +1,16 @@
+# ORM DE DJANGO
 from django.db import models
-from django.contrib.auth.models import AbstractUser
 from django.db.models.signals import pre_save
 
+# MODELO
+from django.contrib.auth.models import AbstractUser
+
+
+# SETTINGS OF PROJECT
 from project_archivos.settings import MEDIA_URL, STATIC_URL
+
+# TIEMPO
+from datetime import datetime
 
 # Create your models here.
 class User(AbstractUser):
@@ -13,7 +21,7 @@ class User(AbstractUser):
 
     image = models.ImageField(upload_to='users/', null=True, blank=True)
     user_type = models.CharField(choices=USER_TYPE, default='USUARIO', null=True, blank=True, max_length=100)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=datetime.now)
 
     def get_image(self):
         if self.image:
