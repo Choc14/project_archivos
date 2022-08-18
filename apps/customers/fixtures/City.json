@@ -26,5 +26,40 @@
     "fields": {
         "name_city": "Tactic"
     }
+},
+{
+    "model": "customers.city",
+    "pk": 5,
+    "fields": {
+        "name_city": "Ciudad de Guatemala"
+    }
+},
+{
+    "model": "customers.city",
+    "pk": 6,
+    "fields": {
+        "name_city": "Antigua Guatemala"
+    }
+},
+{
+    "model": "customers.city",
+    "pk": 7,
+    "fields": {
+        "name_city": "Rabinal"
+    }
+},
+{
+    "model": "customers.city",
+    "pk": 8,
+    "fields": {
+        "name_city": "Salama"
+    }
+},
+{
+    "model": "customers.city",
+    "pk": 9,
+    "fields": {
+        "name_city": "Granados"
+    }
 }
 ]
