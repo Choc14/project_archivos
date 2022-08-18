@@ -1,12 +1,6 @@
 -----------------------------1------------------------------
-Nombre del producto: Coca
-Descripcion: es una coca
-Price: 23.00
-Fecha de creacion: 2022-08-17
-
------------------------------2------------------------------
-Nombre del producto: Pepsi
-Descripcion: es una pepsi
+Nombre del producto: dsa
+Descripcion: dsa
 Price: 213.00
 Fecha de creacion: 2022-08-17
 

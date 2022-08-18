@@ -1,16 +1,48 @@
-
 {% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
+<div class="row" style="margin-top: 2rem;">
+  <div class="col">
+    <div class="d-flex justify-content-start">
+      {% include 'users/snippets/breadcrumb.html'%}
 
-    <div class="col">
+    </div>
+
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-12">
     {% include 'users/snippets/search.html' with query=query %}
-    <hr>
+  </div>
+
+</div>
+
+<hr>
+
+
+
+<div class="row">
+  <div class="col">
     <p>Resultados para: {{ query }} ({{ count }})</p>
 
+  </div>
+
+</div>
+
+
+
+
+<div class="row">
+  <div class="col">
     {% include 'users/snippets/users_list.html' %}
 
   </div>
+</div>
+
+
+
+</div>
 
 {% endblock %}

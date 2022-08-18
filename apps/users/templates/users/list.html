@@ -13,7 +13,14 @@
 
   </div>
 </div>
-{% include 'users/snippets/breadcrumb.html'%}
+<div class="row">
+  <div class="d-flex justify-content-center">
+    {% include 'users/snippets/breadcrumb.html'%}
+
+  </div>
+
+</div>
+
 
 <div class="row">
   <!--BOTONES DE AGREGAR Y GENERAR REPORTE-->
@@ -24,13 +31,14 @@
       </div>
     </div>
 
-    {% include 'users/snippets/search.html' with query=query %}
+    
 
     <div class="col">
       <div class="d-flex justify-content-end">
         <a class="btn btn-outline-dark" href="#">GENERAR REPORTE</a>
 
       </div>
+      
     </div>
   </div>
 
@@ -38,10 +46,16 @@
   <div class="row" style="margin-top: 2rem;">
     <div class="col">
       <table class="table table-hover caption-top ">
-        <thead>          
+        <thead>
+          <div class="d-flex justify-content-end">
+            {% include 'users/snippets/search.html' with query=query %}
+
+          </div>
+                    
           <tr>
             <th scope="col">Nombre del Usuario</th>
             <th scope="col">Usuario</th>
+            <th scope="col">Correo Electronico</th>
             <th scope="col">Tipo de usuario</th>            
             
 
@@ -56,6 +70,7 @@
             <td scope="row">{{usuario.get_full_name}}</td>
             
             <td>{{usuario.username}}</td>
+            <td>{{usuario.email}}</td>
             <td>{{usuario.user_type}}</td>
 
             

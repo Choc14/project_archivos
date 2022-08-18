@@ -1,52 +1,12 @@
+<td scope="row">{{user.get_full_name}}</td>
 
-
-<div class="row" style="margin-top: 2rem;">
-    <div class="col">
-      <table class="table table-hover caption-top ">
-        <thead>          
-          <tr>
-            <th scope="col">Nombre del Usuario</th>
-            <th scope="col">Usuario</th>
-            <th scope="col">Tipo de usuario</th>            
-            
-
-          </tr>
-
-
-
-        </thead>
-        <tbody>
-        
-          <tr>
-            <td scope="row">{{user.get_full_name}}</td>
-            
-            <td>{{user.username}}</td>
-            <td>{{user.user_type}}</td>
-
-            
-            
-
-            <td>
-              <a class="btn btn-outline-dark" href="{% url 'users:detail' usuario.id %}">Mostrar</a>
-              {% if user.is_superuser %}
-              <a class="btn btn-outline-dark" href="{% url 'users:update' usuario.id %}">Editar</a>
-              <a class="btn btn-outline-dark" href="{% url 'users:delete' usuario.id %}">Eliminar</a>
-              {% endif %}
-            </td>
-          </tr>
-          
-
-        </tbody>
-      </table>
-
-    </div>
-  </div>
-
-
-
-
-
-<div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 3rem;">
-    <a class="btn btn-dark" type="button" href="{% url 'users:list' %}">Regresar</a>
-
-</div>
+<td>{{user.username}}</td>
+<td>{{user.email}}</td>
+<td>{{user.user_type}}</td>
+<td>
+  <a class="btn btn-outline-dark" href="{% url 'users:detail' user.id %}">Mostrar</a>
+  {% if request.user.is_superuser %}
+  <a class="btn btn-outline-dark" href="{% url 'users:update' user.id %}">Editar</a>
+  <a class="btn btn-outline-dark" href="{% url 'users:delete' user.id %}">Eliminar</a>
+  {% endif %}
+</td>

@@ -1,16 +1,39 @@
 
 
-<div class="row">
-  {% if product_list %}
-    {% for object in product_list %}
-      <div class="col-4 mt-6">
-        {% include 'products/snippets/product.html' with product=object %}
-      </div>
-    {% endfor %}
-  {% else %}
-  <div class="h5">
-    No se ha encontrado registro del producto buscado
-    <a href="{% url 'products:Producto' %}" class="btn btn-primary">Regresar</a>
+<div class="row" style="margin-top: 2rem;">
+  <div class="col">
+    {% if product_list %}
+    <table class="table table-hover caption-top ">
+      
+      
+      <thead>          
+        <tr>
+          <th scope="col">Nombre del producto</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Categoría</th>
+          <th scope="col">Fecha de creación</th>
+
+        </tr>
+
+
+
+      </thead>
+      <tbody>
+        {% for object in product_list %}
+        <tr>
+          {% include 'products/snippets/product.html' with product=object %}
+
+        </tr>
+        {%endfor%}
+
+      </tbody>
+    </table>
+    {% else %}
+    <div class="h5">
+      No se ha encontrado registro del producto buscado
+      <a href="{% url 'products:Producto' %}" class="btn btn-primary">Regresar</a>
+    </div>
+    {% endif %}
   </div>
-  {% endif %}
 </div>

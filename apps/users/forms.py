@@ -4,6 +4,9 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 from django import forms
 
+
+
+
 class UpdateUserForm(forms.ModelForm):
     USER_TYPE = [
             ('USUARIO', 'USUARIO'),
@@ -18,14 +21,14 @@ class UpdateUserForm(forms.ModelForm):
     
     password1 = forms.CharField(
         label='CONTRASEÑA: ',        
-        widget = forms.PasswordInput(attrs={'class': 'form-control', 'disabled': 'disabled'}),
+        widget = forms.PasswordInput(attrs={'class': 'form-control'}),
         required = False,
         
 
     )
     password2 = forms.CharField(
         label='CONFIRMAR CONTRASEÑA: ',
-        widget = forms.PasswordInput(attrs={'class': 'form-control', 'disabled': 'disabled'}),
+        widget = forms.PasswordInput(attrs={'class': 'form-control'}),
         required = False,
 
     )

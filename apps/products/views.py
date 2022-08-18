@@ -24,7 +24,7 @@ from .generador import ArchivoProducto as archivo
 from .utils import breadcrumb
 
 # Create your views here.
-class productoList(ListView):
+class ProductoList(ListView):
     template_name = 'products/product.html'
     queryset = Product.objects.all().order_by('-id')
 
@@ -38,7 +38,7 @@ class productoList(ListView):
 
         return context
 
-class productoCreate(CreateView):
+class ProductoCreate(CreateView):
     model = Product
     form_class = productForm
     template_name = 'products/productForm.html'
@@ -55,7 +55,7 @@ class productoCreate(CreateView):
 
     success_url = reverse_lazy('products:Producto')
 
-class productoUpdate(UpdateView):
+class ProductoUpdate(UpdateView):
     model = Product
     form_class = productForm
     template_name = 'products/productForm.html'
@@ -69,7 +69,7 @@ class productoUpdate(UpdateView):
 
     success_url = reverse_lazy('products:Producto')
 
-class productoDelete(DeleteView):
+class ProductoDelete(DeleteView):
     model = Product
     template_name = 'products/productDelete.html'
     
@@ -81,7 +81,7 @@ class productoDelete(DeleteView):
         return context
     success_url = reverse_lazy('products:Producto')
 
-class productoDetalle(DetailView):
+class ProductoDetalle(DetailView):
     model = Product
     template_name = 'products/productDetalle.html'
 
@@ -93,7 +93,7 @@ class productoDetalle(DetailView):
 
         return context
 
-class productoSearch(ListView):
+class ProductoSearch(ListView):
     template_name = 'products/productBuscar.html'
 
     def get_queryset(self):
@@ -108,5 +108,6 @@ class productoSearch(ListView):
         context['query'] = self.query()
         context['title'] = 'Buscar'
         context['count'] = context['product_list'].count()
+        context['breadcrumb'] = breadcrumb()
 
         return context

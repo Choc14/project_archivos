@@ -1,10 +1,10 @@
 -----------------------------1------------------------------
-Nombre del cliente: Juan Carlos Eloi
-Apellido del cliente: Xol
-Direccion: Diagonal 2 8-66
+Nombre del cliente: dsa
+Apellido del cliente: dsa
+Direccion: dsa
 Numero de telefono: 39046965
-Fecha de cumpleaños: 2022-08-12
-Ciudad: Coban
-Identificador: DPI
+Fecha de cumpleaños: 2022-08-13
+Ciudad: San Pedro Carcha
+Identificador: Pasaporte
 Fecha de creacion: 2022-08-17
 

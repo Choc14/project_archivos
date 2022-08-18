@@ -193,7 +193,22 @@ class UpdateUser(user_admin, UpdateView):
         return HttpResponseRedirect(reverse('index'))
     success_url = reverse_lazy('users:list')
 
+class ChangeUsername(UpdateView):
+    model = User
+    form_class = UpdateUserForm
+    template_name = 'users/change_username.html'
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Cambiar Usuario'
+        context['update'] = True
+        context['info'] = 'Actualizar'
+                
+
+        return context
+
+  
+    success_url = reverse_lazy('users:list')
 
 class DetailUser(DetailView):
     model = User
@@ -212,7 +227,7 @@ class UserSearch(ListView):
     template_name = 'users/search.html'
 
     def get_queryset(self):
-        filters = Q(username__icontains=self.query())
+        filters = Q(username__icontains=self.query()) | Q(email__icontains=self.query()) | Q(user_type__icontains=self.query())
         return User.objects.filter(filters)
 
     def query(self):
@@ -223,5 +238,6 @@ class UserSearch(ListView):
         context['query'] = self.query()
         context['title'] = 'Buscar'
         context['count'] = context['user_list'].count()
+        context['breadcrumb'] = breadcrumb()
 
         return context

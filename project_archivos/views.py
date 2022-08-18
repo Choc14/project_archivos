@@ -5,7 +5,7 @@ from django.shortcuts import render
 from apps.customers.models import Customer
 from apps.products.models import Product
 from apps.users.models import User
-
+from apps.invoices.models import Invoice
 # CLASE
 from apps.products.generador import ArchivoProducto as archvp
 from apps.users.generador import ArchivoUsuario as archvu
@@ -23,7 +23,8 @@ def index(request):
         'title':'INICIO',
         'customer_count': Customer.objects.all().count(),
         'product_count': Product.objects.all().count(),
-        'user_count': User.objects.all().count,
+        'user_count': User.objects.all().count(),
+        'invoice_count': Invoice.objects.all().count(),
         
     }
     return render(request,template,context)

@@ -24,6 +24,7 @@ class Category(models.Model):
     description = models.TextField()    
     created_at = models.DateTimeField(default=datetime.now)
 
+
     def __str__(self):
         return self.title
 
@@ -31,6 +32,10 @@ class Category(models.Model):
         item = model_to_dict(self)
         item['created_at'] = self.created_at.strftime('%Y-%m-%d')
         return item
+
+ 
+
+    
 
 class Product(models.Model):
     title = models.CharField(max_length=25)
@@ -56,6 +61,8 @@ class Product(models.Model):
         if self.image:
             return '{}{}'.format(MEDIA_URL, self.image)
         return '{}{}'.format(STATIC_URL,'img/product/sin-imagen.png')
+    
+    
 
 
 def set_slug(sender, instance, *args, **kwargs): 

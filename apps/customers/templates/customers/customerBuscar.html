@@ -2,14 +2,34 @@
 {% load static %}
 
 {% block content %}
-
-    <div class="col">
-    {% include 'customers/snippets/customerBuscar.html' with query=query %}
-    <hr>
-    <p>Resultados para: {{ query }} ({{ count }})</p>
-
-    {% include 'customers/snippets/customerListar.html' %}
-
+<div class="row" style="margin-top: 2rem;">
+  <div class="col">
+    <div class="d-flex justify-content-start">
+      {% include 'customers/snippets/breadcrumb.html'%}
+    </div>
   </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    {% include 'customers/snippets/customerBuscar.html' with query=query %}
+  </div>
+</div>
+
+<hr>
+<div class="row">
+  <div class="col">
+    <p>Resultados para: {{ query }} ({{ count }})</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    {% include 'customers/snippets/customerListar.html' %}
+  </div>
+</div>
+
+
+
 
 {% endblock %}

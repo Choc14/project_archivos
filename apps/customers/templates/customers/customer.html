@@ -12,7 +12,13 @@
 
   </div>
 </div>
-{% include 'customers/snippets/breadcrumb.html'%}
+<div class="row">
+  <div class="d-flex justify-content-center">
+    {% include 'customers/snippets/breadcrumb.html'%}
+  </div>
+
+</div>
+
 
 
 <div class="row">
@@ -23,7 +29,7 @@
       </div>
     </div>
 
-    {% include 'customers/snippets/customerBuscar.html' with query=query %}
+    
 
     <div class="col">
       <div class="d-flex justify-content-end">
@@ -38,14 +44,18 @@
 
       <table class="table table-hover caption-top">
         <thead>
+          <div class="d-flex justify-content-end">
+            {% include 'customers/snippets/customerBuscar.html' with query=query %}
+          </div>
+          
           <tr>
             <th scope="col">Nombre</th>
-            <th scope="col">Correo</th>
+            <th scope="col">Direccion</th>
             <th scope="col">Teléfono</th>
             <th scope="col">Fecha de nacimiento</th>
             <th scope="col">Ciudad</th>
             <th scope="col">Identificador</th>
-            <th scope="col">Fecha de creacion</th>
+            
 
           </tr>
 
@@ -60,7 +70,7 @@
             <td>{{customer.date_birth}}</td>
             <td>{{customer.city}}</td>
             <td>{{customer.id_type}}</td>
-            <td>{{customer.created_at}}</td>
+            
 
 
             <td>

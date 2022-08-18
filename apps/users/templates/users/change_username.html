@@ -14,7 +14,7 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {% for field in form %}
-        
+        {% if field.name == 'username'%}
         
         <div class="form-group" style="margin-bottom: 1rem;">
             
@@ -28,6 +28,9 @@
             {% endif %}
 
         </div>
+        
+
+        {% endif %}
         
 
         
