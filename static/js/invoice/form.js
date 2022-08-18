@@ -1,6 +1,7 @@
 var vents = {
     items: {
-        customer: '',        
+        customer: '', 
+        created_at: '',       
         subtotal: 0.00,
         iva: 0.00,
         total: 0.00,
@@ -10,7 +11,7 @@ var vents = {
         var subtotal = 0.00;
         var iva = $('input[name="iva"]').val();
         $.each(this.items.products, function (pos, dict) {
-            dict.subtotal = dict.cant * parseFloat(dict.pvp);
+            dict.subtotal = dict.cant * parseFloat(dict.price);
             subtotal+=dict.subtotal;
         });
         this.items.subtotal = subtotal;
@@ -89,14 +90,14 @@ $(function () {
         language: 'es'
     });
     
-    /*
-    $('#date_joined').datetimepicker({
+    
+    $('#created_at').datetimepicker({
         format: 'YYYY-MM-DD',
         date: moment().format("YYYY-MM-DD"),
         locale: 'es',
         //minDate: moment().format("YYYY-MM-DD")
     });
-    */
+  
 
     $("input[name='iva']").TouchSpin({
         min: 0,
@@ -110,6 +111,7 @@ $(function () {
         vents.calculate_invoice();
     })
     .val(0.12);
+      
 
     // search products
 
@@ -134,13 +136,15 @@ $(function () {
         delay: 500,
         minLength: 1,
         select: function (event, ui) {
+            console.log(ui.item);
+            /*
             event.preventDefault();
             console.clear();
             ui.item.quantity = 1;
             ui.item.subtotal = 0.00;
             console.log(vents.items);
             vents.add(ui.item);
-            $(this).val('');
+            $(this).val('');*/
         }
     });
 });

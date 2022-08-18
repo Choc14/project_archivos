@@ -20,10 +20,26 @@ from .utils import breadcrumb
 # GENERADOR DE TXT
 from .generador import ArchivoCliente as archivo
 
+# JSON
+import json
+from django.http import JsonResponse
+
+# Decorador
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+
 # Create your views here.
 class CustomerList(ListView):
     template_name = 'customers/customer.html'
     queryset = Customer.objects.all().order_by('-id')
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        data = {'vaya':'as'}
+        return JsonResponse(data, safe= False)
 
     def get_context_data(self, **kwargs):
         archivo.subir(Customer)

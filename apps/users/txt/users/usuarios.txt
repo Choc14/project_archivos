@@ -15,7 +15,7 @@ Tipo de usuario: USUARIO
 Fecha de creacion: 2022-08-15
 
 -----------------------------3------------------------------
-Nombre del usuario: Nombre sa
+Nombre del usuario: Nombre
 Apellido del usuario: Apellido
 Correo Electronico: dasa@gmail.com
 Nombre de usuario: choc1403ss

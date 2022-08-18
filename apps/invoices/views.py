@@ -22,12 +22,19 @@ from .forms import InvoiceForm
 import json
 from django.http import JsonResponse
 
+# Decorador
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 class CreateInvoice(CreateView):
     model = Invoice
     form_class = InvoiceForm
     template_name = 'invoices/create.html'
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
         data = {}
@@ -38,8 +45,9 @@ class CreateInvoice(CreateView):
                 prods = Product.objects.filter(title__icontains=request.POST['term'])[0:10]
                 for i in prods:
                     item = i.toJSON()
-                    item['value'] = i.name
+                    item['value'] = i.title
                     data.append(item)
+                    
             
             else:
                 data['error'] = 'No ha ingresado a ninguna opción'
