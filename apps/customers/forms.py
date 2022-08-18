@@ -36,7 +36,7 @@ class customerForm(forms.ModelForm):
             'addres': forms.TextInput(attrs={'class': 'form-control'}),
             'phone_number': forms.TextInput(attrs={'class': 'form-control'}),
             'date_birth': forms.TextInput(attrs = {'class': 'form-control', 'type': 'date'}),
-            'city': forms.Select(attrs={'class': 'form-control'}),
+            'city': forms.Select(attrs={'class': 'form-control select2'}),
             'id_type': forms.Select(attrs={'class': 'form-control'}),
 
 

@@ -26,7 +26,7 @@ class productForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'rows': '3'}),
-            'category': forms.Select(attrs={'class': 'form-control',}),
+            'category': forms.Select(attrs={'class': 'form-control select2',}),
             'image': forms.FileInput(attrs={'type':'checkbox', 'name':'image', 'type':'file', 'accept':'image',
             'class': 'form-control'}),
             'price': forms.TextInput(
