@@ -7,10 +7,10 @@ app_name = 'customers'
 
 urlpatterns = [
 
-    path('', login_required(views.customerList.as_view()), name='Cliente'),
-    path('crear/', login_required(views.customerCreate.as_view()), name='Crear'),
-    path('actualizar/<int:pk>/', login_required(views.customerUpdate.as_view()), name='Actualizar'),
-    path('eliminar/<int:pk>/', login_required(views.customerDelete.as_view()), name='Eliminar'),
-    path('detalle/<int:pk>/', login_required(views.customerDetalle.as_view()), name='Detalle'),
-    path('buscar/', login_required(views.customerSearch.as_view()), name = 'Buscar'),
+    path('', login_required(views.CustomerList.as_view()), name='Cliente'),
+    path('crear/', login_required(views.CustomerCreate.as_view()), name='Crear'),
+    path('actualizar/<int:pk>/', login_required(views.CustomerUpdate.as_view()), name='Actualizar'),
+    path('eliminar/<int:pk>/', login_required(views.CustomerDelete.as_view()), name='Eliminar'),
+    path('detalle/<int:pk>/', login_required(views.CustomerDetalle.as_view()), name='Detalle'),
+    path('buscar/', login_required(views.CustomerSearch.as_view()), name = 'Buscar'),
 ]

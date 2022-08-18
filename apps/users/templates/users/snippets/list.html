@@ -1,33 +1,46 @@
-<div class="row">
 
-    <div class="col-6">
-        <div class="h5" style="margin-bottom: 2rem;">
-            <span style="text-transform: uppercase;">Nombre del Usuario:  </span>
-            <span class="p2" style="color: red;"><br>{{user.get_full_name}}</span>
-        </div>
 
-        <div class="h5" style="margin-bottom: 2rem;">
-            <span style="text-transform: uppercase;">Usuario: </span>
-            <span class="p2" style="color: red;"><br>{{user.username}}</span>
-        </div>
+<div class="row" style="margin-top: 2rem;">
+    <div class="col">
+      <table class="table table-hover caption-top ">
+        <thead>          
+          <tr>
+            <th scope="col">Nombre del Usuario</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Tipo de usuario</th>            
+            
 
-        <div class="h5" style="margin-bottom: 2rem;">
-            <span style="text-transform: uppercase;">Tipo de usuario: </span>
-            <span class="p2" style="color: red;">{{user.user_type}}</span>
-        </div>
+          </tr>
 
+
+
+        </thead>
+        <tbody>
+        
+          <tr>
+            <td scope="row">{{user.get_full_name}}</td>
+            
+            <td>{{user.username}}</td>
+            <td>{{user.user_type}}</td>
+
+            
+            
+
+            <td>
+              <a class="btn btn-outline-dark" href="{% url 'users:detail' usuario.id %}">Mostrar</a>
+              {% if user.is_superuser %}
+              <a class="btn btn-outline-dark" href="{% url 'users:update' usuario.id %}">Editar</a>
+              <a class="btn btn-outline-dark" href="{% url 'users:delete' usuario.id %}">Eliminar</a>
+              {% endif %}
+            </td>
+          </tr>
+          
+
+        </tbody>
+      </table>
 
     </div>
-    <div class="col-6">
-        <div class="d-flex justify-content-center" >
-            <img src="{{user.get_image}}" height="300rem">
-
-        </div>
-
-
-    </div>
-
-</div>
+  </div>
 
 
 

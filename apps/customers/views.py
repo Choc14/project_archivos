@@ -21,7 +21,7 @@ from .utils import breadcrumb
 from .generador import ArchivoCliente as archivo
 
 # Create your views here.
-class customerList(ListView):
+class CustomerList(ListView):
     template_name = 'customers/customer.html'
     queryset = Customer.objects.all().order_by('-id')
 
@@ -35,7 +35,7 @@ class customerList(ListView):
 
         return context
 
-class customerCreate(CreateView):
+class CustomerCreate(CreateView):
     model = Customer
     form_class = customerForm
     template_name = 'customers/customerForm.html'
@@ -49,7 +49,7 @@ class customerCreate(CreateView):
 
     success_url = reverse_lazy('customers:Cliente')
 
-class customerUpdate(UpdateView):
+class CustomerUpdate(UpdateView):
     model = Customer
     form_class = customerForm
     template_name = 'customers/customerForm.html'
@@ -63,7 +63,7 @@ class customerUpdate(UpdateView):
 
     success_url = reverse_lazy('customers:Cliente')
 
-class customerDelete(DeleteView):
+class CustomerDelete(DeleteView):
     model = Customer
     template_name = 'customers/customerDelete.html'
     def get_context_data(self, **kwargs) :
@@ -73,7 +73,7 @@ class customerDelete(DeleteView):
         return context
     success_url = reverse_lazy('customers:Cliente')
 
-class customerDetalle(DetailView):
+class CustomerDetalle(DetailView):
     model = Customer
     template_name = 'customers/customerDetalle.html'
 
@@ -85,7 +85,7 @@ class customerDetalle(DetailView):
 
         return context
 
-class customerSearch(ListView):
+class CustomerSearch(ListView):
     template_name = 'customers/customerBuscar.html'
 
     def get_queryset(self):

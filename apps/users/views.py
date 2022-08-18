@@ -208,7 +208,7 @@ class DetailUser(DetailView):
 
         return context
 
-class userSearch(ListView):
+class UserSearch(ListView):
     template_name = 'users/search.html'
 
     def get_queryset(self):
