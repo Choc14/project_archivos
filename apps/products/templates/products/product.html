@@ -75,14 +75,9 @@
             <td scope="row">{{producto.title}}</td>
             <td>{{producto.description}}</td>
             <td>Q {{producto.price}}</td>
+            <td>{{producto.category}}</td>
 
-            <td>
-              <ul>
-                {% for categoria in producto.category.all %}
-                <li>{{categoria}}</li>
-                {% endfor %}
-              </ul>
-            </td>
+            
             <td>{{producto.created_at}}</td>
 
             <td>

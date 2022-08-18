@@ -42,15 +42,9 @@
 
         <div class="h5" style="margin-bottom: 2rem;">
             <span style="text-transform: uppercase;">Categoría:</span>
+            <span class="p2" style="color: red;">{{product.category}}</span>
             
-            <span class="p2" style="color: red;">
-                <ul>
-                    {% for categoria in product.category.all %}
-                    <li>{{categoria}}</li>
-                    {% endfor %}
-
-                </ul>
-            </span>
+           
         </div>
 
         <div class="h5" style="margin-bottom: 2rem;">

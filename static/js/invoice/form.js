@@ -11,7 +11,7 @@ var vents = {
         var subtotal = 0.00;
         var iva = $('input[name="iva"]').val();
         $.each(this.items.products, function (pos, dict) {
-            dict.subtotal = dict.cant * parseFloat(dict.price);
+            dict.subtotal = dict.quantity * parseFloat(dict.price);
             subtotal+=dict.subtotal;
         });
         this.items.subtotal = subtotal;
@@ -37,7 +37,7 @@ var vents = {
             columns: [
                 {"data": "id"},
                 {"data": "title"},
-                {"data": "cat.title"},
+                {"data": "category.title"},
                 {"data": "price"},
                 {"data": "quantity"},
                 {"data": "subtotal"},
@@ -48,7 +48,7 @@ var vents = {
                     class: 'text-center',
                     orderable: false,
                     render: function (data, type, row) {
-                        return '<a rel="remove" class="btn btn-danger btn-xs btn-flat"><i class="fas fa-trash-alt"></i></a>';
+                        return '<a rel="#" class="btn btn-danger btn-xs btn-flat"><i class="fas fa-trash-alt"></i></a>';
                     }
                 },
                 {
@@ -64,7 +64,7 @@ var vents = {
                     class: 'text-center',
                     orderable: false,
                     render: function (data, type, row) {
-                        return '<input type="text" name="cant" class="form-control form-control-sm" autocomplete="off" value="' + row.cant + '">';
+                        return '<input type="text" name="quantity" class="form-control form-control-sm" autocomplete="off" value="' + row.quantity + '">';
                     }
                 },
                 {
@@ -136,15 +136,13 @@ $(function () {
         delay: 500,
         minLength: 1,
         select: function (event, ui) {
-            console.log(ui.item);
-            /*
             event.preventDefault();
             console.clear();
             ui.item.quantity = 1;
             ui.item.subtotal = 0.00;
             console.log(vents.items);
             vents.add(ui.item);
-            $(this).val('');*/
+            $(this).val('');
         }
     });
 });

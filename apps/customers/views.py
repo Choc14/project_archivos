@@ -105,7 +105,7 @@ class CustomerSearch(ListView):
     template_name = 'customers/customerBuscar.html'
 
     def get_queryset(self):
-        filters = Q(first_name__icontains=self.query()) | Q(city__icontains=self.query()) | Q(id_type__icontains=self.query())
+        filters = Q(first_name__icontains=self.query())
         return Customer.objects.filter(filters)
 
     def query(self):

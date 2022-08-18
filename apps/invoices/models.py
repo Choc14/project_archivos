@@ -22,7 +22,7 @@ class Invoice(models.Model):
 
     def __str__(self):
         return self.customer
-
+"""
     def toJSON(self):
         item = model_to_dict(self)
         item['customer'] = self.customer.toJSON()
@@ -32,6 +32,7 @@ class Invoice(models.Model):
         item['created_at'] = self.created_at.strftime('%Y-%m-%d')
         item['detail'] = [i.toJSON() for i in self.detailinvoice_set.all()]
         return item
+    """
 
 class DetailInvoice(models.Model):
     invoice = models.ForeignKey(Invoice, on_delete=models.CASCADE)
@@ -44,9 +45,11 @@ class DetailInvoice(models.Model):
     def __str__(self):
         return self.product
     
+    """ 
     def toJSON(self):
         item = model_to_dict(self, exclude=['invoice'])
         item['product'] = self.product.toJSON()
         item['price'] = format(self.price, '.2f')
         item['subtotal'] = format(self.subtotal, '.2f')
         return item
+"""

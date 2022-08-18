@@ -17,8 +17,9 @@ class ArchivoProducto:
                 archivo.write(f'Nombre del producto: {producto.title}\n')
                 archivo.write(f'Descripcion: {producto.description}\n')
                 archivo.write(f'Price: {producto.price}\n')
-                for categoria in producto.category.all():
-                    archivo.write(f'Categoria: {categoria}\n')
+                archivo.write(f'Categoria: {producto.category}\n')
+                
+                    
                 
                 fecha = producto.created_at.strftime('%Y-%m-%d')
                 archivo.write(f'Fecha de creacion: {fecha}\n')

@@ -1,12 +1,7 @@
 -----------------------------1------------------------------
-Nombre del producto: dsa
-Descripcion: ds
-Price: 2.00
-Fecha de creacion: 2022-08-18
-
------------------------------2------------------------------
-Nombre del producto: Pepsi
+Nombre del producto: dsad
 Descripcion: dsa
-Price: 1.03
+Price: 12.00
+Categoria: Bebida
 Fecha de creacion: 2022-08-18
 

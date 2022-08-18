@@ -53,7 +53,7 @@ class CreateInvoice(CreateView):
                 data['error'] = 'No ha ingresado a ninguna opción'
 
         except Exception as e:
-            data['error'] = str(e)
+            data['error'] = e
 
         return JsonResponse(data, safe=False)
 
