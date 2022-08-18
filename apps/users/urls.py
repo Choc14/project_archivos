@@ -15,6 +15,7 @@ urlpatterns = [
     path('users/list/', login_required(views.ListUser.as_view()), name='list'), 
     path('users/delete/<int:pk>/', login_required(views.DeleteUser.as_view()), name='delete'),
     path('users/update/<int:pk>/', login_required(views.UpdateUser.as_view()), name='update'),
-    path('users/detail/<int:pk>/', login_required(views.DetailUser.as_view()), name='detail' )
+    path('users/detail/<int:pk>/', login_required(views.DetailUser.as_view()), name='detail' ),
+    path('users/search', login_required(views.userSearch.as_view()), name = 'search'),
 
 ]

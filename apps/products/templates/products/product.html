@@ -6,6 +6,7 @@
 
 
 {% if product_list %}
+
 <div class="row" style="margin-top: 5rem;">  
   <div class="d-flex justify-content-center">
     
@@ -15,17 +16,25 @@
 </div>
 {% include 'products/snippets/breadcrumb.html'%}
 
+
 <div class="row">
-  <!--BOTONES DE AGREGAR Y GENERAR REPORTE-->
+
+  <!--BOTONES DE AGREGAR, BUSCAR Y GENERAR REPORTE-->
   <div class="row">
+
     <div class="col">
       <div class="d-flex justify-content-start">
         <a class="btn btn-dark" href="{% url 'products:Crear'%}">Agregar: </a>
       </div>
     </div>
+
+    {% include 'products/snippets/productBuscar.html' with query=query %}
+
     <div class="col">
       <div class="d-flex justify-content-end">
+
         <a class="btn btn-outline-dark" href="#">GENERAR REPORTE</a>
+
 
       </div>
     </div>
@@ -79,12 +88,15 @@
   </div>
 
 </div>
+
 {% else%}
+
 <div class="row">
   <div class="col-12">
     <div class="d-flex justify-content-center" style="height: 50vh; align-items: center; display: flex;">
       <h2>No se ha encontrado ningún producto</h2>
       <a class="btn btn btn-outline-dark" href="{% url 'products:Crear' %}"  style="margin-left: 0.5rem;">Agregar</a>
+
 
      
       

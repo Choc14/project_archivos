@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="col">
+    {% include 'customers/snippets/customerBuscar.html' with query=query %}
+    <hr>
+    <p>Resultados para: {{ query }} ({{ count }})</p>
+
+    {% include 'customers/snippets/customerListar.html' %}
+
+  </div>
+
+{% endblock %}

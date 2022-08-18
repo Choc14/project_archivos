@@ -1,0 +1,14 @@
+<div class="row">
+  {% if user_list %}
+    {% for object in user_list %}
+      <div class="col-5 mt-6">
+        {% include 'users/snippets/list.html' with user=object %}
+      </div>
+    {% endfor %}
+  {% else %}
+  <div class="h5">
+    No se ha encontrado registro del usuario buscado
+    <a href="{% url 'users:list' %}" class="btn btn-primary">Regresar</a>
+  </div>
+  {% endif %}
+</div>

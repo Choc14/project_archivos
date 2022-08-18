@@ -1,0 +1,56 @@
+
+<div class="row">
+
+    <div class="col-12">
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Nombre del Producto:  </span>
+            <span class="p2" style="color: red;">{{product.title}}</span>
+        </div>
+
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Descripción del Producto: </span>
+            <span class="p2" style="color: red;"><br>{{product.description}}</span>
+        </div>
+
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Precio Unitario: </span>
+            <span class="p2" style="color: red;">Q {{product.price}}</span>
+        </div>
+
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Categoría:</span>
+
+            <span class="p2" style="color: red;">
+                <ul>
+                    {% for categoria in product.category.all %}
+                    <li>{{categoria}}</li>
+                    {% endfor %}
+
+                </ul>
+            </span>
+        </div>
+
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Fecha de creación: </span>
+            <span class="p2" style="color: red;">{{product.created_at}}</span>
+        </div>
+
+    </div>
+    <div class="col-6">
+        <div class="d-flex justify-content-center" >
+            <img src="{{product.get_image}}" height="300rem">
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 3rem;">
+    <a class="btn btn-dark" type="button" href="{% url 'products:Producto' %}" >Regresar</a>
+
+</div>
+
+
+

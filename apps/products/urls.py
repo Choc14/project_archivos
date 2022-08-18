@@ -12,5 +12,6 @@ urlpatterns = [
     path('actualizar/<int:pk>/', login_required(views.productoUpdate.as_view()), name='Actualizar'),
     path('eliminar/<int:pk>/', login_required(views.productoDelete.as_view()), name='Eliminar'),
     path('detalle/<int:pk>/', login_required(views.productoDetalle.as_view()), name='Detalle'),
+    path('buscar/', login_required(views.productoSearch.as_view()), name = 'Buscar'),
 
 ]

@@ -207,3 +207,21 @@ class DetailUser(DetailView):
         context['breadcrumb'] = breadcrumb()
 
         return context
+
+class userSearch(ListView):
+    template_name = 'users/search.html'
+
+    def get_queryset(self):
+        filters = Q(username__icontains=self.query())
+        return User.objects.filter(filters)
+
+    def query(self):
+        return self.request.GET.get('q')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['query'] = self.query()
+        context['title'] = 'Buscar'
+        context['count'] = context['user_list'].count()
+
+        return context

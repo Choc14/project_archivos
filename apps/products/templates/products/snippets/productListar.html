@@ -1,0 +1,16 @@
+
+
+<div class="row">
+  {% if product_list %}
+    {% for object in product_list %}
+      <div class="col-4 mt-6">
+        {% include 'products/snippets/product.html' with product=object %}
+      </div>
+    {% endfor %}
+  {% else %}
+  <div class="h5">
+    No se ha encontrado registro del producto buscado
+    <a href="{% url 'products:Producto' %}" class="btn btn-primary">Regresar</a>
+  </div>
+  {% endif %}
+</div>

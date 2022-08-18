@@ -1,0 +1,15 @@
+
+<div class="row">
+  {% if customer_list %}
+    {% for object in customer_list %}
+      <div class="col-4 mt-6">
+        {% include 'customers/snippets/customer.html' with customer=object %}
+      </div>
+    {% endfor %}
+  {% else %}
+  <div class="h5">
+    No se ha encontrado registro del cliente buscado
+    <a href="{% url 'customers:Cliente' %}" class="btn btn-primary">Regresar</a>
+  </div>
+  {% endif %}
+</div>

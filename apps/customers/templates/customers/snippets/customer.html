@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col">
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Nombre del Cliente: </span>
+            <span class="p2" style="color: red;"> {{customer.first_name}}</span>
+        </div>
+
+
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Apellido del Cliente:</span>
+            <span class="p2" style="color: red;">  {{customer.last_name}}</span>
+        </div>
+
+
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Direccion: </span>
+            <span class="p2" style="color: red;"> {{customer.addres}}</span>
+        </div>
+
+
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Teléfono: </span>
+            <span class="p2" style="color: red;"> {{customer.phone_number}}</span>
+        </div>
+
+
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Fecha de nacimiento: </span>
+            <span class="p2" style="color: red;"> {{customer.date_birth}}</span>
+        </div>
+
+
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Ciudad: </span>
+            <span class="p2" style="color: red;">  {{customer.city}}</span>
+        </div>
+
+
+        <div class="h5"style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Identificador: </span>
+            <span class="p2" style="color: red;">  {{customer.id_type}}</span>
+        </div>
+
+
+        <div class="h5" style="margin-bottom: 2rem;">
+            <span style="text-transform: uppercase;">Fecha de creacion: </span>
+            <span class="p2" style="color: red;"> {{customer.created_at}}</span>
+        </div>
+
+    </div>
+</div>
+
+
+<br>
+
+
+<div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 3rem;">
+    <a class="btn btn-dark" type="button" href="{% url 'customers:Cliente' %}">Regresar</a>
+
+</div>

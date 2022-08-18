@@ -23,6 +23,9 @@
         <a class="btn btn-dark" href="{% url 'users:create'%}">Agregar: </a>
       </div>
     </div>
+
+    {% include 'users/snippets/search.html' with query=query %}
+
     <div class="col">
       <div class="d-flex justify-content-end">
         <a class="btn btn-outline-dark" href="#">GENERAR REPORTE</a>

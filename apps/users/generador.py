@@ -32,7 +32,7 @@ class ArchivoUsuario:
 
     @classmethod
     def subir(cls, User):
-        cls.agregar_producto(User)
-        cls.eliminar_producto()
-        cls.agregar_producto(User)
+        cls.agregar_usurio(User)
+        cls.eliminar_usuario()
+        cls.agregar_usurio(User)
 

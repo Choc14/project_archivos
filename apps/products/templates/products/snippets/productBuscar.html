@@ -1,0 +1,11 @@
+<div class="col-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light  ">
+        <div class="container-fluid">
+            <form class="d-flex" action="{% url 'products:Buscar' %}">
+                <input class="form-control me-2" name="q" value="{{ query }}" type="search" placeholder="Buscar" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+
+        </div>
+    </nav>
+</div>

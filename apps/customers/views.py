@@ -79,3 +79,21 @@ class customerDetalle(DetailView):
         context['breadcrumb'] = breadcrumb()
 
         return context
+
+class customerSearch(ListView):
+    template_name = 'customers/customerBuscar.html'
+
+    def get_queryset(self):
+        filters = Q(first_name__icontains=self.query())
+        return Customer.objects.filter(filters)
+
+    def query(self):
+        return self.request.GET.get('q')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['query'] = self.query()
+        context['title'] = 'Buscar'
+        context['count'] = context['customer_list'].count()
+
+        return context
