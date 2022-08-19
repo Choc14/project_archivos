@@ -13,7 +13,7 @@ from datetime import datetime
 
 # Create your models here.
 class Invoice(models.Model):
-    customer = models.ForeignKey(Customer, blank=True, null=True, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     subtotal = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
     iva = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
     total = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
@@ -22,6 +22,9 @@ class Invoice(models.Model):
 
     def __str__(self):
         return '{}'.format(self.customer)
+    
+    def get_created_at(self):
+        return self.created_at.strftime('%d-%m-%Y')
 
     def toJSON(self):
         item = model_to_dict(self)
@@ -36,8 +39,8 @@ class Invoice(models.Model):
 
 
 class DetailInvoice(models.Model):
-    invoice = models.ForeignKey(Invoice,blank=True, null=True, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product,blank=True, null=True, on_delete=models.CASCADE)
+    invoice = models.ForeignKey(Invoice,on_delete=models.CASCADE)
+    product = models.ForeignKey(Product,on_delete=models.CASCADE)
     price = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
     quantity = models.IntegerField(default=0)
     subtotal = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)

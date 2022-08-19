@@ -1,0 +1,15 @@
+
+<td>{{customer.first_name}} {{customer.last_name}}</td>
+<td>{{customer.addres}}</td>
+<td>{{customer.phone_number}}</td>
+<td>{{customer.date_birth}}</td>
+<td>{{customer.city}}</td>
+<td>{{customer.id_type}}</td>
+
+
+
+<td>
+    <a class="btn btn-outline-dark" href="{% url 'customers:Detalle' customer.id %}">Mostrar</a>
+    <a class="btn btn-outline-dark" href="{% url 'customers:Actualizar' customer.id %}">Editar</a>
+    <a class="btn btn-outline-dark" href="{% url 'customers:Eliminar' customer.id %}">Eliminar</a>
+</td>

@@ -1,7 +1,7 @@
 # REDIRECCIONAR
 from distutils.errors import PreprocessError
 from math import factorial
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 
 # CRUD
@@ -28,6 +28,9 @@ from django.http import JsonResponse
 # Decorador
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
+
+# BREADCRUMB
+from .utils import breadcrumb
 
 # Create your views here.
 
@@ -111,4 +114,27 @@ class ListInvoice(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'FACTURAS'
         context['message'] = 'Listado de facturas'
+        context['breadcrumb'] = breadcrumb()
         return context
+
+def detailInvoice(request, pk):
+    invoices = Invoice.objects.get(pk=pk)
+    filtro = DetailInvoice.objects.filter(Q(invoice=pk))
+    context ={
+        'invoice':invoices,
+        'title': 'Detalle de la factura',
+        'detailinvoice_list': filtro
+
+
+    }
+    return render(request, 'invoices/detail.html', context)
+
+def deleteInvoice(request,pk):
+    if request.user.is_superuser:
+        invoice = get_object_or_404(Invoice, pk=pk)
+        if invoice:
+            invoice.delete()
+        return redirect('invoices:list')
+
+    else:
+        return redirect('index')

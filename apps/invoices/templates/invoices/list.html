@@ -12,7 +12,7 @@
 </div>
 <div class="row">
   <div class="d-flex justify-content-center">
-    {% include 'customers/snippets/breadcrumb.html'%}
+    {% include 'invoices/snippets/breadcrumb.html'%}
   </div>
 
 </div>
@@ -23,7 +23,7 @@
   <div class="row">
     <div class="col">
       <div class="d-flex justify-content-start">
-        <a class="btn btn-dark" href="{% url 'customers:Crear'%}">Agregar: </a>
+        <a class="btn btn-dark" href="{% url 'invoices:add'%}">Agregar: </a>
       </div>
     </div>
 
@@ -43,7 +43,7 @@
       <table class="table table-hover caption-top">
         <thead>
           <div class="d-flex justify-content-end">
-            {% include 'customers/snippets/customerBuscar.html' with query=query %}
+            {% include 'invoices/snippets/search.html' with query=query %}
           </div>
           
           <tr>
@@ -68,9 +68,11 @@
 
 
             <td>
-              <a class="btn btn-outline-dark" href="{% url 'customers:Detalle' invoice.id %}">Mostrar</a>
-              <a class="btn btn-outline-dark" href="{% url 'customers:Actualizar' invoice.id %}">Editar</a>
-              <a class="btn btn-outline-dark" href="{% url 'customers:Eliminar' invoice.id %}">Eliminar</a>              
+              <a class="btn btn-outline-dark" href="{% url 'invoices:detail' invoice.id %}">Mostrar</a>
+              {% if user.is_superuser %}
+              <a class="btn btn-outline-dark" href="{% url 'invoices:delete' invoice.id %}">Eliminar</a>
+              {% endif %}              
+                            
             </td>
           </tr>
           {% endfor %}
@@ -87,8 +89,8 @@
 <div class="row">
   <div class="col">
     <div class="d-flex justify-content-center" style="height: 50vh; align-items: center; display: flex;">
-      <h2>No se ha encontrado ningún cliente</h2>
-      <a class="btn btn-outline-dark" href="{% url 'customers:Crear' %}"  style="margin-left: 0.5rem;"> Agregar</a>
+      <h2>No se ha encontrado ningún factura</h2>
+      <a class="btn btn-outline-dark" href="{% url 'invoices:add' %}"  style="margin-left: 0.5rem;"> Agregar</a>
     </div>
   </div>
   

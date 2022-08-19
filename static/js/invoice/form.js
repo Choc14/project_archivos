@@ -209,6 +209,7 @@ $(function () {
     });
 
     // event submit
+    // event submit
     $('form').on('submit', function (e) {
         e.preventDefault();
 
@@ -220,10 +221,14 @@ $(function () {
         vents.items.created_at = $('input[name="created_at"]').val();
         vents.items.customer = $('select[name="customer"]').val();
         var parameters = new FormData();
+        console.log(parameters)
         parameters.append('action', $('input[name="action"]').val());
         parameters.append('vents', JSON.stringify(vents.items));
         location.href = '/invoices/';
-        
+        /*
+        submit_with_ajax(window.location.pathname, 'Notificación', '¿Estas seguro de realizar la siguiente acción?', parameters, function () {
+            
+        });*/
     });
 
     $('select[name="search"]').select2({
