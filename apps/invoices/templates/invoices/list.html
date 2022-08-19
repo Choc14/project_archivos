@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% if invoice_list %}
+<div class="row" style="margin-top: 5rem;">
+  <div class="d-flex justify-content-center">
+    <h2>{{ message }}</h2>
+
+  </div>
+</div>
+<div class="row">
+  <div class="d-flex justify-content-center">
+    {% include 'customers/snippets/breadcrumb.html'%}
+  </div>
+
+</div>
+
+
+
+<div class="row">
+  <div class="row">
+    <div class="col">
+      <div class="d-flex justify-content-start">
+        <a class="btn btn-dark" href="{% url 'customers:Crear'%}">Agregar: </a>
+      </div>
+    </div>
+
+    
+
+    <div class="col">
+      <div class="d-flex justify-content-end">
+        <a class="btn btn-outline-dark btnTest" href="#">GENERAR REPORTE</a>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 2rem;">
+    <div class="col">
+
+      <table class="table table-hover caption-top">
+        <thead>
+          <div class="d-flex justify-content-end">
+            {% include 'customers/snippets/customerBuscar.html' with query=query %}
+          </div>
+          
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Fecha de creacion</th>
+            
+            
+
+          </tr>
+
+
+        </thead>
+        <tbody>
+          {% for invoice in invoice_list %}
+          <tr>
+            <td>{{invoice.id}} </td>
+            <td>{{invoice.customer}} </td>
+            <td>{{invoice.created_at}}</td>
+            
+            
+
+
+            <td>
+              <a class="btn btn-outline-dark" href="{% url 'customers:Detalle' invoice.id %}">Mostrar</a>
+              <a class="btn btn-outline-dark" href="{% url 'customers:Actualizar' invoice.id %}">Editar</a>
+              <a class="btn btn-outline-dark" href="{% url 'customers:Eliminar' invoice.id %}">Eliminar</a>              
+            </td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+
+</div>
+{% else%}
+<div class="row">
+  <div class="col">
+    <div class="d-flex justify-content-center" style="height: 50vh; align-items: center; display: flex;">
+      <h2>No se ha encontrado ningún cliente</h2>
+      <a class="btn btn-outline-dark" href="{% url 'customers:Crear' %}"  style="margin-left: 0.5rem;"> Agregar</a>
+    </div>
+  </div>
+  
+
+
+</div>
+{% endif %}
+
+
+
+{% endblock %}
