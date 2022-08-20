@@ -1,6 +1,8 @@
+var tblProducts;
 var vents = {
     items: {
-        customer: '',        
+        customer: '',
+        created_at: '',
         subtotal: 0.00,
         iva: 0.00,
         total: 0.00,
@@ -10,8 +12,9 @@ var vents = {
         var subtotal = 0.00;
         var iva = $('input[name="iva"]').val();
         $.each(this.items.products, function (pos, dict) {
-            dict.subtotal = dict.cant * parseFloat(dict.pvp);
-            subtotal+=dict.subtotal;
+            dict.pos = pos;
+            dict.subtotal = dict.quantity * parseFloat(dict.price);
+            subtotal += dict.subtotal;
         });
         this.items.subtotal = subtotal;
         this.items.iva = this.items.subtotal * iva;
@@ -27,8 +30,7 @@ var vents = {
     },
     list: function () {
         this.calculate_invoice();
-
-        $('#tblProducts').DataTable({
+        tblProducts = $('#tblProducts').DataTable({
             responsive: true,
             autoWidth: false,
             destroy: true,
@@ -36,7 +38,7 @@ var vents = {
             columns: [
                 {"data": "id"},
                 {"data": "title"},
-                {"data": "cat.title"},
+                {"data": "category.title"},
                 {"data": "price"},
                 {"data": "quantity"},
                 {"data": "subtotal"},
@@ -47,7 +49,7 @@ var vents = {
                     class: 'text-center',
                     orderable: false,
                     render: function (data, type, row) {
-                        return '<a rel="remove" class="btn btn-danger btn-xs btn-flat"><i class="fas fa-trash-alt"></i></a>';
+                        return '<a rel="remove" class="btn btn-danger btn-xs btn-flat" style="color: white;"><i class="fas fa-trash-alt"></i></a>';
                     }
                 },
                 {
@@ -55,7 +57,7 @@ var vents = {
                     class: 'text-center',
                     orderable: false,
                     render: function (data, type, row) {
-                        return '$' + parseFloat(data).toFixed(2);
+                        return 'Q' + parseFloat(data).toFixed(2);
                     }
                 },
                 {
@@ -63,7 +65,7 @@ var vents = {
                     class: 'text-center',
                     orderable: false,
                     render: function (data, type, row) {
-                        return '<input type="text" name="cant" class="form-control form-control-sm" autocomplete="off" value="' + row.cant + '">';
+                        return '<input type="text" name="cant" class="form-control form-control-sm input-sm" autocomplete="off" value="' + row.quantity + '">';
                     }
                 },
                 {
@@ -71,10 +73,19 @@ var vents = {
                     class: 'text-center',
                     orderable: false,
                     render: function (data, type, row) {
-                        return '$' + parseFloat(data).toFixed(2);
+                        return 'Q' + parseFloat(data).toFixed(2);
                     }
                 },
             ],
+            rowCallback(row, data, displayNum, displayIndex, dataIndex) {
+
+                $(row).find('input[name="cant"]').TouchSpin({
+                    min: 1,
+                    max: 1000000000,
+                    step: 1
+                });
+
+            },
             initComplete: function (settings, json) {
 
             }
@@ -82,21 +93,44 @@ var vents = {
     },
 };
 
+function formatRepo(repo) {
+    if (repo.loading) {
+        return repo.text;
+    }
+
+    var option = $(
+        '<div class="wrapper container">'+
+        '<div class="row">' +
+        '<div class="col-lg-1">' +
+        '<img src="' + repo.image + '" class="img-fluid img-thumbnail d-block mx-auto rounded">' +
+        '</div>' +
+        '<div class="col-lg-11 text-left shadow-sm">' +
+        //'<br>' +
+        '<p style="margin-bottom: 0;">' +
+        '<b>Nombre:</b> ' + repo.title + '<br>' +
+        '<b>Categoría:</b> ' + repo.category.title + '<br>' +
+        '<b>Precio:</b> <span class="badge badge-warning">Q'+repo.price+'</span>'+
+        '</p>' +
+        '</div>' +
+        '</div>' +
+        '</div>');
+
+    return option;
+}
+
 $(function () {
-    
+
     $('.select2').select2({
         theme: "bootstrap4",
         language: 'es'
     });
-    
-    /*
+
     $('#date_joined').datetimepicker({
         format: 'YYYY-MM-DD',
         date: moment().format("YYYY-MM-DD"),
         locale: 'es',
         //minDate: moment().format("YYYY-MM-DD")
     });
-    */
 
     $("input[name='iva']").TouchSpin({
         min: 0,
@@ -109,7 +143,7 @@ $(function () {
     }).on('change', function () {
         vents.calculate_invoice();
     })
-    .val(0.12);
+        .val(0.12);
 
     // search products
 
@@ -143,5 +177,89 @@ $(function () {
             $(this).val('');
         }
     });
-});
 
+    $('.btnRemoveAll').on('click', function () {
+        if (vents.items.products.length === 0) return false;
+        alert_action('Notificación', '¿Estas seguro de eliminar todos los items de tu detalle?', function () {
+            vents.items.products = [];
+            vents.list();
+        });
+    });
+
+    // event cant
+    $('#tblProducts tbody')
+        .on('click', 'a[rel="remove"]', function () {
+            var tr = tblProducts.cell($(this).closest('td, li')).index();
+            alert_action('Notificación', '¿Estas seguro de eliminar el producto de tu detalle?', function () {
+                vents.items.products.splice(tr.row, 1);
+                vents.list();
+            });
+        })
+        .on('change', 'input[name="cant"]', function () {
+            console.clear();
+            var cant = parseInt($(this).val());
+            var tr = tblProducts.cell($(this).closest('td, li')).index();
+            vents.items.products[tr.row].cant = cant;
+            vents.calculate_invoice();
+            $('td:eq(5)', tblProducts.row(tr.row).node()).html('$' + vents.items.products[tr.row].subtotal.toFixed(2));
+        });
+
+    $('.btnClearSearch').on('click', function () {
+        $('input[name="search"]').val('').focus();
+    });
+
+    // event submit
+    $('form').on('submit', function (e) {
+        e.preventDefault();
+
+        if (vents.items.products.length === 0) {
+            message_error('Debe al menos tener un item en su detalle de venta');
+            return false;
+        }
+
+        vents.items.created_at = $('input[name="created_at"]').val();
+        vents.items.customer = $('select[name="customer"]').val();
+        var parameters = new FormData();
+        parameters.append('action', $('input[name="action"]').val());
+        parameters.append('vents', JSON.stringify(vents.items));
+        submit_with_ajax(window.location.pathname, 'Notificación', '¿Estas seguro de realizar la siguiente acción?', parameters, function () {
+            location.href = '/invoices/';
+        });
+    });
+
+    $('select[name="search"]').select2({
+        theme: "bootstrap4",
+        language: 'es',
+        allowClear: true,
+        ajax: {
+            delay: 250,
+            type: 'POST',
+            url: window.location.pathname,
+            data: function (params) {
+                var queryParameters = {
+                    term: params.term,
+                    action: 'search_products'
+                }
+                return queryParameters;
+            },
+            processResults: function (data) {
+                return {
+                    results: data
+                };
+            },
+        },
+        placeholder: 'Ingrese una descripción',
+        minimumInputLength: 1,
+        templateResult: formatRepo,
+    }).on('select2:select', function (e) {
+        var data = e.params.data;
+        data.cant = 1;
+        data.subtotal = 0.00;
+        vents.add(data);
+        $(this).val('').trigger('change.select2');
+    });
+
+    vents.list();
+    // Esto se puso aqui para que funcione bien el editar y calcule bien los valores del iva. // sino tomaría el valor del iva de la base debe
+    // coger el que pusimos al inicializarlo. 
+});

@@ -14,6 +14,7 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {% for field in form %}
+        
         {% if field.name == 'username'%}
         
         <div class="form-group" style="margin-bottom: 1rem;">
@@ -39,9 +40,10 @@
         {% endfor %}
 
         <br>
-        <div class="d-grid grap-2 col-6 mx-auto">
-            <button type="submit" class="btn btn-lg btn-dark ">{{info}}</button>
-        </div>
+        
+        <button type="submit" class="btn btn-lg btn-dark ">{{info}}</button>
+        <a href="{% url 'index' %}">CANCELAR</a>
+        
 
     </form>
 

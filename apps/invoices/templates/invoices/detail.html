@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% if detailinvoice_list %}
+<div class="card">
+    
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card border-light">
+                    <div class="card-body">
+                        <div style="display: flex; align-items:center; justify-content: center;">
+
+                            <div class="text-center">
+                                <h2 style="font-size: 3rem;">PUNTO DE VENTA</h2>
+                                <div style="font-size: 1rem;">
+                                    <p style="text-transform: uppercase;">Proyecto de Manejo de archivos</p>
+                                   
+
+                                </div>
+                                
+
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="row" style="margin-top: 2rem;">
+                            <div class="col-1">
+                                <h5 class="card-title">No. {{invoice.id}}</h5>
+                                
+                            </div>
+                            <div class="col">
+                                <div class="text-end">
+                                    <div class="d-flex justify-content-end">
+                                        <h5 class="card-title" style="font-size: 1.4rem;">Fecha: {{invoice.get_created_at}}</h5>
+                                        
+                                    </div>
+    
+                                </div>
+
+                            </div>
+                           
+                        </div>
+                        <div class="row" style="font-size: 0.8rem; margin-top: 0.5rem;">
+                            <div class="col" style="display: flex;">
+                                <p class="h6"style="text-transform: uppercase;">Nombre del cliente: </p>                                
+                                <p style="margin-left: 0.5rem;font-size: 0.8rem; ">{{invoice.customer}}</p>
+                                
+                            </div>
+                            <div class="col-12" style="display: flex;">
+                                <p class="h6">CIUDAD: </p>
+                                <p style="margin-left: 0.5rem; font-size: 0.8rem; ">{{invoice.customer.city}}</p>
+
+                            </div>
+                            <div class="col-12" style="display: flex;">
+                                <p class="h6" >IDENTIFICACION: </p>
+                                <p style="margin-left: 0.5rem; font-size: 0.8rem;">{{invoice.customer.id_type}}</p>
+
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <table class="table table-hover caption-top">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre del producto</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for detail in detailinvoice_list%}
+                        <tr>
+                            <td>{{detail.product}}</td>
+                            <td>{{detail.quantity}}</td>
+                            <td>Q {{detail.subtotal}}</td>
+                
+                        </tr>
+                        {% endfor%}   
+                
+                    </tbody>
+                    <tfoot >
+                        <tr>
+                            <td class="h6">SUBTOTAL:</td>
+                            <td></td>
+                            <td class="txt-end">Q {{invoice.subtotal}}</td>
+                        </tr>
+                        
+                        <tr class="border-bottom border-dark">
+                            <td class="h6">IVA CALCULADO:</td>
+                            <td></td>
+                            <td >Q {{invoice.iva}}</td>
+        
+                        </tr>
+                        <tr >
+                            <td class="h6">Total:</td>
+                            <td></td>                    
+                            <td class="txt-end">Q {{invoice.total}}</td>
+                        </tr>
+                        
+                        
+        
+                    </tfoot>
+                    
+                   
+                   
+                </table>
+                
+            </div>
+        </div>
+        
+
+    </div>
+    <div class="card-footer text-end">
+        <div class="d-flex justify-content-start">
+            <a href="{% url 'invoices:list' %}">REGRESAR</a>
+
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+{% endif %}
+
+{% endblock %}

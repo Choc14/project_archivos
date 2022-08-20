@@ -1,5 +1,7 @@
 # REDIRECCIONAR
-from django.shortcuts import render
+from distutils.errors import PreprocessError
+from math import factorial
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 
 # CRUD
@@ -14,6 +16,7 @@ from django.db import transaction
 # MODELOS
 from .models import Invoice, DetailInvoice
 from apps.products.models import Product
+from apps.customers.models import Customer
 
 # FORMULARIOS
 from .forms import InvoiceForm
@@ -22,14 +25,27 @@ from .forms import InvoiceForm
 import json
 from django.http import JsonResponse
 
+# Decorador
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+
+# BREADCRUMB
+from .utils import breadcrumb
 
 # Create your views here.
+
+
 class CreateInvoice(CreateView):
     model = Invoice
     form_class = InvoiceForm
     template_name = 'invoices/create.html'
 
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
     def post(self, request, *args, **kwargs):
+        
         data = {}
         try:
             action = request.POST['action']
@@ -38,15 +54,51 @@ class CreateInvoice(CreateView):
                 prods = Product.objects.filter(title__icontains=request.POST['term'])[0:10]
                 for i in prods:
                     item = i.toJSON()
-                    item['value'] = i.name
+                    item['value'] = i.title
+                    item['text'] = i.title
                     data.append(item)
-            
+            elif action == 'add':
+                print('ssss')
+                with transaction.atomic():
+                    print('ssss')
+                    vents = json.loads(request.POST['vents'])
+                    print(vents)
+
+                    cliente = vents['customer']
+                    fecha = vents['created_at']
+                    subtotal = float(vents['subtotal'])
+                    iva = float(vents['iva'])
+                    total = float(vents['total'])
+                    cl = get_object_or_404(Customer,id = cliente)
+                    
+
+                    invoice = Invoice()
+                    invoice.customer = cl
+                    invoice.created_at = fecha
+                    invoice.subtotal = subtotal
+                    invoice.iva = iva
+                    invoice.total = total                  
+                    
+                    invoice.save()
+
+                    for i in vents['products']:
+                        fact = invoice.id
+                        fact_id = get_object_or_404(Invoice,id = fact)
+
+                        prodcuto = i['id']
+                        prod_id = get_object_or_404(Product,id = prodcuto)
+
+                        cantidad = int(i['quantity'])
+                        precio = float(i['price'])
+                        d_subtotal = float(i['subtotal'])
+
+                        detail = DetailInvoice(invoice=fact_id, product=prod_id,quantity=cantidad,price=precio,subtotal=d_subtotal)
+                        detail.save()
+
             else:
                 data['error'] = 'No ha ingresado a ninguna opción'
-
         except Exception as e:
             data['error'] = str(e)
-
         return JsonResponse(data, safe=False)
 
     def get_context_data(self, **kwargs):
@@ -54,6 +106,43 @@ class CreateInvoice(CreateView):
         context['title'] = 'Nueva Factura'
         context['action'] = 'add'
         context['message'] = 'Nueva Factura'
+        context['det'] = []
+        context['factura'] = True
 
         return context
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('invoices:list')
+
+class ListInvoice(ListView):
+
+    template_name = 'invoices/list.html'
+    queryset = Invoice.objects.all().order_by('-id')
+
+    def get_context_data(self, **kwargs):
+
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'FACTURAS'
+        context['message'] = 'Listado de facturas'
+        context['breadcrumb'] = breadcrumb()
+        return context
+
+def detailInvoice(request, pk):
+    invoices = Invoice.objects.get(pk=pk)
+    filtro = DetailInvoice.objects.filter(Q(invoice=pk))
+    context ={
+        'invoice':invoices,
+        'title': 'Detalle de la factura',
+        'detailinvoice_list': filtro
+
+
+    }
+    return render(request, 'invoices/detail.html', context)
+
+def deleteInvoice(request,pk):
+    if request.user.is_superuser:
+        invoice = get_object_or_404(Invoice, pk=pk)
+        if invoice:
+            invoice.delete()
+        return redirect('invoices:list')
+
+    else:
+        return redirect('index')

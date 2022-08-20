@@ -1,5 +1,8 @@
+###------CREACION DE LAS CLASES CORRESPONDIENTES AL MODULO CON SUS RESPECTIVAS
+# VARIABLES, METODOS-----###
+
 class Categoria:
-    def __init__(self, titleCategory = None, description = None):
+    def __init__(self, titleCategory, description = None):
         self.__titleCategory = titleCategory
         self.__description = description
 
@@ -27,7 +30,7 @@ class Categoria:
         '''
 
 class Producto(Categoria):  
-    def __init__(self, titleCategory = None, titleProduct= None, description= None, price= None):
+    def __init__(self, titleCategory , titleProduct, description, price):
         super().__init__(titleCategory)
         self.__title = titleProduct
         self.__description = description

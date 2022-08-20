@@ -1,5 +1,8 @@
+###------CREACION DE LAS CLASES CORRESPONDIENTES AL MODULO CON SUS RESPECTIVAS
+# VARIABLES, METODOS-----###
+
 class Ciudad:
-    def __init__(self, city = None):
+    def __init__(self, city):
         self.__ciudad = city
     
     @property
@@ -16,7 +19,7 @@ class Ciudad:
 
 
 class Identificador:
-    def __init__(self, id_type=None):
+    def __init__(self, id_type):
         self.__identificador = id_type
     
     @property
@@ -32,7 +35,7 @@ class Identificador:
 
 
 class Clientes(Ciudad, Identificador):
-    def __init__(self, city=None, id_type = None ,first_name = None, last_name= None, addres = None, phone_number=None, date_birth=None ):
+    def __init__(self, city, id_type ,first_name , last_name, addres , phone_number, date_birth ):
         Ciudad.__init__(self, city)
         Identificador.__init__(self, id_type)
         self.__nombre = first_name

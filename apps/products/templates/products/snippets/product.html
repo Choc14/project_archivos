@@ -1,14 +1,8 @@
 <td scope="row">{{product.title}}</td>
 <td>{{product.description}}</td>
 <td>Q {{product.price}}</td>
+<td>{{product.category}}</td>
 
-<td>
-    <ul>
-        {% for categoria in product.category.all %}
-        <li>{{categoria}}</li>
-        {% endfor %}
-    </ul>
-</td>
 <td>{{product.created_at}}</td>
 
 <td>

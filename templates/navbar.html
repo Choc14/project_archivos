@@ -30,8 +30,8 @@
                         
                         {% if user.is_superuser or update %}
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">CAMBIO DE USUARIO</a></li>                        
-                        <li><a class="dropdown-item" href="#">CAMBIO DE CLAVE</a></li>
+                        <li><a class="dropdown-item" href="{% url 'users:update_u' request.user.id %}">CAMBIO DE USUARIO</a></li>                        
+                        <li><a class="dropdown-item" href="{% url 'users:update_p' request.user.id %}">CAMBIO DE CLAVE</a></li>
                         {% endif %}
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{% url 'users:logout' %}">SALIR</a></li>
@@ -43,8 +43,8 @@
                         MOVIMIENTOS
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">NUEVA FACTURA</a></li>
-                        <li><a class="dropdown-item" href="#">REPORTES DE FACTURA</a></li>
+                        <li><a class="dropdown-item" href="{% url 'invoices:add' %}">NUEVA FACTURA</a></li>
+                        <li><a class="dropdown-item" href="{% url 'invoices:list' %}">REPORTES DE FACTURA</a></li>
 
                     </ul>
                 </li>

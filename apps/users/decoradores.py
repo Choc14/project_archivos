@@ -17,6 +17,8 @@ class user_admin(UserPassesTestMixin):
     '''
     def test_func(self):
         if self.request.user.is_superuser:
+            
             return True
         else:
             return False
+

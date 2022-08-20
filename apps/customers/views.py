@@ -11,8 +11,10 @@ from django.views.generic.detail import DetailView
 from django.db.models import Q
 
 # MODELOS
-from .models import Customer
-from .forms import customerForm
+from .models import Customer, City
+
+# FORMULARIOS
+from .forms import customerForm, cityForm
 
 # BREADCRUMB
 from .utils import breadcrumb
@@ -20,10 +22,26 @@ from .utils import breadcrumb
 # GENERADOR DE TXT
 from .generador import ArchivoCliente as archivo
 
+# JSON
+import json
+from django.http import JsonResponse
+
+# Decorador
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+
 # Create your views here.
 class CustomerList(ListView):
     template_name = 'customers/customer.html'
     queryset = Customer.objects.all().order_by('-id')
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        data = {'vaya':'as'}
+        return JsonResponse(data, safe= False)
 
     def get_context_data(self, **kwargs):
         archivo.subir(Customer)
@@ -48,6 +66,22 @@ class CustomerCreate(CreateView):
         return context
 
     success_url = reverse_lazy('customers:Cliente')
+
+class CityCreate(CreateView):
+    model = City
+    form_class = cityForm
+    template_name = 'city/create.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Agregar'
+        context['message'] = 'Agregar'
+
+        return context
+
+    success_url = reverse_lazy('customers:Crear')
+
+
 
 class CustomerUpdate(UpdateView):
     model = Customer
@@ -89,7 +123,7 @@ class CustomerSearch(ListView):
     template_name = 'customers/customerBuscar.html'
 
     def get_queryset(self):
-        filters = Q(first_name__icontains=self.query()) | Q(city__icontains=self.query()) | Q(id_type__icontains=self.query())
+        filters = Q(first_name__icontains=self.query())
         return Customer.objects.filter(filters)
 
     def query(self):

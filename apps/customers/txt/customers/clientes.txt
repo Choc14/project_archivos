@@ -1,10 +1,10 @@
 -----------------------------1------------------------------
-Nombre del cliente: dds
-Apellido del cliente: adasd
-Direccion: 4ta calle
+Nombre del cliente: Ejemplo
+Apellido del cliente: Admin
+Direccion: asad@gmail
 Numero de telefono: 6265656
-Fecha de cumpleaños: 2019-08-08
-Ciudad: San Pedro Carcha
-Identificador: DPI
-Fecha de creacion: 2022-08-18
+Fecha de cumpleaños: 2022-08-20
+Ciudad: Coba
+Identificador: dpi
+Fecha de creacion: 2022-08-20
 

@@ -1,4 +1,5 @@
 # URL
+from operator import concat
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
@@ -193,12 +194,46 @@ class UpdateUser(user_admin, UpdateView):
         return HttpResponseRedirect(reverse('index'))
     success_url = reverse_lazy('users:list')
 
+def changeUsername(request, pk):
+    
+    if request.user.id == pk:
+        usuario = get_object_or_404(User, pk=pk)
+        if request.method == 'POST':
+            formUser = UpdateUserForm(request.POST, instance=usuario)
+            if formUser.is_valid():
+                formUser.save()
+                return redirect('index')
+        else:
+            formUser = UpdateUser(instance=usuario)
+    else:
+        return redirect('index')
+
+
+    context = {
+        'form': UpdateUserForm,
+        'title': 'Cambiar Usuario',
+        'update': 'true',
+        'info': 'Actualizar'
+    }
+
+    
+
+    return render(request, 'users/change_username.html', context)
+
+
 class ChangeUsername(UpdateView):
     model = User
     form_class = UpdateUserForm
     template_name = 'users/change_username.html'
+
+    def get(self, request, *args, **kwargs):
+        response = super().get(request, *args, **kwargs) 
+        
+        return response
+
+
     
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs):       
         context = super().get_context_data(**kwargs)
         context['title'] = 'Cambiar Usuario'
         context['update'] = True
@@ -209,6 +244,33 @@ class ChangeUsername(UpdateView):
 
   
     success_url = reverse_lazy('users:list')
+
+
+class ChangePassword(UpdateView):
+    model = User
+    form_class = UpdateUserForm
+    template_name = 'users/change_password.html'
+
+    def get(self, request, *args, **kwargs):
+        response = super().get(request, *args, **kwargs) 
+        
+        return response
+
+
+    
+    def get_context_data(self, **kwargs):       
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Cambiar password'
+        context['update'] = True
+        context['info'] = 'Actualizar'
+                
+
+        return context
+
+  
+    success_url = reverse_lazy('users:list')
+
+
 
 class DetailUser(DetailView):
     model = User

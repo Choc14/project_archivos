@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block css%}
+<link rel="stylesheet" href="{% static 'lib/datatables-1.10.20/css/dataTables.bootstrap4.min.css' %}" />
+<link rel="stylesheet"
+    href="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/css/responsive.bootstrap4.min.css' %}" />
+{% endblock %}
 
 {% block content %}
 <div class="col p1" style="margin-bottom: 20rem;">
     <div class="row" style="height: 25vh; margin-bottom: 3rem; margin-top: 3rem;">
         <div class="col">
             <h1>BIENVENIDO <span style="text-transform: uppercase;">{{user.username}}</span></h1>
-            <p>Nombre: <span style="text-transform: uppercase;"> {{ user.get_full_name }}</span>  </p>
+            <p>Nombre: <span style="text-transform: uppercase;"> {{ user.get_full_name }}</span> </p>
             <p>Cargo: <span style="text-transform: uppercase;">{{ user.get_type_user }} </span></p>
-            
+
 
         </div>
         <div class="col " style="display: flex; align-items:center; justify-content:end; ">
@@ -18,11 +23,12 @@
         </div>
     </div>
     <hr class="dropdown-divider">
-    <div class="row" style="height: 25vh; margin-bottom: 4rem; margin-top: 4rem; display: flex; align-items: center; justify-content: center;">
+    <div class="row"
+        style="height: 25vh; margin-bottom: 4rem; margin-top: 4rem; display: flex; align-items: center; justify-content: center;">
         <div class="col-12">
             <h4>MODELOS</h4>
             <hr class="dropdown-divider">
-            
+
             <div class="row">
                 <div class="col-sm-4">
                     <div class="card ">
@@ -34,11 +40,11 @@
                             <div class="text-center">
                                 <a href="{% url 'products:Producto'%}" class="btn btn-dark">VER</a>
                             </div>
-        
+
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="col-sm-4">
                     <div class="card ">
                         <div class="card-body">
@@ -52,7 +58,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
@@ -70,10 +76,10 @@
             </div>
         </div>
 
-        
 
-    
-        
+
+
+
         <div class="col-12" style="margin-top: 5rem;">
             <h4>FACTURAS</h4>
             <hr class="dropdown-divider">
@@ -83,7 +89,7 @@
                         <div class="card-body">
                             <p class="card-text">GENERAR UNA FACTURA</p>
                             <div class="text-center">
-                                <a href="#" class="btn btn-dark">VER</a>
+                                <a href="{% url 'invoices:add' %}" class="btn btn-dark">VER</a>
                             </div>
                         </div>
                     </div>
@@ -93,7 +99,9 @@
                         <div class="card-body">
                             <p class="card-text">FACTURAS GENERADAS: <span> {{invoice_count}} </span></p>
                             <div class="text-center">
-                                <a href="#" class="btn btn-dark">VER</a>
+                                <a href="{% url 'invoices:list' %}" class="btn btn-dark ">VER</a>
+
+
                             </div>
                         </div>
                     </div>
@@ -115,4 +123,12 @@
 </div>
 
 
+{% endblock %}
+
+{% block js %}
+
+<script src="{% static 'lib/datatables-1.10.20/js/jquery.dataTables.js' %}"></script>
+<script src="{% static 'lib/datatables-1.10.20/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/js/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/js/responsive.bootstrap4.min.js' %}"></script>
 {% endblock %}

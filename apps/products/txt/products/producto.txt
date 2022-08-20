@@ -1,6 +1,7 @@
 -----------------------------1------------------------------
-Nombre del producto: mancs
-Descripcion: derdaee3qe
-Price: 8.00
-Fecha de creacion: 2022-08-18
+Nombre del producto: Manzana
+Descripcion: roja
+Price: 2.00
+Categoria: None
+Fecha de creacion: 2022-08-20
 

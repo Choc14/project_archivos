@@ -9,13 +9,14 @@ class productForm(forms.ModelForm):
             'title',
             'description',
             'price',
-            'image',
             'category',
+            'image',
+            
 
         ]
 
         labels = {
-            'title': 'Nombre',
+            'title': 'Nombre del Producto',
             'description': 'Descripcion',
             'price': 'Precio',
             'image': 'Imagen',
@@ -26,7 +27,7 @@ class productForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'rows': '3'}),
-            'category': forms.CheckboxSelectMultiple(attrs={'type': 'checkbox'}),
+            'category': forms.Select(attrs={'class': 'form-control select2',}),
             'image': forms.FileInput(attrs={'type':'checkbox', 'name':'image', 'type':'file', 'accept':'image',
             'class': 'form-control'}),
             'price': forms.TextInput(

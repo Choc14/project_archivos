@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$320000$lOt8XoizHHZE6YD8egDUVY$G7Bd7v6l58wVXFGwNNBjHS+KrVw3Ul40jVaGPFTdaBY=",
-        "last_login": null,
+        "last_login": "2022-08-18T21:22:23.586Z",
         "is_superuser": true,
         "username": "choc1403",
         "first_name": "Juan Carlos",

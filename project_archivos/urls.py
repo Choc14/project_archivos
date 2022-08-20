@@ -24,6 +24,7 @@ urlpatterns = [
     path('products/',include('apps.products.urls')),
     path('customers/',include('apps.customers.urls')),
     path('invoices/',include('apps.invoices.urls')),
+    path('test/', views.TestView.as_view(), name='test'),
     path('admin/', admin.site.urls),
 ]
 
