@@ -21,7 +21,7 @@
 {% block content %}
 <div class="card" style="margin-top: 2.5rem;">
     <div class="card-body">
-        <a href="{% url 'products:Producto'%}">Regresar</a>
+        <a href="{% url 'products:Crear'%}">Regresar</a>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% for field in form %}
@@ -33,19 +33,13 @@
                 {{ field.errors }}
                 {% endif %}
 
-            </div style="margin-bottom:1rem">
-            {% if field.name == 'category' %}
-            <div>
-                <a href="{% url 'products:category_add'%}" >AGREGAR OTRA CATEGORIA</a>
             </div>
-
-            {% endif %}
             {% endfor %}
 
             <br>
             
             <button type="submit" class="btn  btn-dark ">{{message}}</button>
-            <a href="{% url 'products:Producto'%}">CANCELAR</a>
+            <a href="{% url 'products:Crear'%}">CANCELAR</a>
             
 
         </form>

@@ -112,7 +112,7 @@ class CreateUser(user_admin, CreateView):
     
     model = User
     form_class = RegistroForm    
-    template_name = 'users/signup.html'
+    template_name = 'users/create.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data()

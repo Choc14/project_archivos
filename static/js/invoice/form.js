@@ -65,7 +65,7 @@ var vents = {
                     class: 'text-center',
                     orderable: false,
                     render: function (data, type, row) {
-                        return '<input type="text" name="cant" class="form-control form-control-sm input-sm" autocomplete="off" value="' + row.quantity + '">';
+                        return '<input type="text" name="quantity" class="form-control form-control-sm input-sm" autocomplete="off" value="' + row.quantity + '">';
                     }
                 },
                 {
@@ -79,7 +79,7 @@ var vents = {
             ],
             rowCallback(row, data, displayNum, displayIndex, dataIndex) {
 
-                $(row).find('input[name="cant"]').TouchSpin({
+                $(row).find('input[name="quantity"]').TouchSpin({
                     min: 1,
                     max: 1000000000,
                     step: 1
@@ -125,7 +125,7 @@ $(function () {
         language: 'es'
     });
 
-    $('#date_joined').datetimepicker({
+    $('#created_at').datetimepicker({
         format: 'YYYY-MM-DD',
         date: moment().format("YYYY-MM-DD"),
         locale: 'es',
@@ -195,13 +195,13 @@ $(function () {
                 vents.list();
             });
         })
-        .on('change', 'input[name="cant"]', function () {
+        .on('change', 'input[name="quantity"]', function () {
             console.clear();
-            var cant = parseInt($(this).val());
+            var quantity = parseInt($(this).val());
             var tr = tblProducts.cell($(this).closest('td, li')).index();
-            vents.items.products[tr.row].cant = cant;
+            vents.items.products[tr.row].quantity = quantity;
             vents.calculate_invoice();
-            $('td:eq(5)', tblProducts.row(tr.row).node()).html('$' + vents.items.products[tr.row].subtotal.toFixed(2));
+            $('td:eq(5)', tblProducts.row(tr.row).node()).html('Q' + vents.items.products[tr.row].subtotal.toFixed(2));
         });
 
     $('.btnClearSearch').on('click', function () {
@@ -253,7 +253,7 @@ $(function () {
         templateResult: formatRepo,
     }).on('select2:select', function (e) {
         var data = e.params.data;
-        data.cant = 1;
+        data.quantity = 1;
         data.subtotal = 0.00;
         vents.add(data);
         $(this).val('').trigger('change.select2');
