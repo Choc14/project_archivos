@@ -1,6 +1,6 @@
 -----------------------------1------------------------------
-Nombre del producto: dsa
-Descripcion: dsa
-Price: 213.00
-Fecha de creacion: 2022-08-17
+Nombre del producto: mancs
+Descripcion: derdaee3qe
+Price: 8.00
+Fecha de creacion: 2022-08-18
 

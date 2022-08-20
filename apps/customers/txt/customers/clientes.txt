@@ -1,10 +1,10 @@
 -----------------------------1------------------------------
-Nombre del cliente: dsa
-Apellido del cliente: dsa
-Direccion: dsa
-Numero de telefono: 39046965
-Fecha de cumpleaños: 2022-08-13
+Nombre del cliente: dds
+Apellido del cliente: adasd
+Direccion: 4ta calle
+Numero de telefono: 6265656
+Fecha de cumpleaños: 2019-08-08
 Ciudad: San Pedro Carcha
-Identificador: Pasaporte
-Fecha de creacion: 2022-08-17
+Identificador: DPI
+Fecha de creacion: 2022-08-18
 

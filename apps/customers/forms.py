@@ -1,5 +1,7 @@
 from django import forms
 from .models import Customer
+from .models import City
+from .models import Id
 
 class customerForm(forms.ModelForm):
     class Meta:
@@ -21,8 +23,8 @@ class customerForm(forms.ModelForm):
         labels = {
             'first_name': 'Nombres',
             'last_name': 'Apellidos',
-            'addres': 'Direccion',
-            'phone_number': 'Telefono',
+            'addres': 'Dirección',
+            'phone_number': 'Teléfono',
             'date_birth': 'Fecha de nacimiento',
             'city': 'Ciudad',
             'id_type': 'Id',
@@ -41,3 +43,7 @@ class customerForm(forms.ModelForm):
 
 
         }
+
+
+
+
