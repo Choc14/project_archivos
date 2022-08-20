@@ -1,3 +1,5 @@
+###---APARTADO DEL MODELO DE LA TABLA PARA DICHO MODELO--###
+
 # ORM DE DJANGO
 from django.db import models
 
@@ -48,8 +50,3 @@ class DetailInvoice(models.Model):
 
     def __str__(self):
         return '{}'.format(self.product)
-
- 
-
-
-

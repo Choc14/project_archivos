@@ -9,13 +9,14 @@ class productForm(forms.ModelForm):
             'title',
             'description',
             'price',
-            'image',
             'category',
+            'image',
+            
 
         ]
 
         labels = {
-            'title': 'Nombre',
+            'title': 'Nombre del Producto',
             'description': 'Descripcion',
             'price': 'Precio',
             'image': 'Imagen',

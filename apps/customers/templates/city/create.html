@@ -21,7 +21,7 @@
 {% block content %}
 <div class="card" style="margin-top: 2.5rem;">
     <div class="card-body">
-        <a href="{% url 'products:Producto'%}">Regresar</a>
+        <a href="{% url 'customers:Crear'%}">REGRESAR</a>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% for field in form %}
@@ -37,14 +37,15 @@
             {% endfor %}
 
             <br>
-            
-            <button type="submit" class="btn  btn-dark ">{{message}}</button>
-            <a href="{% url 'products:Producto'%}">CANCELAR</a>
-            
+
+            <button type="submit" class="btn btn-dark ">{{message}}</button>
+            <a href="{% url 'customers:Crear'%}">CANCELAR</a>
+
 
         </form>
 
     </div>
+
 </div>
 
 {% endblock %}

@@ -45,6 +45,7 @@ class CreateInvoice(CreateView):
         return super().dispatch(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
+        
         data = {}
         try:
             action = request.POST['action']
@@ -57,7 +58,9 @@ class CreateInvoice(CreateView):
                     item['text'] = i.title
                     data.append(item)
             elif action == 'add':
+                print('ssss')
                 with transaction.atomic():
+                    print('ssss')
                     vents = json.loads(request.POST['vents'])
                     print(vents)
 
@@ -69,7 +72,12 @@ class CreateInvoice(CreateView):
                     cl = get_object_or_404(Customer,id = cliente)
                     
 
-                    invoice = Invoice(customer=cl,created_at=fecha, subtotal=subtotal, iva = iva, total=total )                   
+                    invoice = Invoice()
+                    invoice.customer = cl
+                    invoice.created_at = fecha
+                    invoice.subtotal = subtotal
+                    invoice.iva = iva
+                    invoice.total = total                  
                     
                     invoice.save()
 

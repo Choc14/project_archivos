@@ -11,8 +11,10 @@ from django.views.generic.detail import DetailView
 from django.db.models import Q
 
 # MODELOS
-from .models import Customer
-from .forms import customerForm
+from .models import Customer, City
+
+# FORMULARIOS
+from .forms import customerForm, cityForm
 
 # BREADCRUMB
 from .utils import breadcrumb
@@ -64,6 +66,22 @@ class CustomerCreate(CreateView):
         return context
 
     success_url = reverse_lazy('customers:Cliente')
+
+class CityCreate(CreateView):
+    model = City
+    form_class = cityForm
+    template_name = 'city/create.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Agregar'
+        context['message'] = 'Agregar'
+
+        return context
+
+    success_url = reverse_lazy('customers:Crear')
+
+
 
 class CustomerUpdate(UpdateView):
     model = Customer

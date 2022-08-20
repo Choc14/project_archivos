@@ -1,3 +1,4 @@
+###---APARTADO DEL MODELO DE LA TABLA PARA DICHO MODELO--###
 
 # ORM DE DJANGO
 from django.db import models

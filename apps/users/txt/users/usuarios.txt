@@ -15,10 +15,10 @@ Tipo de usuario: USUARIO
 Fecha de creacion: 2022-08-15
 
 -----------------------------3------------------------------
-Nombre del usuario: 
-Apellido del usuario: 
-Correo Electronico: 
-Nombre de usuario: asss
+Nombre del usuario: Nombre Prueba
+Apellido del usuario: Apellido Prueba
+Correo Electronico: userPrueba@prueba.com
+Nombre de usuario: userPrueba
 Tipo de usuario: USUARIO
 Fecha de creacion: 2022-08-15
 

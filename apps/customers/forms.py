@@ -1,5 +1,8 @@
+###-- CREACION DE FORMULARIOS PARA EL RESPECTIVO MODELO --##
+
+from cProfile import label
 from django import forms
-from .models import Customer
+from .models import Customer, City
 
 class customerForm(forms.ModelForm):
     class Meta:
@@ -40,4 +43,20 @@ class customerForm(forms.ModelForm):
             'id_type': forms.Select(attrs={'class': 'form-control'}),
 
 
+        }
+
+class cityForm(forms.ModelForm):
+    class Meta:
+        model = City
+
+        fields = [
+            'name_city'
+        ]
+
+        labels = {
+            'name_city': 'NOMBRE DE LA CIUDAD'
+        }
+
+        widgets = {
+            'name_city': forms.TextInput(attrs={'class': 'form-control'}),
         }

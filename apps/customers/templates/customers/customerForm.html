@@ -2,8 +2,8 @@
 {% load static%}
 
 {% block css %}
-<link href="{% static 'lib/jquery-ui-1.12.1/jquery-ui.min.css' %}" rel="stylesheet"/>
-<link href="{% static 'lib/select2-4.0.13/css/select2.min.css' %}" rel="stylesheet"/>
+<link href="{% static 'lib/jquery-ui-1.12.1/jquery-ui.min.css' %}" rel="stylesheet" />
+<link href="{% static 'lib/select2-4.0.13/css/select2.min.css' %}" rel="stylesheet" />
 {% endblock %}
 
 {% block js %}
@@ -19,25 +19,39 @@
 {% endblock %}
 
 {% block content %}
-<a href="{% url 'customers:Cliente'%}">REGRESAR</a>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {% for field in form %}
-    <div class="form-group" style="margin-bottom: 1rem;">
-            {{ field.label_tag }}
-            {{ field }}
+<div class="card" style="margin-top: 2.5rem;">
+    <div class="card-body">
+        <a href="{% url 'customers:Cliente'%}">REGRESAR</a>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group" style="margin-bottom: 2rem;">
+                {{ field.label_tag }}
+                {{ field }}
 
-            {% if field.errors %}
+                {% if field.errors %}
                 {{ field.errors }}
-            {% endif %}
+                {% endif %}
 
             </div>
-    {% endfor %}
+            {% if field.name == 'city'%}
+            <div style="margin-bottom: 2rem;">
+                <a href="{% url 'customers:add_city'%}">AGREGAR OTRA CIUDAD</a>
 
-    <br>
-        <div class="d-grid grap-2 col-6 mx-auto">
-            <button type="submit" class="btn btn-lg btn-dark ">{{message}}</button>
-        </div>
+            </div>
 
-</form>
+            {% endif %}
+            {% endfor %}
+
+            <br>
+
+            <button type="submit" class="btn btn-dark ">{{message}}</button>
+            <a href="{% url 'customers:Cliente'%}">CANCELAR</a>
+
+
+        </form>
+
+    </div>
+</div>
+
 {% endblock %}

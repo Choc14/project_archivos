@@ -1,5 +1,8 @@
+###------CREACION DE LAS CLASES CORRESPONDIENTES AL MODULO CON SUS RESPECTIVAS
+# VARIABLES, METODOS-----###
+
 class Usuarios:
-    def __init__(self, first_name = None, last_name = None, username = None, password = None, user_type = 'Usuario', email = None):
+    def __init__(self, first_name, last_name, username, password, user_type, email):
         self.__nombre = first_name
         self.__apellido = last_name
         self.__username = username
