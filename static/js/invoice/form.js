@@ -49,10 +49,9 @@ var vents = {
                     class: 'text-center',
                     orderable: false,
                     render: function (data, type, row) {
-                        return '<a rel="remove" class="btn btn-danger btn-xs btn-flat" style="color: white;"> Eliminar </a>';
+                        return '<a rel="remove" class="btn btn-danger btn-xs btn-flat" style="color: white;"><i class="fas fa-trash-alt"></i></a>';
                     }
                 },
-               
                 {
                     targets: [-3],
                     class: 'text-center',
@@ -66,7 +65,7 @@ var vents = {
                     class: 'text-center',
                     orderable: false,
                     render: function (data, type, row) {
-                        return '<input type="text" name="quantity" class="form-control form-control-sm input-sm" autocomplete="off" value="' + row.quantity + '">';
+                        return '<input type="text" name="cant" class="form-control form-control-sm input-sm" autocomplete="off" value="' + row.quantity + '">';
                     }
                 },
                 {
@@ -80,7 +79,7 @@ var vents = {
             ],
             rowCallback(row, data, displayNum, displayIndex, dataIndex) {
 
-                $(row).find('input[name="quantity"]').TouchSpin({
+                $(row).find('input[name="cant"]').TouchSpin({
                     min: 1,
                     max: 1000000000,
                     step: 1
@@ -126,7 +125,7 @@ $(function () {
         language: 'es'
     });
 
-    $('#created_at').datetimepicker({
+    $('#date_joined').datetimepicker({
         format: 'YYYY-MM-DD',
         date: moment().format("YYYY-MM-DD"),
         locale: 'es',
@@ -181,34 +180,34 @@ $(function () {
 
     $('.btnRemoveAll').on('click', function () {
         if (vents.items.products.length === 0) return false;
-        vents.items.products = [];
-        vents.list();
-        
+        alert_action('Notificación', '¿Estas seguro de eliminar todos los items de tu detalle?', function () {
+            vents.items.products = [];
+            vents.list();
+        });
     });
 
     // event cant
     $('#tblProducts tbody')
         .on('click', 'a[rel="remove"]', function () {
-            
             var tr = tblProducts.cell($(this).closest('td, li')).index();
-            vents.items.products.splice(tr.row, 1);
-            vents.list();
-            
+            alert_action('Notificación', '¿Estas seguro de eliminar el producto de tu detalle?', function () {
+                vents.items.products.splice(tr.row, 1);
+                vents.list();
+            });
         })
-        .on('change', 'input[name="quantity"]', function () {
+        .on('change', 'input[name="cant"]', function () {
             console.clear();
-            var quantity = parseInt($(this).val());
+            var cant = parseInt($(this).val());
             var tr = tblProducts.cell($(this).closest('td, li')).index();
-            vents.items.products[tr.row].quantity = quantity;
+            vents.items.products[tr.row].cant = cant;
             vents.calculate_invoice();
-            $('td:eq(5)', tblProducts.row(tr.row).node()).html('Q' + vents.items.products[tr.row].subtotal.toFixed(2));
+            $('td:eq(5)', tblProducts.row(tr.row).node()).html('$' + vents.items.products[tr.row].subtotal.toFixed(2));
         });
 
     $('.btnClearSearch').on('click', function () {
         $('input[name="search"]').val('').focus();
     });
 
-    // event submit
     // event submit
     $('form').on('submit', function (e) {
         e.preventDefault();
@@ -221,11 +220,8 @@ $(function () {
         vents.items.created_at = $('input[name="created_at"]').val();
         vents.items.customer = $('select[name="customer"]').val();
         var parameters = new FormData();
-        console.log(parameters)
         parameters.append('action', $('input[name="action"]').val());
         parameters.append('vents', JSON.stringify(vents.items));
-        
-        
         submit_with_ajax(window.location.pathname, 'Notificación', '¿Estas seguro de realizar la siguiente acción?', parameters, function () {
             location.href = '/invoices/';
         });
@@ -257,7 +253,7 @@ $(function () {
         templateResult: formatRepo,
     }).on('select2:select', function (e) {
         var data = e.params.data;
-        data.quantity = 1;
+        data.cant = 1;
         data.subtotal = 0.00;
         vents.add(data);
         $(this).val('').trigger('change.select2');
