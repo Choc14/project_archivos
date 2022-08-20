@@ -23,6 +23,9 @@ class User(AbstractUser):
     user_type = models.CharField(choices=USER_TYPE, default='USUARIO', null=True, blank=True, max_length=100)
     created_at = models.DateTimeField(default=datetime.now)
 
+    def __str__(self):
+        return '{}'.format(self.first_name)
+
     def get_image(self):
         if self.image:
             return '{}{}'.format(MEDIA_URL, self.image)
@@ -36,7 +39,7 @@ class User(AbstractUser):
    
     
     def get_full_name(self):
-        if self.first_name == '' and self.last_name == '':
+        if self.first_name == '' or self.last_name == '':
             return f'----'
         return '{} {}'.format(self.first_name, self.last_name)
 

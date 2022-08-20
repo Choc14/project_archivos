@@ -14,7 +14,7 @@ class UpdateUserForm(forms.ModelForm):
     ]
     user_type = forms.ChoiceField(
         choices=USER_TYPE,
-        required = True,
+        required = False,
         label='Tipo de Usuario',
         widget=forms.Select(attrs={'class': 'form-control'}),
         )
