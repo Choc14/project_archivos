@@ -18,7 +18,7 @@ class ArchivoFacturas:
                 fecha = factura.created_at.strftime('%Y-%m-%d')
                 archivo.write(f'Fecha de creacion: {fecha}\n')
                 archivo.write(f'\n')
-                
+
                 detalle_list = DetailInvoice.objects.filter(Q(invoice=factura.id))
                 for detalle in detalle_list:
                
@@ -26,6 +26,8 @@ class ArchivoFacturas:
                     archivo.write(f'Precio: {detalle.price}\n')
                     archivo.write(f'Cantidad: {detalle.quantity}\n')
                     archivo.write(f'Subtotal: {detalle.subtotal}\n')
+                    archivo.write(f'\n')
+                    archivo.write(f'\n')
 
                 archivo.write(f'-'.center(60,'-'))
                 archivo.write(f'\n')
