@@ -1,5 +1,6 @@
 # URL
 from operator import concat
+from re import template
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
@@ -7,12 +8,12 @@ from django.urls import reverse_lazy, reverse
 from django.db.models import Q
 
 # LIBRERIAS PARA EL CRUD
-from django.views.generic import CreateView, UpdateView, DeleteView
+from django.views.generic import CreateView, UpdateView, DeleteView, View
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
 # FORMS
-from .forms import RegistroForm, UpdateUserForm
+from .forms import RegistroForm, UpdateUserForm, ChangePasswordForm, CreateUserForm, ChangeUserForm
 
 # Login
 from django.contrib.auth import login
@@ -32,7 +33,7 @@ from .generador import ArchivoUsuario as archivo
 # Create your views here.
 
 
-
+###-- APARTADO DE REGISTRAR USUARIOS --##
 class SignUp(user_authenticate,CreateView):
     '''
     MODULO PARA REGISTRO DE USUARIOS
@@ -67,7 +68,7 @@ class SignUp(user_authenticate,CreateView):
         '''
         return HttpResponseRedirect(reverse('index'))
 
-# login
+###-- APARTADO DE INICIO DE SESION --##
 def login_view(request):
     
     if request.user.is_authenticated:
@@ -102,16 +103,17 @@ def login_view(request):
        
     })
 
-# logout
+###-- APARTADO DE SALIR --##
 def logout_view(request):
     logout(request)
     messages.success(request, 'Sesión cerrada exitosamente')
     return redirect('users:login')
 
+###-- APARTADO PARA CREAR USUARIOS --##
 class CreateUser(user_admin, CreateView):
     
     model = User
-    form_class = RegistroForm    
+    form_class = CreateUserForm    
     template_name = 'users/create.html'
 
     def get_context_data(self, **kwargs):
@@ -123,11 +125,7 @@ class CreateUser(user_admin, CreateView):
     
     def form_valid(self, form):
         form.save()
-
-
         return redirect('users:list')
-
-  
 
     def handle_no_permission(self):
         '''
@@ -136,6 +134,7 @@ class CreateUser(user_admin, CreateView):
         '''
         return HttpResponseRedirect(reverse('index'))
 
+###-- APARTADO DE LISTAR USUARIOS REGISTRADOS --##
 class ListUser(ListView):
     queryset = User.objects.all().order_by('-id')
     template_name = 'users/list.html'
@@ -147,6 +146,7 @@ class ListUser(ListView):
         context['breadcrumb'] = breadcrumb()
         return context
 
+###-- APARTADO PARA ELIMINAR USUARIOS --##
 class DeleteUser(user_admin, DeleteView):
     model = User
     template_name = 'users/delete.html'
@@ -168,10 +168,8 @@ class DeleteUser(user_admin, DeleteView):
 
     success_url = reverse_lazy('users:list')
 
-
-
-        
-
+  
+###-- APARTADO PARRA MODIFICAR ALGUN APARTADO DE UN USUARIO --##
 class UpdateUser(user_admin, UpdateView):
     model = User
     form_class = UpdateUserForm
@@ -194,84 +192,85 @@ class UpdateUser(user_admin, UpdateView):
         return HttpResponseRedirect(reverse('index'))
     success_url = reverse_lazy('users:list')
 
-def changeUsername(request, pk):
+
+
+###-- APARTADO PARA CAMBIAR EL NOMBRE DE USUARIO --##
+class ChangeUsername(View):
+    template_name ='users/change_username.html'
+    form_class = ChangeUserForm
+    success_url = reverse_lazy('index')
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, {
+            'form':self.form_class, 
+            'title': 'CAMBIAR USUARIO',
+            'info': 'CAMBIAR USUARIO'
+            })
     
-    if request.user.id == pk:
-        usuario = get_object_or_404(User, pk=pk)
-        if request.method == 'POST':
-            formUser = UpdateUserForm(request.POST, instance=usuario)
-            if formUser.is_valid():
-                formUser.save()
-                return redirect('index')
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            user = User.objects.filter(pk = request.user.pk)
+            if user.exists():
+                user = user.first()       
+                usa = form.cleaned_data.get('username')                
+                user.username= usa                
+                user.save()
+                
+
+                return redirect(self.success_url)
+            return redirect(self.success_url)
         else:
-            formUser = UpdateUser(instance=usuario)
-    else:
-        return redirect('index')
+            form = self.form_class(request.POST)
+            return render(request, self.template_name, {
+            'form':form, 
+            'title': 'CAMBIAR USUARIO',
+            'info': 'CAMBIAR USUARIO'
+            })
 
 
-    context = {
-        'form': UpdateUserForm,
-        'title': 'Cambiar Usuario',
-        'update': 'true',
-        'info': 'Actualizar'
-    }
 
-    
-
-    return render(request, 'users/change_username.html', context)
-
-
-class ChangeUsername(UpdateView):
-    model = User
-    form_class = UpdateUserForm
-    template_name = 'users/change_username.html'
+###-- APARTADO PARA CAMBIAR LA CONTRASEÑA DE UN USUARIO --##
+class ChangePassword(View):
+    template_name ='users/change_password.html'
+    form_class = ChangePasswordForm
+    success_url = reverse_lazy('index')
 
     def get(self, request, *args, **kwargs):
-        response = super().get(request, *args, **kwargs) 
-        
-        return response
+        return render(request, self.template_name, {
+            'form':self.form_class, 
+            'title': 'CAMBIAR CONTRASEÑA',
+            'info': 'CAMBIAR CONTRASEÑA'
+            })
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            user = User.objects.filter(pk = request.user.pk)
+            if user.exists():
+                user = user.first()
+                user.set_password(form.cleaned_data.get('password1'))
+                contra = form.cleaned_data.get('password1')
+                user.save()
+                user = authenticate(username=request.user.username, password=contra)
+                login(self.request, user)
+
+                return redirect(self.success_url)
+            return redirect(self.success_url)
+        else:
+            form = self.form_class(request.POST)
+            return render(request, self.template_name, {
+            'form':form, 
+            'title': 'CAMBIAR CONTRASEÑA',
+            'info': 'CAMBIAR CONTRASEÑA'
+            })
 
 
     
-    def get_context_data(self, **kwargs):       
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Cambiar Usuario'
-        context['update'] = True
-        context['info'] = 'Actualizar'
-                
-
-        return context
-
-  
-    success_url = reverse_lazy('users:list')
-
-
-class ChangePassword(UpdateView):
-    model = User
-    form_class = UpdateUserForm
-    template_name = 'users/change_password.html'
-
-    def get(self, request, *args, **kwargs):
-        response = super().get(request, *args, **kwargs) 
-        
-        return response
-
-
-    
-    def get_context_data(self, **kwargs):       
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Cambiar password'
-        context['update'] = True
-        context['info'] = 'Actualizar'
-                
-
-        return context
-
-  
-    success_url = reverse_lazy('users:list')
 
 
 
+###-- DETALLAR LA INFORMACION DE UN USUARIO --##
 class DetailUser(DetailView):
     model = User
     template_name = 'users/detail.html'
@@ -285,6 +284,7 @@ class DetailUser(DetailView):
 
         return context
 
+###-- APARTADO PARA BUSCAR A UN USUARIO --##
 class UserSearch(ListView):
     template_name = 'users/search.html'
 

@@ -28,11 +28,10 @@
                         <li><a class="dropdown-item" href="{{Producto}}">PRODUCTOS</a></li>
                         <li><a class="dropdown-item" href="{{Usuarios}}">USUARIOS</a></li>
                         
-                        {% if user.is_superuser or update %}
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{% url 'users:update_u' request.user.id %}">CAMBIO DE USUARIO</a></li>                        
-                        <li><a class="dropdown-item" href="{% url 'users:update_p' request.user.id %}">CAMBIO DE CLAVE</a></li>
-                        {% endif %}
+                        <li><a class="dropdown-item" href="{% url 'users:update_u' %}">CAMBIO DE USUARIO</a></li>                        
+                        <li><a class="dropdown-item" href="{% url 'users:update_p' %}">CAMBIO DE CLAVE</a></li>
+                        
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{% url 'users:logout' %}">SALIR</a></li>
                     </ul>

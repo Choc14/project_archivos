@@ -4,48 +4,40 @@
 
 
 {% block content %}
-<div class="col">
-    {% if user.is_superuser or update %}
-    <a href="{% url 'users:list'%}" class="actions">X</a>
+<div class="card" style="margin-top: 2rem;">
+    <div class="card-body">
+        <h2>FORMULARIO DE CAMBIO DE USUARIO</h2>
 
-    {% else %}
-    <a href="{% url 'users:login' %}" class="actions">X</a>
-    {% endif %}
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {% for field in form %}
-        
-        {% if field.name == 'username'%}
-        
-        <div class="form-group" style="margin-bottom: 1rem;">
-            
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+
+            <div class="form-group" style="margin-bottom: 1rem;">
 
 
-            {{ field.label_tag }}
-            {{ field }}
 
-            {% if field.errors %}
-            {{ field.errors }}
-            {% endif %}
+                {{ field.label_tag }}
+                {{ field }}
 
-        </div>
-        
+                {% if field.errors %}
+                {{ field.errors }}
+                {% endif %}
 
-        {% endif %}
-        
-
-        
+            </div>
 
 
-        {% endfor %}
+            {% endfor %}
 
-        <br>
-        
-        <button type="submit" class="btn btn-lg btn-dark ">{{info}}</button>
-        <a href="{% url 'index' %}">CANCELAR</a>
-        
+            <br>
 
-    </form>
+            <button type="submit" class="btn btn-lg btn-dark ">{{info}}</button>
+            <a href="{% url 'index' %}">CANCELAR</a>
+
+
+        </form>
+
+    </div>
+
 
 </div>
 

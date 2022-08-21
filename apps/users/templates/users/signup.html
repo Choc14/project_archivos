@@ -30,6 +30,9 @@
 
             </div>
             {% else %}
+            {% if field.errors %}
+                {{ field.errors }}
+            {% endif %}
            
             {% endif %}
         

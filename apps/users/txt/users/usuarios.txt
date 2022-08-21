@@ -30,3 +30,11 @@ Nombre de usuario: EverAdmin11
 Tipo de usuario: ADMINISTRADOR
 Fecha de creacion: 2022-08-16
 
+-----------------------------5------------------------------
+Nombre del usuario: sd
+Apellido del usuario: dsa
+Correo Electronico: dsa@gmail.com
+Nombre de usuario: aaa
+Tipo de usuario: USUARIO
+Fecha de creacion: 2022-08-21
+
