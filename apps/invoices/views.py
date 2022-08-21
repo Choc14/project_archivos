@@ -32,6 +32,8 @@ from django.views.decorators.csrf import csrf_exempt
 # BREADCRUMB
 from .utils import breadcrumb
 
+# GENERADOR
+from .generador import ArchivoFacturas as archivo
 # Create your views here.
 
 
@@ -118,6 +120,7 @@ class ListInvoice(ListView):
     queryset = Invoice.objects.all().order_by('-id')
 
     def get_context_data(self, **kwargs):
+        archivo.subir(Invoice,DetailInvoice)
 
         context = super().get_context_data(**kwargs)
         context['title'] = 'FACTURAS'
