@@ -1,5 +1,5 @@
 -----------------------------1------------------------------
-Nombre del usuario: Juan Carlos Eloi
+Nombre del usuario: Juan Carlos
 Apellido del usuario: Choc Xol
 Correo Electronico: eloicx@gmail.com
 Nombre de usuario: choc1403
@@ -7,18 +7,18 @@ Tipo de usuario: ADMINISTRADOR
 Fecha de creacion: 2022-08-15
 
 -----------------------------2------------------------------
-Nombre del usuario: 
-Apellido del usuario: 
-Correo Electronico: 
-Nombre de usuario: notiene1
+Nombre del usuario: s
+Apellido del usuario: s
+Correo Electronico: sin@cin.com
+Nombre de usuario: choc1403s
 Tipo de usuario: USUARIO
 Fecha de creacion: 2022-08-15
 
 -----------------------------3------------------------------
-Nombre del usuario: Nombre Prueba
-Apellido del usuario: Apellido Prueba
-Correo Electronico: userPrueba@prueba.com
-Nombre de usuario: userPrueba
+Nombre del usuario: Nombre
+Apellido del usuario: Apellido
+Correo Electronico: dasa@gmail.com
+Nombre de usuario: choc1403ss
 Tipo de usuario: USUARIO
 Fecha de creacion: 2022-08-15
 

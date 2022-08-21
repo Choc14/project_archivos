@@ -5,10 +5,3 @@ Price: 7.00
 Categoria: Bebida
 Fecha de creacion: 2022-08-18
 
------------------------------2------------------------------
-Nombre del producto: Manzana
-Descripcion: Es una fruta
-Price: 21.00
-Categoria: Fruta
-Fecha de creacion: 2022-08-20
-
