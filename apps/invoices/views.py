@@ -58,11 +58,11 @@ class CreateInvoice(CreateView):
                     item['text'] = i.title
                     data.append(item)
             elif action == 'add':
-                print('ssss')
+               
                 with transaction.atomic():
-                    print('ssss')
+                    
                     vents = json.loads(request.POST['vents'])
-                    print(vents)
+                    
 
                     cliente = vents['customer']
                     fecha = vents['created_at']

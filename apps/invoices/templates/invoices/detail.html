@@ -46,7 +46,7 @@
                         <div class="row" style="font-size: 0.8rem; margin-top: 0.5rem;">
                             <div class="col" style="display: flex;">
                                 <p class="h6"style="text-transform: uppercase;">Nombre del cliente: </p>                                
-                                <p style="margin-left: 0.5rem;font-size: 0.8rem; ">{{invoice.customer}}</p>
+                                <p style="margin-left: 0.5rem;font-size: 0.8rem; ">{{invoice.customer}} </p>
                                 
                             </div>
                             <div class="col-12" style="display: flex;">
@@ -70,6 +70,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Nombre del producto</th>
+                            <th scope="col">Precio del producto</th>
                             <th scope="col">Cantidad</th>
                             <th scope="col">Subtotal</th>
                         </tr>
@@ -78,6 +79,7 @@
                         {% for detail in detailinvoice_list%}
                         <tr>
                             <td>{{detail.product}}</td>
+                            <td>{{detail.price}}</td>
                             <td>{{detail.quantity}}</td>
                             <td>Q {{detail.subtotal}}</td>
                 
@@ -89,17 +91,20 @@
                         <tr>
                             <td class="h6">SUBTOTAL:</td>
                             <td></td>
+                            <td></td>
                             <td class="txt-end">Q {{invoice.subtotal}}</td>
                         </tr>
                         
                         <tr class="border-bottom border-dark">
                             <td class="h6">IVA CALCULADO:</td>
                             <td></td>
+                            <td></td>
                             <td >Q {{invoice.iva}}</td>
         
                         </tr>
                         <tr >
                             <td class="h6">Total:</td>
+                            <td></td>
                             <td></td>                    
                             <td class="txt-end">Q {{invoice.total}}</td>
                         </tr>

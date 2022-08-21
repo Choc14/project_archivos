@@ -46,7 +46,7 @@ class Customer(models.Model):
     
 
     def __str__(self):
-        return '{}'.format(self.first_name)
+        return '{} {}'.format(self.first_name, self.last_name)
 
     def toJSON(self):
         item = model_to_dict(self)
