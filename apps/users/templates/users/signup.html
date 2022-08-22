@@ -1,61 +1,83 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block css %}
+<style>
+    body{
+        background: #141E30;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+    }
+    .a{
+        
+        align-items: center;
+        justify-content: center;
+        
+    }
+    
+    
+</style>
 
+{% endblock %}
 
 {% block content %}
-<div class="card" style="margin-top: 2rem;">
-    <div class="card-body">
-        {% if user.is_superuser or update %}
-        <a href="{% url 'users:list'%}" class="actions">X</a>
-
-        {% else %}
-        <a href="{% url 'users:login' %}" class="actions">X</a>
-        {% endif %}
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {% for field in form %}
-
-            {% if field.name != 'user_type' %}
-
-            <div class="form-group" style="margin-bottom: 1rem;">
-
-
-                {{ field.label_tag }}
-                {{ field }}
-
-                {% if field.errors %}
-                {{ field.errors }}
-                {% endif %}
-
-            </div>
-            {% else %}
-            {% if field.errors %}
-                {{ field.errors }}
-            {% endif %}
-           
-            {% endif %}
-        
-
-
-
-
-            {% endfor %}
-
-            <br>
-
-            <button type="submit" class="btn btn-lg btn-dark ">{{info}}</button>
+<div class="col-12 a">
+    <div class="card" style="margin-top: 2rem;">
+        <div class="card-body">
             {% if user.is_superuser or update %}
-                <a href="{% url 'users:list' %}">CANCELAR</a>
+            <a href="{% url 'users:list'%}" class="actions">X</a>
+    
             {% else %}
-                <a href="{% url 'users:login' %}" class="actions">CANCELAR</a>
+            <a href="{% url 'users:login' %}" class="actions">X</a>
             {% endif %}
-
-
-        </form>
-
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+    
+                {% if field.name != 'user_type' %}
+    
+                <div class="form-group" style="margin-bottom: 1rem;">
+    
+    
+                    {{ field.label_tag }}
+                    {{ field }}
+    
+                    {% if field.errors %}
+                    {{ field.errors }}
+                    {% endif %}
+    
+                </div>
+                {% else %}
+                {% if field.errors %}
+                    {{ field.errors }}
+                {% endif %}
+               
+                {% endif %}
+            
+    
+    
+    
+    
+                {% endfor %}
+    
+                <br>
+    
+                <button type="submit" class="btn btn-lg btn-dark ">{{info}}</button>
+                {% if user.is_superuser or update %}
+                    <a href="{% url 'users:list' %}">CANCELAR</a>
+                {% else %}
+                    <a href="{% url 'users:login' %}" class="actions">CANCELAR</a>
+                {% endif %}
+    
+    
+            </form>
+    
+        </div>
     </div>
+
 </div>
+
 
 
 

@@ -29,6 +29,8 @@ from django.views.generic import TemplateView
 # FORMULAROP
 from .forms import TestForm
 
+
+###--MODULO DE INICIO--###
 def index(request):
 
     archvp.subir(Product)
@@ -49,6 +51,8 @@ def index(request):
     }
     return render(request,template,context)
 
+
+###-- MODULO DE INFORMACION GENERAL--###
 def about(request):
     template = 'about.html'
     context = {
@@ -56,7 +60,9 @@ def about(request):
 
     }
     return render(request, template, context)
-    
+
+
+###-- MODULO DE MANUAL DE USUARIO--###    
 def help(request):
     template = 'help.html'
     context = {
@@ -64,6 +70,7 @@ def help(request):
 
     }
     return render(request, template, context)
+
 
 class TestView(TemplateView):
     template_name = 'test.html'
