@@ -43,5 +43,50 @@
         "description": "Es un producto Enlatado",
         "created_at": "2022-08-18T16:31:38Z"
     }
+},
+{
+    "model": "products.category",
+    "pk": 6,
+    "fields": {
+        "title": "Lácteos",
+        "description": "Productos derivados de la leche",
+        "created_at": "2022-08-22T09:16:30.487Z"
+    }
+},
+{
+    "model": "products.category",
+    "pk": 7,
+    "fields": {
+        "title": "Refacción",
+        "description": "Productos similares a los alimentos, consumidos en menor cantidad",
+        "created_at": "2022-08-22T09:17:37.675Z"
+    }
+},
+{
+    "model": "products.category",
+    "pk": 8,
+    "fields": {
+        "title": "Golosina",
+        "description": "Productos con la finalidad de degustar al paladar",
+        "created_at": "2022-08-22T09:18:09.586Z"
+    }
+},
+{
+    "model": "products.category",
+    "pk": 9,
+    "fields": {
+        "title": "Cereal",
+        "description": "Producto creado a través de los granos que puede ser consumible con lácteos",
+        "created_at": "2022-08-22T09:19:24.012Z"
+    }
+},
+{
+    "model": "products.category",
+    "pk": 10,
+    "fields": {
+        "title": "Granos",
+        "description": "Obtenidos de los recursos naturales",
+        "created_at": "2022-08-22T09:20:29.808Z"
+    }
 }
 ]

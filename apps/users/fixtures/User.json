@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$320000$lOt8XoizHHZE6YD8egDUVY$G7Bd7v6l58wVXFGwNNBjHS+KrVw3Ul40jVaGPFTdaBY=",
-        "last_login": "2022-08-18T21:22:23.586Z",
+        "last_login": "2022-08-22T04:28:04.709Z",
         "is_superuser": true,
         "username": "choc1403",
         "first_name": "Juan Carlos",
@@ -25,7 +25,7 @@
     "pk": 2,
     "fields": {
         "password": "pbkdf2_sha256$320000$vkBIBgTSbB0412qcGrxIE2$7yPTf5E/XilaKVYqelXHPHxl2ZkRJ7JzZg8DkXTwTy8=",
-        "last_login": "2022-08-16T18:41:35Z",
+        "last_login": "2022-08-22T15:09:42.999Z",
         "is_superuser": true,
         "username": "EverAdmin11",
         "first_name": "",
@@ -37,6 +37,27 @@
         "image": "",
         "user_type": "ADMINISTRADOR",
         "created_at": "2022-08-16T18:41:06.011Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$GZcIMM1y1R4zHFkgyqB8dl$x3otwofPiyiSzMPrgy53nnyr5WGnrircaMEf/lAIgfE=",
+        "last_login": "2022-08-22T15:09:27.518Z",
+        "is_superuser": false,
+        "username": "EjemploFinal",
+        "first_name": "PruebaFinal",
+        "last_name": "FinalPr",
+        "email": "pruebafinal@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-08-22T14:44:13.749Z",
+        "image": "users/índice.jpg",
+        "user_type": "USUARIO",
+        "created_at": "2022-08-22T08:44:13.749Z",
         "groups": [],
         "user_permissions": []
     }

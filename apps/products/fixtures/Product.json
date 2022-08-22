@@ -4,12 +4,168 @@
     "pk": 1,
     "fields": {
         "title": "Litro de Coca Cola",
-        "description": "Litro de coca cola",
+        "description": "Bebida refrescante",
         "price": "7.00",
         "slug": "dsad",
-        "image": "",
+        "image": "products/26-261549_gaseosa-coca-cola-botella-descartable-coca-cola-600.png",
         "category": 1,
         "created_at": "2022-08-18T15:22:49.554Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "title": "Botella de Agua Pura",
+        "description": "Hidratante natural",
+        "price": "1.00",
+        "slug": "botella-de-agua-pura",
+        "image": "products/1984-imgS-18-2-2020-160256-.jpg",
+        "category": 1,
+        "created_at": "2022-08-22T09:24:30.353Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "title": "Porción de Pepián",
+        "description": "Platillo tradicional",
+        "price": "25.00",
+        "slug": "porcion-de-pepian",
+        "image": "products/PEPIAN.jpg",
+        "category": 2,
+        "created_at": "2022-08-22T09:26:42.526Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "title": "Manzana",
+        "description": "Fruta roja",
+        "price": "4.00",
+        "slug": "manzana",
+        "image": "products/manzana.png",
+        "category": 3,
+        "created_at": "2022-08-22T09:28:27.429Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+        "title": "Zanahoria",
+        "description": "Ideal para platillos",
+        "price": "2.00",
+        "slug": "zanahoria",
+        "image": "products/Carrot-PNG-Pic.png",
+        "category": 4,
+        "created_at": "2022-08-22T09:31:37.776Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+        "title": "Atún",
+        "description": "Conservado para ser comestible",
+        "price": "8.00",
+        "slug": "atun",
+        "image": "",
+        "category": 5,
+        "created_at": "2022-08-22T09:32:51.203Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+        "title": "Leche Lala",
+        "description": "Leche deslactosada",
+        "price": "12.00",
+        "slug": "leche-lala",
+        "image": "products/Lala-Deslactosada.png",
+        "category": 6,
+        "created_at": "2022-08-22T09:34:34.190Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+        "title": "Subway",
+        "description": "Bocadillo",
+        "price": "20.00",
+        "slug": "subway",
+        "image": "products/Subway-PNG-File.png",
+        "category": 7,
+        "created_at": "2022-08-22T09:36:37.439Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+        "title": "Doritos",
+        "description": "Picante",
+        "price": "7.00",
+        "slug": "doritos",
+        "image": "products/Doritos-PNG-Photos.png",
+        "category": 8,
+        "created_at": "2022-08-22T09:37:54.230Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 10,
+    "fields": {
+        "title": "Corn Flakes",
+        "description": "Puede mezclarse con leche",
+        "price": "24.00",
+        "slug": "corn-flakes",
+        "image": "products/f0d3e9bf-ac3f-47c2-a058-4562c8380bfb_1.5b84b462ac7fd1c3e744dc51ecf6b236.jpeg",
+        "category": 9,
+        "created_at": "2022-08-22T09:40:03.632Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 11,
+    "fields": {
+        "title": "Libra de Arroz",
+        "description": "Sano y equilibrado",
+        "price": "8.00",
+        "slug": "libra-de-arroz",
+        "image": "products/114207-1000x1000.jpg",
+        "category": 10,
+        "created_at": "2022-08-22T09:42:06.422Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 12,
+    "fields": {
+        "title": "Yogurt",
+        "description": "Derivado de la leche",
+        "price": "12.00",
+        "slug": "yogurt",
+        "image": "products/yoghurt-fresa.png",
+        "category": 6,
+        "created_at": "2022-08-22T09:44:11.573Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 13,
+    "fields": {
+        "title": "Banano",
+        "description": "Cultivado para ser el ideal",
+        "price": "2.00",
+        "slug": "banano",
+        "image": "products/580b57fcd9996e24bc43c131.png",
+        "category": 3,
+        "created_at": "2022-08-22T09:45:53.536Z"
     }
 }
 ]

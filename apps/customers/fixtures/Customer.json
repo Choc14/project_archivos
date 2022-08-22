@@ -12,5 +12,145 @@
         "id_type": 1,
         "created_at": "2022-08-18T15:57:43.869Z"
     }
+},
+{
+    "model": "customers.customer",
+    "pk": 2,
+    "fields": {
+        "first_name": "Freddy",
+        "last_name": "de Paz Morales",
+        "addres": "4ta av. 5-63 zona 5",
+        "phone_number": "64893599",
+        "date_birth": "1994-06-01",
+        "city": 4,
+        "id_type": 2,
+        "created_at": "2022-08-22T08:54:48.507Z"
+    }
+},
+{
+    "model": "customers.customer",
+    "pk": 3,
+    "fields": {
+        "first_name": "Francisco",
+        "last_name": "Rodríguez Gómez",
+        "addres": "3ra av. 8-98 zona 8",
+        "phone_number": "12479354",
+        "date_birth": "1988-08-11",
+        "city": 7,
+        "id_type": 1,
+        "created_at": "2022-08-22T08:56:56.658Z"
+    }
+},
+{
+    "model": "customers.customer",
+    "pk": 4,
+    "fields": {
+        "first_name": "Diego Emilio",
+        "last_name": "Mendoza Cruz",
+        "addres": "8ta av. 6-89 zona 10",
+        "phone_number": "45786314",
+        "date_birth": "1998-01-28",
+        "city": 8,
+        "id_type": 1,
+        "created_at": "2022-08-22T08:59:26.936Z"
+    }
+},
+{
+    "model": "customers.customer",
+    "pk": 5,
+    "fields": {
+        "first_name": "Michael",
+        "last_name": "García Rodríguez",
+        "addres": "2da av. 4-88 zona 4",
+        "phone_number": "47659831",
+        "date_birth": "2000-12-16",
+        "city": 5,
+        "id_type": 2,
+        "created_at": "2022-08-22T09:01:48.589Z"
+    }
+},
+{
+    "model": "customers.customer",
+    "pk": 6,
+    "fields": {
+        "first_name": "Marcos",
+        "last_name": "Gómez López",
+        "addres": "5ta av. 7-41",
+        "phone_number": "56478945",
+        "date_birth": "1984-10-10",
+        "city": 6,
+        "id_type": 2,
+        "created_at": "2022-08-22T09:04:59.048Z"
+    }
+},
+{
+    "model": "customers.customer",
+    "pk": 7,
+    "fields": {
+        "first_name": "Alejandro",
+        "last_name": "Méndez Méndez",
+        "addres": "6ta av. 9-24",
+        "phone_number": "48963178",
+        "date_birth": "1997-07-31",
+        "city": 3,
+        "id_type": 1,
+        "created_at": "2022-08-22T09:06:52.762Z"
+    }
+},
+{
+    "model": "customers.customer",
+    "pk": 8,
+    "fields": {
+        "first_name": "Rodrigo Bernardo",
+        "last_name": "Noriega Morales",
+        "addres": "1ra av. 3-49 zona 13",
+        "phone_number": "34987561",
+        "date_birth": "1996-05-04",
+        "city": 5,
+        "id_type": 2,
+        "created_at": "2022-08-22T09:09:01.264Z"
+    }
+},
+{
+    "model": "customers.customer",
+    "pk": 9,
+    "fields": {
+        "first_name": "Edgar Raúl",
+        "last_name": "Cetino Ruiz",
+        "addres": "6ta av. 7-52",
+        "phone_number": "78547993",
+        "date_birth": "1990-03-17",
+        "city": 4,
+        "id_type": 1,
+        "created_at": "2022-08-22T09:11:14.603Z"
+    }
+},
+{
+    "model": "customers.customer",
+    "pk": 10,
+    "fields": {
+        "first_name": "Annie",
+        "last_name": "Soto Villatoro",
+        "addres": "8ta av. 3-46",
+        "phone_number": "47129864",
+        "date_birth": "1994-05-16",
+        "city": 6,
+        "id_type": 1,
+        "created_at": "2022-08-22T09:13:46.131Z"
+    }
+},
+{
+    "model": "customers.customer",
+    "pk": 11,
+    "fields": {
+        "first_name": "María Eliza",
+        "last_name": "Vásquez Calderón",
+        "addres": "7ma. av. 9-22",
+        "phone_number": "12874395",
+        "date_birth": "1989-09-20",
+        "city": 9,
+        "id_type": 2,
+        "created_at": "2022-08-22T09:15:16.805Z"
+    }
 }
 ]
