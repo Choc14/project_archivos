@@ -8,3 +8,103 @@ Ciudad: Coban
 Identificador: DPI
 Fecha de creacion: 2022-08-18
 
+-----------------------------2------------------------------
+Nombre del cliente: Freddy
+Apellido del cliente: de Paz Morales
+Direccion: 4ta av. 5-63 zona 5
+Numero de telefono: 64893599
+Fecha de cumpleaños: 1994-06-01
+Ciudad: Tactic
+Identificador: Pasaporte
+Fecha de creacion: 2022-08-22
+
+-----------------------------3------------------------------
+Nombre del cliente: Francisco
+Apellido del cliente: Rodríguez Gómez
+Direccion: 3ra av. 8-98 zona 8
+Numero de telefono: 12479354
+Fecha de cumpleaños: 1988-08-11
+Ciudad: Rabinal
+Identificador: DPI
+Fecha de creacion: 2022-08-22
+
+-----------------------------4------------------------------
+Nombre del cliente: Diego Emilio
+Apellido del cliente: Mendoza Cruz
+Direccion: 8ta av. 6-89 zona 10
+Numero de telefono: 45786314
+Fecha de cumpleaños: 1998-01-28
+Ciudad: Salama
+Identificador: DPI
+Fecha de creacion: 2022-08-22
+
+-----------------------------5------------------------------
+Nombre del cliente: Michael
+Apellido del cliente: García Rodríguez
+Direccion: 2da av. 4-88 zona 4
+Numero de telefono: 47659831
+Fecha de cumpleaños: 2000-12-16
+Ciudad: Ciudad de Guatemala
+Identificador: Pasaporte
+Fecha de creacion: 2022-08-22
+
+-----------------------------6------------------------------
+Nombre del cliente: Marcos
+Apellido del cliente: Gómez López
+Direccion: 5ta av. 7-41
+Numero de telefono: 56478945
+Fecha de cumpleaños: 1984-10-10
+Ciudad: Antigua Guatemala
+Identificador: Pasaporte
+Fecha de creacion: 2022-08-22
+
+-----------------------------7------------------------------
+Nombre del cliente: Alejandro
+Apellido del cliente: Méndez Méndez
+Direccion: 6ta av. 9-24
+Numero de telefono: 48963178
+Fecha de cumpleaños: 1997-07-31
+Ciudad: San Juan Chamelco
+Identificador: DPI
+Fecha de creacion: 2022-08-22
+
+-----------------------------8------------------------------
+Nombre del cliente: Rodrigo Bernardo
+Apellido del cliente: Noriega Morales
+Direccion: 1ra av. 3-49 zona 13
+Numero de telefono: 34987561
+Fecha de cumpleaños: 1996-05-04
+Ciudad: Ciudad de Guatemala
+Identificador: Pasaporte
+Fecha de creacion: 2022-08-22
+
+-----------------------------9------------------------------
+Nombre del cliente: Edgar Raúl
+Apellido del cliente: Cetino Ruiz
+Direccion: 6ta av. 7-52
+Numero de telefono: 78547993
+Fecha de cumpleaños: 1990-03-17
+Ciudad: Tactic
+Identificador: DPI
+Fecha de creacion: 2022-08-22
+
+-----------------------------10-----------------------------
+Nombre del cliente: Annie
+Apellido del cliente: Soto Villatoro
+Direccion: 8ta av. 3-46
+Numero de telefono: 47129864
+Fecha de cumpleaños: 1994-05-16
+Ciudad: Antigua Guatemala
+Identificador: DPI
+Fecha de creacion: 2022-08-22
+
+-----------------------------11-----------------------------
+Nombre del cliente: María Eliza
+Apellido del cliente: Vásquez Calderón
+Direccion: 7ma. av. 9-22
+Numero de telefono: 12874395
+Fecha de cumpleaños: 1989-09-20
+Ciudad: Granados
+Identificador: Pasaporte
+Fecha de creacion: 2022-08-22
+

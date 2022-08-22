@@ -14,3 +14,11 @@ Username: EverAdmin11
 Tipo de usuario: ADMINISTRADOR
 Fecha de creacion: 2022-08-16
 
+-----------------------------3------------------------------
+Nombre del usuario: PruebaFinal
+Apellido del usuario: FinalPr
+Correo Electronico: pruebafinal@gmail.com
+Username: EjemploFinal
+Tipo de usuario: USUARIO
+Fecha de creacion: 2022-08-22
+

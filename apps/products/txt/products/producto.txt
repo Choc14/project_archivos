@@ -1,7 +1,91 @@
 -----------------------------1------------------------------
 Nombre del producto: Litro de Coca Cola
-Descripcion: Litro de coca cola
+Descripcion: Bebida refrescante
 Price: 7.00
 Categoria: Bebida
 Fecha de creacion: 2022-08-18
+
+-----------------------------2------------------------------
+Nombre del producto: Botella de Agua Pura
+Descripcion: Hidratante natural
+Price: 1.00
+Categoria: Bebida
+Fecha de creacion: 2022-08-22
+
+-----------------------------3------------------------------
+Nombre del producto: Porción de Pepián
+Descripcion: Platillo tradicional
+Price: 25.00
+Categoria: Alimento
+Fecha de creacion: 2022-08-22
+
+-----------------------------4------------------------------
+Nombre del producto: Manzana
+Descripcion: Fruta roja
+Price: 4.00
+Categoria: Fruta
+Fecha de creacion: 2022-08-22
+
+-----------------------------5------------------------------
+Nombre del producto: Zanahoria
+Descripcion: Ideal para platillos
+Price: 2.00
+Categoria: Verdura
+Fecha de creacion: 2022-08-22
+
+-----------------------------6------------------------------
+Nombre del producto: Atún
+Descripcion: Conservado para ser comestible
+Price: 8.00
+Categoria: Producto Enlatado
+Fecha de creacion: 2022-08-22
+
+-----------------------------7------------------------------
+Nombre del producto: Leche Lala
+Descripcion: Leche deslactosada
+Price: 12.00
+Categoria: Lácteos
+Fecha de creacion: 2022-08-22
+
+-----------------------------8------------------------------
+Nombre del producto: Subway
+Descripcion: Bocadillo
+Price: 20.00
+Categoria: Refacción
+Fecha de creacion: 2022-08-22
+
+-----------------------------9------------------------------
+Nombre del producto: Doritos
+Descripcion: Picante
+Price: 7.00
+Categoria: Golosina
+Fecha de creacion: 2022-08-22
+
+-----------------------------10-----------------------------
+Nombre del producto: Corn Flakes
+Descripcion: Puede mezclarse con leche
+Price: 24.00
+Categoria: Cereal
+Fecha de creacion: 2022-08-22
+
+-----------------------------11-----------------------------
+Nombre del producto: Libra de Arroz
+Descripcion: Sano y equilibrado
+Price: 8.00
+Categoria: Granos
+Fecha de creacion: 2022-08-22
+
+-----------------------------12-----------------------------
+Nombre del producto: Yogurt
+Descripcion: Derivado de la leche
+Price: 12.00
+Categoria: Lácteos
+Fecha de creacion: 2022-08-22
+
+-----------------------------13-----------------------------
+Nombre del producto: Banano
+Descripcion: Cultivado para ser el ideal
+Price: 2.00
+Categoria: Fruta
+Fecha de creacion: 2022-08-22
 
