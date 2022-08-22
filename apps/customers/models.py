@@ -48,6 +48,12 @@ class Customer(models.Model):
     def __str__(self):
         return '{} {}'.format(self.first_name, self.last_name)
 
+    def get_created_at(self):
+        return self.created_at.strftime('%d-%m-%Y')
+    
+    def get_date_birth(self):
+        return self.date_birth.strftime('%d-%m-%Y')
+
     def toJSON(self):
         item = model_to_dict(self)
         item['date_birth'] = self.date_birth.strftime('%Y-%m-%d')

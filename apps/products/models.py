@@ -63,6 +63,9 @@ class Product(models.Model):
             return '{}{}'.format(MEDIA_URL, self.image)
         return '{}{}'.format(STATIC_URL,'img/product/sin-imagen.png')
     
+    def get_created_at(self):
+        return self.created_at.strftime('%d-%m-%Y')
+    
     
 
 

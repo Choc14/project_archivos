@@ -141,6 +141,8 @@ class CreateUser(user_admin, CreateView):
 class ListUser(ListView):
     queryset = User.objects.all().order_by('-id')
     template_name = 'users/list.html'
+    paginate_by = 5
+
     def get_context_data(self, **kwargs):
         archivo.subir(User)
         context = super().get_context_data(**kwargs)

@@ -31,9 +31,13 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
+
+
+###-- MODULO QUE ENLISTA A LOS CLIENTES--###
 class CustomerList(ListView):
     template_name = 'customers/customer.html'
     queryset = Customer.objects.all().order_by('-id')
+    paginate_by = 5
 
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
@@ -49,10 +53,13 @@ class CustomerList(ListView):
         context['message'] = 'Listado de Clientes'
         context['title'] = 'Cliente'
         context['breadcrumb'] = breadcrumb()
+        
 
 
         return context
 
+
+###-- MODULO QUE CREA A LOS CLIENTES--###
 class CustomerCreate(CreateView):
     model = Customer
     form_class = customerForm
@@ -67,6 +74,8 @@ class CustomerCreate(CreateView):
 
     success_url = reverse_lazy('customers:Cliente')
 
+
+###-- MODULO QUE CERA A CIUDADES--###
 class CityCreate(CreateView):
     model = City
     form_class = cityForm
@@ -82,7 +91,7 @@ class CityCreate(CreateView):
     success_url = reverse_lazy('customers:Crear')
 
 
-
+###-- MODULO QUE MODIFICA ALGUN CLIENTE--###
 class CustomerUpdate(UpdateView):
     model = Customer
     form_class = customerForm
@@ -97,6 +106,8 @@ class CustomerUpdate(UpdateView):
 
     success_url = reverse_lazy('customers:Cliente')
 
+
+###-- MODULO QUE ELIMINA ALGUN CLIENTE--###
 class CustomerDelete(DeleteView):
     model = Customer
     template_name = 'customers/customerDelete.html'
@@ -107,6 +118,8 @@ class CustomerDelete(DeleteView):
         return context
     success_url = reverse_lazy('customers:Cliente')
 
+
+###-- MODULO QUE DETALLA ALGUN CLIENTE--###
 class CustomerDetalle(DetailView):
     model = Customer
     template_name = 'customers/customerDetalle.html'
@@ -119,6 +132,8 @@ class CustomerDetalle(DetailView):
 
         return context
 
+
+###-- MODULO QUE BUSCA A LOS CLIENTES--###
 class CustomerSearch(ListView):
     template_name = 'customers/customerBuscar.html'
 

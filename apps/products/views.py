@@ -24,9 +24,12 @@ from .generador import ArchivoProducto as archivo
 from .utils import breadcrumb
 
 # Create your views here.
+
+###-- MODULO QUE ENLISTA A LOS PRODUCTOS--###
 class ProductoList(ListView):
     template_name = 'products/product.html'
     queryset = Product.objects.all().order_by('-id')
+    paginate_by = 5
 
     def get_context_data(self, **kwargs):   
         archivo.subir(Product)   
@@ -38,6 +41,8 @@ class ProductoList(ListView):
 
         return context
 
+
+###-- MODULO QUE CREA A LOS PRODUCTOS--###
 class ProductoCreate(CreateView):
     model = Product
     form_class = productForm
@@ -55,7 +60,7 @@ class ProductoCreate(CreateView):
 
     success_url = reverse_lazy('products:Producto')
 
-
+###-- MODULO QUE CREA A LAS CATEGORIAS--###
 class CategoryCreate(CreateView):
     model = Category
     form_class = categoryForm
@@ -73,6 +78,8 @@ class CategoryCreate(CreateView):
 
     success_url = reverse_lazy('products:Producto')
 
+
+###-- MODULO QUE MODIFICA ALGUN PRODUCTO--###
 class ProductoUpdate(UpdateView):
     model = Product
     form_class = productForm
@@ -87,6 +94,8 @@ class ProductoUpdate(UpdateView):
 
     success_url = reverse_lazy('products:Producto')
 
+
+###-- MODULO QUE ELIMINA ALGUN PRODUCTO--###
 class ProductoDelete(DeleteView):
     model = Product
     template_name = 'products/productDelete.html'
@@ -99,6 +108,8 @@ class ProductoDelete(DeleteView):
         return context
     success_url = reverse_lazy('products:Producto')
 
+
+###-- MODULO QUE DETALLA ALGUN PRODUCTO--###
 class ProductoDetalle(DetailView):
     model = Product
     template_name = 'products/productDetalle.html'
@@ -111,8 +122,11 @@ class ProductoDetalle(DetailView):
 
         return context
 
+
+###-- MODULO QUE BUSCA A LOS PRODUCTOS--###
 class ProductoSearch(ListView):
     template_name = 'products/productBuscar.html'
+    
 
     def get_queryset(self):
         filters = Q(title__icontains=self.query())

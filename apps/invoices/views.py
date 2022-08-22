@@ -130,6 +130,7 @@ class ListInvoice(ListView):
 
     template_name = 'invoices/list.html'
     queryset = Invoice.objects.all().order_by('-id')
+    paginate_by = 5
 
     def get_context_data(self, **kwargs):
         archivo.subir(Invoice,DetailInvoice)
