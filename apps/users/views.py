@@ -68,6 +68,7 @@ class SignUp(user_authenticate,CreateView):
         '''
         return HttpResponseRedirect(reverse('index'))
 
+
 ###-- APARTADO DE INICIO DE SESION --##
 def login_view(request):
     
@@ -109,6 +110,7 @@ def logout_view(request):
     messages.success(request, 'Sesión cerrada exitosamente')
     return redirect('users:login')
 
+
 ###-- APARTADO PARA CREAR USUARIOS --##
 class CreateUser(user_admin, CreateView):
     
@@ -134,6 +136,7 @@ class CreateUser(user_admin, CreateView):
         '''
         return HttpResponseRedirect(reverse('index'))
 
+
 ###-- APARTADO DE LISTAR USUARIOS REGISTRADOS --##
 class ListUser(ListView):
     queryset = User.objects.all().order_by('-id')
@@ -145,6 +148,7 @@ class ListUser(ListView):
         context['title'] = 'Usuarios'
         context['breadcrumb'] = breadcrumb()
         return context
+
 
 ###-- APARTADO PARA ELIMINAR USUARIOS --##
 class DeleteUser(user_admin, DeleteView):
@@ -193,7 +197,6 @@ class UpdateUser(user_admin, UpdateView):
     success_url = reverse_lazy('users:list')
 
 
-
 ###-- APARTADO PARA CAMBIAR EL NOMBRE DE USUARIO --##
 class ChangeUsername(View):
     template_name ='users/change_username.html'
@@ -227,7 +230,6 @@ class ChangeUsername(View):
             'title': 'CAMBIAR USUARIO',
             'info': 'CAMBIAR USUARIO'
             })
-
 
 
 ###-- APARTADO PARA CAMBIAR LA CONTRASEÑA DE UN USUARIO --##
@@ -266,10 +268,6 @@ class ChangePassword(View):
             })
 
 
-    
-
-
-
 ###-- DETALLAR LA INFORMACION DE UN USUARIO --##
 class DetailUser(DetailView):
     model = User
@@ -283,6 +281,7 @@ class DetailUser(DetailView):
         context['breadcrumb'] = breadcrumb()
 
         return context
+
 
 ###-- APARTADO PARA BUSCAR A UN USUARIO --##
 class UserSearch(ListView):

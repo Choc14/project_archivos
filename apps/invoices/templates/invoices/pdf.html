@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF || {{invoice.customer}}_{{invoice.id}} </title>
+    
+    <style>
+        .img-invoice {
+            width: 50px;
+            text-align: center;
+            margin: 0 auto;
+        }
+    
+        .head {
+            text-align: center;
+            text-transform: uppercase;
+        }
+    
+        #invoice thead tr th {
+            text-align: left;
+            border-bottom: 1px solid black;
+            border-top: 1px solid black;
+            padding-top: 4px;
+        }
+    
+        #invoice thead tr {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+    
+        #invoice tbody tr {
+            padding: 0;
+        }
+    
+        .text-center{
+            text-align: center;
+        }
+    </style>
+    
+</head>
+<body>
+    <p class="head" style="padding-top: 3rem;">
+        <b>
+        PUNTO DE VENTA<br>
+        Proyecto de Manejo de archivos<br>
+        </b>        
+    </p>
+    <p style="padding-top: 3rem;">
+        <b>FACTURA:</b> {{ invoice.id }}<br>
+        <b>FECHA DE VENTA:</b> {{ invoice.get_created_at }}<br>
+        <b>CLIENTE:</b> {{ invoice.customer}}<br>
+        
+    </p>
+    <table id="invoice" style="padding-top: 3rem;">
+    <thead>
+    <tr>
+        <th style="width: 10%;">CANT</th>
+        <th style="width: 40%;">PRODUCTO</th>
+        <th></th>
+        
+        <th style="width: 15%;">P.UNITARIO</th>
+        <th style="width: 15%;">TOTAL</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for detail in detailinvoice_list %}
+        <tr {% if forloop.first %}style="padding-top: 3px;" {% endif %}>
+            <td class="text-center">{{ detail.quantity }}</td>
+            
+            <td>{{ detail.product }}</td>
+            <td></td>
+            
+            <td class="text-center">Q{{ detail.price }}</td>
+            <td style="text-align: start;">Q{{ detail.subtotal }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr style="border-top: 1px solid black; padding-top: 4px;">
+            <td><b>SUBTOTAL</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="text-align: start">Q{{ invoice.subtotal }}</td>
+        </tr>
+        <tr style="padding-top: 0px;">
+            <td colspan="4"><b>IVA</b></td>
+            <td style="text-align: start">Q{{ invoice.iva }}</td>
+        </tr>
+        <tr style="border-top: 1px solid black;padding-top: 2px;">
+            <td colspan="4"><b>TOTAL A PAGAR</b></td>
+            <td style="text-align: start">Q{{ invoice.total }}</td>
+        </tr>
+
+    </tfoot>
+
+    
+    
+    
+</table>
+    
+</body>
+</html>

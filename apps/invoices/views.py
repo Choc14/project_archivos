@@ -1,13 +1,11 @@
 # REDIRECCIONAR
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
 
 # CRUD
-from django.views.generic import CreateView
+from django.views.generic import CreateView, View
 from django.views.generic.list import ListView
-from django.views.generic import UpdateView
-from django.views.generic import DeleteView
-from django.views.generic.detail import DetailView
 from django.db.models import Q
 from django.db import transaction
 
@@ -32,9 +30,23 @@ from .utils import breadcrumb
 
 # GENERADOR
 from .generador import ArchivoFacturas as archivo
+
+# PDF
+import os
+from django.conf import settings
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+from django.contrib.staticfiles import finders
+
+# SETTINGS OF PROJECT
+from project_archivos.settings import MEDIA_URL, STATIC_URL,MEDIA_ROOT,STATIC_ROOT
+from django.conf import settings
+
 # Create your views here.
 
 
+###-- CREACION DE FACTURAS --###
 class CreateInvoice(CreateView):
     model = Invoice
     form_class = InvoiceForm
@@ -112,6 +124,8 @@ class CreateInvoice(CreateView):
         return context
     success_url = reverse_lazy('invoices:list')
 
+
+###-- ENLISTAR FACTURAS --###
 class ListInvoice(ListView):
 
     template_name = 'invoices/list.html'
@@ -122,10 +136,12 @@ class ListInvoice(ListView):
 
         context = super().get_context_data(**kwargs)
         context['title'] = 'FACTURAS'
-        context['message'] = 'Listado de facturas'
+        context['message'] = 'Listado de Facturas'
         context['breadcrumb'] = breadcrumb()
         return context
 
+
+###-- DETALLES DE UNA FACTURA --###
 def detailInvoice(request, pk):
     invoices = Invoice.objects.get(pk=pk)
     filtro = DetailInvoice.objects.filter(Q(invoice=pk))
@@ -138,6 +154,8 @@ def detailInvoice(request, pk):
     }
     return render(request, 'invoices/detail.html', context)
 
+
+###-- ELIMINACION DE ALGUNA FACTURAS --###
 def deleteInvoice(request,pk):
     if request.user.is_superuser:
         invoice = get_object_or_404(Invoice, pk=pk)
@@ -147,3 +165,56 @@ def deleteInvoice(request,pk):
 
     else:
         return redirect('index')
+
+
+###-- CREACION DE PDFS PARA ALGUNA FACTURA --###
+class InvoicePDF(View):
+    template_name = 'invoices/pdf.html'
+    def link_callback(self,uri, rel):
+            """
+            Convert HTML URIs to absolute system paths so xhtml2pdf can access those
+            resources
+            """
+            result = finders.find(uri)
+            if result:
+                    if not isinstance(result, (list, tuple)):
+                            result = [result]
+                    result = list(os.path.realpath(path) for path in result)
+                    path=result[0]
+            else:
+                    sUrl = settings.STATIC_URL        # Typically /static/
+                    sRoot = settings.STATIC_ROOT      # Typically /home/userX/project_static/
+                    mUrl = settings.MEDIA_URL         # Typically /media/
+                    mRoot = settings.MEDIA_ROOT       # Typically /home/userX/project_static/media/
+
+                    if uri.startswith(mUrl):
+                            path = os.path.join(mRoot, uri.replace(mUrl, ""))
+                    elif uri.startswith(sUrl):
+                            path = os.path.join(sRoot, uri.replace(sUrl, ""))
+                    else:
+                            return uri
+
+            # make sure that file exists
+            if not os.path.isfile(path):
+                    raise Exception(
+                            'media URI must start with %s or %s' % (sUrl, mUrl)
+                    )
+            return path
+
+    def get(self, request, *args, **kwargs):
+        try:
+            template = get_template(self.template_name)
+            context = {
+                'invoice': Invoice.objects.get(pk = self.kwargs['pk']),
+                'detailinvoice_list': DetailInvoice.objects.filter(Q(invoice=self.kwargs['pk']))
+            }
+            html = template.render(context)
+            response = HttpResponse(content_type='application/pdf')
+            response['Content-Disposition'] = 'attachment; filename="Factura.pdf"'
+            pisa_status = pisa.CreatePDF(
+            html, dest=response, link_callback=self.link_callback)
+
+            return response
+        except:
+            pass
+        return HttpResponseRedirect(reverse_lazy('invoices:list'))

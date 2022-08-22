@@ -61,7 +61,7 @@
               {% if user.is_superuser %}
               <a class="btn btn-outline-dark" href="{% url 'invoices:delete' invoice.id %}">Eliminar</a>
               {% endif %}
-              <a class="btn btn-outline-dark btnTest" href="#" >DESCARGAR <br>EN PDF</a>              
+              <a class="btn btn-outline-dark btnTest" href="{% url 'invoices:pdf' invoice.id%}" >DESCARGAR <br>EN PDF</a>              
                             
             </td>
           </tr>

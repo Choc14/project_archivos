@@ -39,6 +39,8 @@ class ArchivoFacturas:
                 archivo.write(f'\n')
                 archivo.write(f'Total: {factura.total}\n')
                 archivo.write(f'\n')
+                archivo.write(f'\n')
+                archivo.write(f'\n')
 
 
     @classmethod
