@@ -16,6 +16,8 @@
             {% csrf_token %}
             {% for field in form %}
 
+            {% if field.name != 'user_type' %}
+
             <div class="form-group" style="margin-bottom: 1rem;">
 
 
@@ -27,6 +29,13 @@
                 {% endif %}
 
             </div>
+            {% else %}
+            {% if field.errors %}
+                {{ field.errors }}
+            {% endif %}
+           
+            {% endif %}
+        
 
 
 

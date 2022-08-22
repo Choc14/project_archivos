@@ -29,29 +29,18 @@
 
     
 
-    <div class="col">
-      <div class="d-flex justify-content-end">
-        <a class="btn btn-outline-dark btnTest" href="#">GENERAR REPORTE</a>
-
-      </div>
-    </div>
-  </div>
 
   <div class="row" style="margin-top: 2rem;">
     <div class="col">
 
       <table class="table table-hover caption-top">
         <thead>
-          <div class="d-flex justify-content-end">
-            {% include 'invoices/snippets/search.html' with query=query %}
-          </div>
+          
           
           <tr>
             <th scope="col"></th>
             <th scope="col">Cliente</th>
             <th scope="col">Fecha de creacion</th>
-            
-            
 
           </tr>
 
@@ -71,7 +60,8 @@
               <a class="btn btn-outline-dark" href="{% url 'invoices:detail' invoice.id %}">Mostrar</a>
               {% if user.is_superuser %}
               <a class="btn btn-outline-dark" href="{% url 'invoices:delete' invoice.id %}">Eliminar</a>
-              {% endif %}              
+              {% endif %}
+              <a class="btn btn-outline-dark btnTest" href="{% url 'invoices:pdf' invoice.id%}" >DESCARGAR <br>EN PDF</a>              
                             
             </td>
           </tr>

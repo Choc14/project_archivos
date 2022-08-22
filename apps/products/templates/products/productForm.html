@@ -33,7 +33,13 @@
                 {{ field.errors }}
                 {% endif %}
 
+            </div style="margin-bottom:1rem">
+            {% if field.name == 'category' %}
+            <div>
+                <a href="{% url 'products:category_add'%}" >AGREGAR OTRA CATEGORIA</a>
             </div>
+
+            {% endif %}
             {% endfor %}
 
             <br>

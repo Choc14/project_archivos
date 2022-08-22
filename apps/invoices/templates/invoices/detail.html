@@ -45,8 +45,8 @@
                         </div>
                         <div class="row" style="font-size: 0.8rem; margin-top: 0.5rem;">
                             <div class="col" style="display: flex;">
-                                <p class="h6"style="text-transform: uppercase;">Nombre del cliente: </p>                                
-                                <p style="margin-left: 0.5rem;font-size: 0.8rem; ">{{invoice.customer}}</p>
+                                <p class="h6"style="text-transform: uppercase;">Cliente: </p>                                
+                                <p style="margin-left: 0.5rem;font-size: 0.8rem; ">{{invoice.customer}} </p>
                                 
                             </div>
                             <div class="col-12" style="display: flex;">
@@ -67,18 +67,21 @@
             </div>
             <div class="col-12">
                 <table class="table table-hover caption-top">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nombre del producto</th>
+                    <thead class="table-bordered border-dark">
+                        <tr  style="text-transform: uppercase;">
                             <th scope="col">Cantidad</th>
-                            <th scope="col">Subtotal</th>
+                            <th scope="col">Producto</th>                            
+                            <th scope="col">Precio Unitario</th>                            
+                            <th scope="col">Total</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for detail in detailinvoice_list%}
                         <tr>
-                            <td>{{detail.product}}</td>
                             <td>{{detail.quantity}}</td>
+                            <td>{{detail.product}}</td>
+                            <td>{{detail.price}}</td>
+                            
                             <td>Q {{detail.subtotal}}</td>
                 
                         </tr>
@@ -89,17 +92,20 @@
                         <tr>
                             <td class="h6">SUBTOTAL:</td>
                             <td></td>
+                            <td></td>
                             <td class="txt-end">Q {{invoice.subtotal}}</td>
                         </tr>
                         
                         <tr class="border-bottom border-dark">
                             <td class="h6">IVA CALCULADO:</td>
                             <td></td>
+                            <td></td>
                             <td >Q {{invoice.iva}}</td>
         
                         </tr>
                         <tr >
-                            <td class="h6">Total:</td>
+                            <td style="text-transform: uppercase;" class="h6">Total a pagar:</td>
+                            <td></td>
                             <td></td>                    
                             <td class="txt-end">Q {{invoice.total}}</td>
                         </tr>
@@ -117,8 +123,9 @@
         
 
     </div>
-    <div class="card-footer text-end">
-        <div class="d-flex justify-content-start">
+    <div class="card-footer text-start">
+        <div class="col">
+            <a class="btn btn-outline-dark" href="{% url 'invoices:pdf' invoice.id %} ">DESCARGAR EN PDF</a>
             <a href="{% url 'invoices:list' %}">REGRESAR</a>
 
         </div>

@@ -39,16 +39,8 @@
 {% block content %}
 <form method="post">
     <div class="card card-primary">
-        <div class="card-header">
-            <h3 class="card-title">
-                {% if action == 'add' %}
-                    <i class="fas fa-plus"></i>
-                {% else %}
-                    <i class="fas fa-edit"></i>
-                {% endif %}
-                {{ title }}
-            </h3>
-        </div>
+
+   
         
         <div class="card-body">
             <div class="row">
@@ -127,10 +119,10 @@
             </div>
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary btn-flat">
+            <button type="submit" class="btn btn-dark btn-flat">
                 <i class="fas fa-save"></i> Guardar registro
             </button>
-            <a href="{% url 'invoices:list' %}" class="btn btn-danger btn-flat">
+            <a href="{% url 'invoices:list' %}" >
                 <i class="fas fa-times"></i> Cancelar
             </a>
         </div>

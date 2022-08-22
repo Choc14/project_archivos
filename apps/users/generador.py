@@ -1,6 +1,6 @@
 import os
 
-from .models import User
+
 
 class ArchivoUsuario:
     
@@ -17,7 +17,7 @@ class ArchivoUsuario:
                 archivo.write(f'Nombre del usuario: {usuario.first_name}\n')
                 archivo.write(f'Apellido del usuario: {usuario.last_name}\n')
                 archivo.write(f'Correo Electronico: {usuario.email}\n')
-                archivo.write(f'Nombre de usuario: {usuario.username}\n')
+                archivo.write(f'Username: {usuario.username}\n')
                 archivo.write(f'Tipo de usuario: {usuario.user_type}\n')
                 
                 fecha = usuario.created_at.strftime('%Y-%m-%d')

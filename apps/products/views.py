@@ -12,10 +12,10 @@ from django.views.generic.detail import DetailView
 from django.db.models import Q
 
 # MODELOS
-from .models import Product
+from .models import Product, Category
 
 # FORMULARIOS
-from .forms import productForm
+from .forms import productForm, categoryForm
 
 # CLASES
 from .generador import ArchivoProducto as archivo
@@ -42,6 +42,24 @@ class ProductoCreate(CreateView):
     model = Product
     form_class = productForm
     template_name = 'products/productForm.html'
+
+    
+
+    def get_context_data(self, **kwargs):
+        
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Agregar'
+        context['message'] = 'Agregar'
+
+        return context
+
+    success_url = reverse_lazy('products:Producto')
+
+
+class CategoryCreate(CreateView):
+    model = Category
+    form_class = categoryForm
+    template_name = 'category/create.html'
 
     
 

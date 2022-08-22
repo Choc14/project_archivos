@@ -5,11 +5,14 @@ from django.shortcuts import render
 from apps.customers.models import Customer
 from apps.products.models import Product, Category
 from apps.users.models import User
-from apps.invoices.models import Invoice
+from apps.invoices.models import Invoice, DetailInvoice
+
+
 # CLASE
 from apps.products.generador import ArchivoProducto as archvp
 from apps.users.generador import ArchivoUsuario as archvu
 from apps.customers.generador import ArchivoCliente as archvc
+from apps.invoices.generador import ArchivoFacturas as archvf
 
 # JSON
 from django.http import JsonResponse
@@ -31,6 +34,7 @@ def index(request):
     archvp.subir(Product)
     archvu.subir(User)
     archvc.subir(Customer)
+    archvf.subir(Invoice, DetailInvoice)
     
 
     template = 'index.html'
