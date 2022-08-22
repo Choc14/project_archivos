@@ -2,113 +2,262 @@
 {% load static %}
 {% block content %}
 
-<hr class="featurette-divider">
 
-
-<div class="row featurette">
-    <div class="col-md-12">
-        <h5 class="featurette-heading"><b><FONT FACE="Comic Sans MS">¿Cómo funcionan los apartados del Proyecto?</FONT></b> </h5>
-        <h6 class="featurette-heading"><u><FONT FACE="Comic Sans MS">*Menú Inicio/Home*</FONT></u></h6>
-            <p align = "justify">
-                Cuando ingrese al programa, después de haberse logueado, se le mostrará este apartado inicial en el que se encuentran
-                sus datos de Usuario y las opciones que puede ejecutar estando dentro de la aplicación, también puede acceder al
-                Inicio/Home en algunos apartados dentro del programa donde se visualize "Home".
-
-            <p align = "justify">
-                <b>Modelos:</b> Situándose en este apartado podrá acceder a los Productos, Clientes y Usuarios, así como a la información
-                de cada uno de ellos.
-            </p>
-
-            <p align = "justify">
-                <b>Facturas:</b> Si ya tiene lista su información, productos, clientes y usuario correctamente, puede proceder a la
-                realización o creación de facturas con la opción de Generar una Factura o si desea visualizar un reporte de las facturas
-                realizadas puede seleccionar la opción de Facturas Generadas.
-            </p>
-
+<div class="row" style="height: 50vh;">
+    <div class="col">
+        <div style="display: flex; align-items:center; justify-content: center; height: 25vh;">
+            <h2 id="principal">MANUAL DE USUARIO</h2>
         </div>
+
+    </div>
 </div>
 
 <hr class="featurette-divider">
-
-<div class="row featurette">
-    <div class="col-md-12">
-        <h6 class="featurette-heading"><u><FONT FACE="Comic Sans MS">*Menú Desplegable ARCHIVO*</FONT></u></h6>
-
-            <p align = "justify">
-                <b>Clientes:</b> Permite la creación y visualización de los clientes activos, en él podemos añadir nuevos clientes
-                con la opción "Agregar", también podremos editar su información a través de la opción "Editar", con la opción
-                "Mostrar" se desplegarán los detalles de cada cliente y con la opción "Eliminar" borraremos toda la información
-                de un cliente, con la opción de "Buscar" encontraremos información sobre un cliente en específico, por último,
-                la opción de "Generar Reporte" servirá para detallar cuántos clientes están registrados  y la información de cada uno.
-            </p>
-            <p align = "justify">
-              <b>Productos:</b> Tendremos disponibles las mismas funcionalidades del apartado clientes, aplicado en los productos,
-                podemos añadir, mostrar, editar, eliminar o buscar productos para posteriormente mostrarse durante otras operaciones, así mismo
-                con la opción de generar reporte podremos visualizar detalladamente los productos registrados.
-            </p>
-            <p align = "justify">
-                <b>Usuarios:</b> En este apartado se mostrarán los usuarios activos, su información relativa al programa, el tipo de
-                usuario al que pertenecen, se manejan las opciones de editar, mostrar, agregar, eliminar, buscar y se podrá generar
-                un reporte de estos usuarios a través de "Generar Reporte".
-            </p>
-            <p align = "justify">
-              <b>Cambio de usuario:</b> Si desea cambiar su usuario (nombre de usuario) deberá recurrir a este apartado, al utilizar
-                esta función podrá crear un nuevo nombre de usuario, escribiendo su nuevo usuario y seleccionando el botón
-                de Actualizar, en caso de haber llegado a esta opción de forma indeseada, presione Cancelar.
-            </p>
-            <p align = "justify">
-                <b>Cambio de clave:</b> Si necesita un cambio en su contraseña, deberá seleccionar este apartado, aquí podrá crear
-                una nueva contraseña para su cuenta, piense bien su nueva clave para no recurrir a más cambios, deberá escribir la
-                nueva contraseña y confirmarla nuevamente para realizar una verificación correcta, luego seleccione la opción Actualizar.
-            </p>
-            <p align = "justify">
-                <b>Salir:</b> Opción que nos permitirá cerrar las funcionalidades del programa y volver al apartado de login.
-            </p>
+<div class="row">
+    <div class="col-4">
+        <div id="list-example" class="list-group">
+            <a class="list-group-item list-group-item-action" href="#1" >¿Cómo funcionan los apartados del Proyecto?</a>
+            <a class="list-group-item list-group-item-action" href="#2" >Menú Desplegable ARCHIVO</a>
+            <a class="list-group-item list-group-item-action" href="#3">Menú Desplegable MOVIMIENTOS</a>
+            
         </div>
+
+    </div>
+    <div class="col-8">
+        <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+
+            <!---->
+           
+            <h3 class="text-center" style="margin-top: 2rem;" id="1">
+                <a style="text-decoration: none; color: black;" href="#principal">¿Cómo funcionan los apartados del Proyecto?</a>
+            </h3>
+            <div class="row" style="height: 50vh;margin-top: 2.5rem; margin-bottom: 10rem;">
+                <div class="col">
+                    <div class="row">
+                        <h5 style="margin-top: 2rem;">Menú Inicio/Home</h5>
+                        <hr class="featurette-divider">
+                        <div class="col">
+                            <p>Cuando ingrese al programa, después de haberse logueado, se le mostrará este apartado
+                                inicial
+                                en el
+                                que se encuentran
+                                sus datos de Usuario y las opciones que puede ejecutar estando dentro de la aplicación,
+                                también
+                                puede acceder al
+                                Inicio/Home en algunos apartados dentro del programa donde se visualize "Home"
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5 style="margin-top: 2rem;">Modelos</h5>
+                        <hr class="featurette-divider">
+                        <div class="col">
+                            <p>
+                                Situándose en este apartado podrá acceder a los Productos, Clientes y Usuarios, así como
+                                a
+                                la
+                                información
+                                de cada uno de ellos
+
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <h5 style="margin-top: 2rem;">Facturas</h5>
+                        <hr class="featurette-divider">
+                        <div class="col">
+                            <p>
+                                Si ya tiene lista su información, productos, clientes y usuario correctamente, puede
+                                proceder a la
+                                realización o creación de facturas con la opción de Generar una Factura o si desea
+                                visualizar un
+                                reporte de las facturas
+                                realizadas puede seleccionar la opción de Facturas Generadas.
+
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!---->
+            <hr class="featurette-divider">
+            <h3 class="text-center" style="margin-top: 2rem;" id="2">
+                <a style="text-decoration: none; color: black;" href="#principal">Menú Desplegable ARCHIVO</a>
+                
+            </h3>
+            <div class="row" style="height: 125vh; margin-top: 2.5rem;margin-bottom: 5rem;">
+                <div class="col">
+                    <div class="row">
+                        <h5 style="margin-top: 2rem;">Clientes</h5>
+                        <hr class="featurette-divider">
+                        <div class="col">
+                            <p>Permite la creación y visualización de los clientes activos, en él podemos añadir nuevos
+                                clientes
+                                con la opción "Agregar", también podremos editar su información a través de la opción
+                                "Editar", con
+                                la opción
+                                "Mostrar" se desplegarán los detalles de cada cliente y con la opción "Eliminar"
+                                borraremos
+                                toda la
+                                información
+                                de un cliente, con la opción de "Buscar" encontraremos información sobre un cliente en
+                                específico.
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5 style="margin-top: 2rem;">Productos</h5>
+                        <hr class="featurette-divider">
+                        <div class="col">
+                            <p>
+                                Tendremos disponibles las mismas funcionalidades del apartado clientes, aplicado en los
+                                productos,
+                                podemos añadir, mostrar, editar, eliminar o buscar productos para posteriormente
+                                mostrarse
+                                durante
+                                otras operaciones.
+
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <h5 style="margin-top: 2rem;">Usuario</h5>
+                        <hr class="featurette-divider">
+                        <div class="col">
+                            <p>
+                                En este apartado se mostrarán los usuarios activos, su información relativa al programa,
+                                el
+                                tipo de
+                                usuario al que pertenecen, se manejan las opciones de editar, mostrar, agregar,
+                                eliminar,
+                                buscar.
+
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <h5 style="margin-top: 2rem;">Cambio de usuario</h5>
+                        <hr class="featurette-divider">
+                        <div class="col">
+                            <p>
+                                Si desea cambiar su usuario (nombre de usuario) deberá recurrir a este apartado, al
+                                utilizar
+                                esta función podrá crear un nuevo nombre de usuario, escribiendo su nuevo usuario y
+                                seleccionando el
+                                botón
+                                de Actualizar, en caso de haber llegado a esta opción de forma indeseada, presione
+                                Cancelar.
+
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <h5 style="margin-top: 2rem;">Cambio de clave</h5>
+                        <hr class="featurette-divider">
+                        <div class="col">
+                            <p>
+                                Si necesita un cambio en su contraseña, deberá seleccionar este apartado, aquí podrá
+                                crear
+                                una nueva contraseña para su cuenta, piense bien su nueva clave para no recurrir a más
+                                cambios,
+                                deberá escribir la
+                                nueva contraseña y confirmarla nuevamente para realizar una verificación correcta, luego
+                                seleccione
+                                la opción Actualizar.
+
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <h5 style="margin-top: 2rem;">Salir</h5>
+                        <hr class="featurette-divider">
+                        <div class="col">
+                            <p>
+                                Opción que nos permitirá cerrar las funcionalidades del programa y volver al apartado de
+                                login.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!---->
+            <hr class="featurette-divider" style="margin-top: 2rem;">
+            <h3 class="text-center"  id="3">
+                <a style="text-decoration: none; color: black;" href="#principal">Menú Desplegable MOVIMIENTOS</a>
+            </h3>
+            <div class="row" style="height: 50vh;margin-top: 2.5rem; margin-bottom: 10rem;">
+                <div class="col">
+                    <div class="row">
+                        <h5 style="margin-top: 2rem;">Nueva Factura</h5>
+                        <hr class="featurette-divider">
+                        <div class="col">
+                            <p>
+                                Permite generar o crear una nueva factura, si desea realizar una nueva transacción
+                                deberá
+                                seleccionar
+                                esta opción, al encontrarse en este apartado, se podrá añadir a la factura los productos
+                                que
+                                desee, puede buscarlos utilizando
+                                el apartado del buscador de productos, cuando seleccione un producto deberá vincularlo a
+                                un
+                                cliente activo para que la transacción
+                                sea válida, podrá seleccionar la cantidad de cada producto añadido, y la tasa del iva
+                                que se
+                                aplicará, la base será del 12%, en
+                                una tabla se mostrarán los detalles de la factura hasta el momento con los elementos que
+                                haya seleccionado, si desea finalizar
+                                el proceso deberá darle a la opción "Guardar Registro", a través de la cual se generará
+                                un
+                                archivo pdf con los datos de la factura
+                                que fueron añadidos previamente, si desea cancelar la transacción deberá presionar
+                                "Cancelar"
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5 style="margin-top: 2rem;">Reportes de Factura</h5>
+                        <hr class="featurette-divider">
+                        <div class="col">
+                            <p>
+                                A través de esta opción obtendremos un reporte detallado de todas las facturas que han
+                                sido emitidas, siempre y cuando exista un mínimo de una factura emitida, de lo contrario
+                                se
+                                mostrará el mensaje de facturas
+                                inexistentes.
+
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
 </div>
 
-<hr class="featurette-divider">
 
 
-<div class="row featurette">
-    <div class="col-md-12">
-
-        <h6 class="featurette-heading"><u><FONT FACE="Comic Sans MS">*Menú Desplegable MOVIMIENTOS*</FONT></u></h6>
-            <p align = "justify">
-                <b>Nueva Factura:</b> Permite generar o crear una nueva factura, si desea realizar una nueva transacción deberá seleccionar
-                esta opción, al encontrarse en este apartado, se podrá añadir a la factura los productos que desee, puede buscarlos utilizando
-                el apartado del buscador de productos, cuando seleccione un producto deberá vincularlo a un cliente activo para que la transacción
-                sea válida, podrá seleccionar la cantidad de cada producto añadido, y la tasa del iva que se aplicará, la base será del 12%, en
-                una tabla se mostrarán los detalles de la factura hasta el momento con los elementos que haya seleccionado, si desea finalizar
-                el proceso deberá darle a la opción "Guardar Registro", a través de la cual se generará un archivo pdf con los datos de la factura
-                que fueron añadidos previamente, si desea cancelar la transacción deberá presionar "Cancelar".
-
-            </p>
-          <p align = "justify">
-              <b>Reportes de Factura:</b> A través de esta opción obtendremos un reporte detallado de todas las facturas que han
-               sido emitidas, siempre y cuando exista un mínimo de una factura emitida, de lo contrario se mostrará el mensaje de facturas
-              inexistentes.
-            </p>
-
-        </div>
-</div>
-
-<hr class="featurette-divider">
-
-
-<div class="row featurette">
-    <div class="col-md-12">
-
-        <h6 class="featurette-heading"><u><FONT FACE="Comic Sans MS">*Menú Desplegable AYUDA*</FONT></u></h6>
-            <p align = "justify">
-                <b>Acerda de:</b> Contiene información sobre el proyecto y sus creadores.
-            </p>
-            <p align = "justify">
-                <b>Ayuda:</b> Brinda ayuda para la utilización y funcionamiento del programa, usted se encuentra en este apartado.
-            </p>
-
-        </div>
-</div>
 
 
 
