@@ -1,10 +1,10 @@
 -----------------------------1------------------------------
-Nombre del cliente: Ejemplo
-Apellido del cliente: Admin
-Direccion: asad@gmail
-Numero de telefono: 6265656
-Fecha de cumpleaños: 2022-08-20
-Ciudad: Coba
-Identificador: dpi
-Fecha de creacion: 2022-08-20
+Nombre del cliente: Juan Carlos Eloi
+Apellido del cliente: Xol
+Direccion: Diagonal 2 8-66
+Numero de telefono: 39046965
+Fecha de cumpleaños: 2022-08-11
+Ciudad: Coban
+Identificador: DPI
+Fecha de creacion: 2022-08-18
 

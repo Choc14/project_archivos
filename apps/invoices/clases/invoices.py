@@ -54,7 +54,7 @@ class Factura(Clientes):
     def total(self, total):
         self.__total = total
 
-    @created_at.setter
+    @fecha.setter
     def subtotal(self, created_at):
         self.__creacion = created_at
     

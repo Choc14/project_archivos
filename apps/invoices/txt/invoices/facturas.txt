@@ -4,47 +4,16 @@ Fecha de creacion: 2022-08-21
 
 Nombre del producto: Litro de Coca Cola
 Precio: 7.00
-Cantidad: 1
-Subtotal: 7.00
+Cantidad: 2
+Subtotal: 14.00
 
 
 ------------------------------------------------------------
-Subtotal: 7.00
-IVA calculado: 0.84
+Subtotal: 14.00
+IVA calculado: 1.68
 ------------------------------------------------------------
 ------------------------------------------------------------
-Total: 7.84
-
-
-
------------------------------2------------------------------
-Nombre del usuario: Juan Carlos Eloi Xol
-Fecha de creacion: 2022-08-21
-
-Nombre del producto: Litro de Coca Cola
-Precio: 7.00
-Cantidad: 1
-Subtotal: 7.00
-
-
-Nombre del producto: Litro de Coca Cola
-Precio: 7.00
-Cantidad: 1
-Subtotal: 7.00
-
-
-Nombre del producto: Litro de Coca Cola
-Precio: 7.00
-Cantidad: 1
-Subtotal: 7.00
-
-
-------------------------------------------------------------
-Subtotal: 21.00
-IVA calculado: 2.52
-------------------------------------------------------------
-------------------------------------------------------------
-Total: 23.52
+Total: 15.68
 
 
 

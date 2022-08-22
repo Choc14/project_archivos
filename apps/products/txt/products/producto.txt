@@ -1,7 +1,7 @@
 -----------------------------1------------------------------
-Nombre del producto: Manzana
-Descripcion: roja
-Price: 2.00
-Categoria: None
-Fecha de creacion: 2022-08-20
+Nombre del producto: Litro de Coca Cola
+Descripcion: Litro de coca cola
+Price: 7.00
+Categoria: Bebida
+Fecha de creacion: 2022-08-18
 
