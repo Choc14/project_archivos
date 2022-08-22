@@ -7,22 +7,6 @@ Tipo de usuario: ADMINISTRADOR
 Fecha de creacion: 2022-08-15
 
 -----------------------------2------------------------------
-Nombre del usuario: s
-Apellido del usuario: s
-Correo Electronico: sin@cin.com
-Username: choc1403s
-Tipo de usuario: USUARIO
-Fecha de creacion: 2022-08-15
-
------------------------------3------------------------------
-Nombre del usuario: Nombre
-Apellido del usuario: Apellido
-Correo Electronico: dasa@gmail.com
-Username: choc1403ss
-Tipo de usuario: USUARIO
-Fecha de creacion: 2022-08-15
-
------------------------------4------------------------------
 Nombre del usuario: 
 Apellido del usuario: 
 Correo Electronico: adminever12@gmail.com
