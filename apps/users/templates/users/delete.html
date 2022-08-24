@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-center" style="height: 50vh; align-items: center; display: flex;">
         <form method="post">
             {% csrf_token %}
-            <h2>¿Desea eliminar el producto <span>{{user.username}}</span> ?</h2>
+            <h2>¿Desea eliminar el usuario <span>{{user.username}}</span> ?</h2>
             <div class="boton">
                 <button class="btn btn-danger" type="submit">Sí, eliminar</button>
                 <a class="btn btn-default" href="{% url 'users:list' %}">Cancelar</a>
