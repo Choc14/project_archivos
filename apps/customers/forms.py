@@ -1,13 +1,9 @@
 ###-- CREACION DE FORMULARIOS PARA EL RESPECTIVO MODELO --##
-
-from cProfile import label
 from django import forms
 
-from .models import Customer
-from .models import City
-from .models import Id
 
-from .models import Customer, City
+
+from .models import Customer, City, Id
 
 
 class customerForm(forms.ModelForm):
@@ -72,3 +68,19 @@ class cityForm(forms.ModelForm):
             'name_city': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
+
+class IdForm(forms.ModelForm):
+    class Meta:
+        model = Id
+
+        fields = [
+            'id_type'
+        ]
+
+        labels = {
+            'id_type': 'Tipo de identificacion'
+        }
+
+        widgets = {
+            'id_type': forms.TextInput(attrs={'class': 'form-control'}),
+        }

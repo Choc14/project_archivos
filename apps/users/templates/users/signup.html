@@ -34,9 +34,7 @@
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in form %}
-    
-                {% if field.name != 'user_type' %}
-    
+                {% if not users_list %}
                 <div class="form-group" style="margin-bottom: 1rem;">
     
     
@@ -48,11 +46,27 @@
                     {% endif %}
     
                 </div>
+                    
+    
+                
                 {% else %}
+                    {% if field.name != 'user_type' %}
+                    <div class="form-group" style="margin-bottom: 1rem;">
+    
+    
+                        {{ field.label_tag }}
+                        {{ field }}
+        
+                        {% if field.errors %}
+                        {{ field.errors }}
+                        {% endif %}
+        
+                    </div>
+                    {% endif %}
+                {% endif %}
+
                 {% if field.errors %}
                     {{ field.errors }}
-                {% endif %}
-               
                 {% endif %}
             
     
@@ -71,7 +85,11 @@
                 {% endif %}
     
     
-            </form>
+            </form>            
+            
+            
+            
+           
     
         </div>
     </div>

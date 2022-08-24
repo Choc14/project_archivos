@@ -12,7 +12,7 @@ from django.forms import model_to_dict
 
 # Create your models here.
 class City(models.Model):
-    name_city = models.CharField(max_length=50)
+    name_city = models.CharField(max_length=50, unique=True)
 
     def __str__(self):
         return self.name_city
@@ -23,7 +23,7 @@ class City(models.Model):
 
 
 class Id(models.Model):
-    id_type = models.CharField(max_length=25)
+    id_type = models.CharField(max_length=25, unique=True)
 
     def __str__(self):
         return self.id_type

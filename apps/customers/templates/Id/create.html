@@ -21,11 +21,11 @@
 {% block content %}
 <div class="card" style="margin-top: 2.5rem;">
     <div class="card-body">
-        <a href="{% url 'customers:Cliente'%}">REGRESAR</a>
+        <a href="{% url 'customers:Crear'%}">REGRESAR</a>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% for field in form %}
-            <div class="form-group" style="margin-bottom: 2rem;">
+            <div class="form-group" style="margin-bottom: 1rem;">
                 {{ field.label_tag }}
                 {{ field }}
 
@@ -34,36 +34,18 @@
                 {% endif %}
 
             </div>
-            {% if field.name == 'city'%}
-            <div style="margin-bottom: 2rem;">
-                <a href="{% url 'customers:add_city'%}">AGREGAR OTRA CIUDAD</a>
-
-            </div>
-            {% endif %}
-
-            {% if field.name == 'id_type' and count < 2 %}
-            
-
-            <div style="margin-bottom: 2rem;">
-                <a href="{% url 'customers:add_id'%}">AGREGAR OTRO TIPO DE IDENTIFICACION</a>
-                
-
-            </div>
-            
-          
-            
-            {% endif %}
             {% endfor %}
 
             <br>
 
             <button type="submit" class="btn btn-dark ">{{message}}</button>
-            <a href="{% url 'customers:Cliente'%}">CANCELAR</a>
+            <a href="{% url 'customers:Crear'%}">CANCELAR</a>
 
 
         </form>
 
     </div>
+
 </div>
 
 {% endblock %}

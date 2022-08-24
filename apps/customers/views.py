@@ -1,5 +1,5 @@
 # REDIRECCIONAR
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.urls import reverse_lazy
 
 # CRUD
@@ -11,10 +11,10 @@ from django.views.generic.detail import DetailView
 from django.db.models import Q
 
 # MODELOS
-from .models import Customer, City
+from .models import Customer, City, Id
 
 # FORMULARIOS
-from .forms import customerForm, cityForm
+from .forms import customerForm, cityForm, IdForm
 
 # BREADCRUMB
 from .utils import breadcrumb
@@ -68,18 +68,48 @@ class CustomerCreate(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Agregar'
-        context['message'] = 'Agregar'
+        context['message'] = 'Agregar'        
+        context['count'] = Id.objects.all().count()        
 
         return context
 
     success_url = reverse_lazy('customers:Cliente')
 
 
-###-- MODULO QUE CERA A CIUDADES--###
+###-- MODULO QUE CREA A CIUDADES--###
 class CityCreate(CreateView):
     model = City
     form_class = cityForm
     template_name = 'city/create.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Agregar'
+        context['message'] = 'Agregar'
+        
+
+        return context
+
+    success_url = reverse_lazy('customers:Crear')
+
+###-- MODULO QUE CERA A CIUDADES--###
+class IdCreate(CreateView):
+    model = Id
+    form_class = IdForm
+    template_name = 'Id/create.html'
+
+    def get(self, request, *args, **kwargs):
+        count = Id.objects.all().count()
+        if count < 2:
+            context = {
+                'form':self.form_class,
+                'title':'Agregar',
+                'message':'Agregar'
+            }
+            return render(request, self.template_name, context)
+        else:
+            return redirect('index')
+        
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -47,7 +47,7 @@ class SignUp(user_authenticate,CreateView):
         context['title'] = 'Register'
         context['messages.success'] = 'BIENVENIDO'
         context['info'] = 'Registrar' 
-       
+        context['users_list'] = User.objects.exists()
 
         return context
 
