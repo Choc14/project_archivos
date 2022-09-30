@@ -1,8 +1,8 @@
 -----------------------------1------------------------------
-Nombre del usuario: Juan Carlos Eloi
-Apellido del usuario: Xol
+Nombre del usuario: 
+Apellido del usuario: 
 Correo Electronico: eloicx@gmail.com
 Username: choc1403
 Tipo de usuario: ADMINISTRADOR
-Fecha de creacion: 2022-08-23
+Fecha de creacion: 2022-09-30
 

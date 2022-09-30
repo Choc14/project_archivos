@@ -29,9 +29,9 @@ POSTGRESQL = {
 }
 
 #MYSQL
-__nameDBMysql=''
-__userMyS=''
-__passwordMyS=''
+__nameDBMysql='pventas'
+__userMyS='root'
+__passwordMyS='admin'
 MYSQL = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -40,6 +40,26 @@ MYSQL = {
         'PASSWORD': __passwordMyS,
         'HOST': 'localhost',
         'PORT': '3306',
+        
+    }
+}
+
+#SQL SERVER
+__nameDBSqlServer='pventas'
+__userSqlServer='sa'
+__passwordSqlServer='choc'
+#DESKTOP-Q9MVAP4
+SQLSERVER = {
+    'default': {
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': __nameDBSqlServer,
+        'USER': __userSqlServer,
+        'PASSWORD': __passwordSqlServer,
+        'HOST': 'DESKTOP-Q9MVAP4',
+        'PORT': '',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 13 for SQL Server',
+        },
         
     }
 }
