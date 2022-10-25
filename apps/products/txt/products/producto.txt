@@ -1,0 +1,14 @@
+-----------------------------1------------------------------
+Nombre del producto: Prueba
+Descripcion: dsad
+Price: 2.00
+Categoria: None
+Fecha de creacion: 2022-10-25
+
+-----------------------------2------------------------------
+Nombre del producto: Coca Cola
+Descripcion: sa
+Price: 21.00
+Categoria: None
+Fecha de creacion: 2022-10-25
+

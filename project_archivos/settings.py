@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'project_archivos.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = db.SQLSERVER
+DATABASES = db.SQLITE
 
 
 # Password validation

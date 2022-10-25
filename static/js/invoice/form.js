@@ -1,7 +1,7 @@
 var tblProducts;
 var vents = {
     items: {
-        customer: '',
+        customer: '',        
         created_at: '',
         subtotal: 0.00,
         iva: 0.00,
@@ -218,7 +218,7 @@ $(function () {
         }
 
         vents.items.created_at = $('input[name="created_at"]').val();
-        vents.items.customer = $('select[name="customer"]').val();
+        vents.items.customer = $('select[name="customer"]').val();     
         var parameters = new FormData();
         parameters.append('action', $('input[name="action"]').val());
         parameters.append('vents', JSON.stringify(vents.items));

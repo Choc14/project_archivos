@@ -9,13 +9,14 @@ from django.forms import model_to_dict
 # Modelos
 from apps.customers.models import Customer
 from apps.products.models import Product
+from apps.users.models import User
 
 # Tiempo
 from datetime import datetime
 
 # Create your models here.
 class Invoice(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)    
     subtotal = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
     iva = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
     total = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)

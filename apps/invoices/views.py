@@ -14,6 +14,7 @@ from .models import Invoice, DetailInvoice
 from apps.products.models import Product
 from apps.customers.models import Customer
 
+
 # FORMULARIOS
 from .forms import InvoiceForm
 
@@ -75,6 +76,7 @@ class CreateInvoice(CreateView):
                     
                     vents = json.loads(request.POST['vents'])
                     
+                   
 
                     cliente = vents['customer']
                     fecha = vents['created_at']
@@ -82,10 +84,11 @@ class CreateInvoice(CreateView):
                     iva = float(vents['iva'])
                     total = float(vents['total'])
                     cl = get_object_or_404(Customer,id = cliente)
-                    
+                   
 
                     invoice = Invoice()
                     invoice.customer = cl
+                    
                     invoice.created_at = fecha
                     invoice.subtotal = subtotal
                     invoice.iva = iva
@@ -120,6 +123,8 @@ class CreateInvoice(CreateView):
         context['message'] = 'Nueva Factura'
         context['det'] = []
         context['factura'] = True
+        
+        
 
         return context
     success_url = reverse_lazy('invoices:list')

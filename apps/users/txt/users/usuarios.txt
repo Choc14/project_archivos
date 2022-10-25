@@ -3,6 +3,6 @@ Nombre del usuario:
 Apellido del usuario: 
 Correo Electronico: eloicx@gmail.com
 Username: choc1403
-Tipo de usuario: ADMINISTRADOR
-Fecha de creacion: 2022-09-30
+Tipo de usuario: USUARIO
+Fecha de creacion: 2022-10-25
 
