@@ -26,7 +26,7 @@ class User(AbstractUser):
     created_at = models.DateTimeField(default=datetime.now)
 
     def __str__(self):
-        return '{}'.format(self.first_name)
+        return '{} {}'.format(self.first_name, self.last_name)
 
     def get_image(self):
         if self.image:

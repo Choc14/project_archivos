@@ -16,7 +16,8 @@ from datetime import datetime
 
 # Create your models here.
 class Invoice(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)    
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)   
     subtotal = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
     iva = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
     total = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)

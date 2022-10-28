@@ -9,6 +9,8 @@ from django.views.generic.list import ListView
 from django.db.models import Q
 from django.db import transaction
 
+from apps.users.models import User
+
 # MODELOS
 from .models import Invoice, DetailInvoice
 from apps.products.models import Product
@@ -56,14 +58,17 @@ class CreateInvoice(CreateView):
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
-
+    
+    
     def post(self, request, *args, **kwargs):
+        
         
         data = {}
         try:
             action = request.POST['action']
             if action == 'search_products':
                 data = []
+                
                 prods = Product.objects.filter(title__icontains=request.POST['term'])[0:10]
                 for i in prods:
                     item = i.toJSON()
@@ -74,21 +79,24 @@ class CreateInvoice(CreateView):
                
                 with transaction.atomic():
                     
-                    vents = json.loads(request.POST['vents'])
+                    vents = json.loads(request.POST['vents'])                    
                     
                    
 
                     cliente = vents['customer']
+                    usuario = request.user           
+                    
                     fecha = vents['created_at']
                     subtotal = float(vents['subtotal'])
                     iva = float(vents['iva'])
                     total = float(vents['total'])
                     cl = get_object_or_404(Customer,id = cliente)
+                    
                    
 
                     invoice = Invoice()
                     invoice.customer = cl
-                    
+                    invoice.user = usuario
                     invoice.created_at = fecha
                     invoice.subtotal = subtotal
                     invoice.iva = iva
