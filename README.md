@@ -32,7 +32,14 @@ venv\scripts\activate
 ```sh
 deactivate
 
+
 ```
+> PARA ACTUALIZAR EL PIP
+## Actualizar el pip
+```sh
+python -m pip install -U pip
+```
+
 
 ## _Clonar el repositorio_
 ```sh
@@ -49,6 +56,10 @@ python -m pip install -r requirements.txt
 pip freeze > requirements.txt
 ```
 
+## Eliminar todas las librerias
+```sh
+pip freeze | xargs pip uninstall -y
+```
 
 ## Creacion de aplicaciones
 ```sh

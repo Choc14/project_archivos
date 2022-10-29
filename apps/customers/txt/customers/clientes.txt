@@ -20,7 +20,7 @@ Fecha de creacion: 2022-08-22
 
 -----------------------------3------------------------------
 Nombre del cliente: Francisco
-Apellido del cliente: Rodr�guez G�mez
+Apellido del cliente: Rodriguez Gomez
 Direccion: 3ra av. 8-98 zona 8
 Numero de telefono: 12479354
 Fecha de cumpleaños: 1988-08-11
@@ -40,7 +40,7 @@ Fecha de creacion: 2022-08-22
 
 -----------------------------5------------------------------
 Nombre del cliente: Michael
-Apellido del cliente: Garc�a Rodr�guez
+Apellido del cliente: Garcia Rodriguez
 Direccion: 2da av. 4-88 zona 4
 Numero de telefono: 47659831
 Fecha de cumpleaños: 2000-12-16
@@ -50,7 +50,7 @@ Fecha de creacion: 2022-08-22
 
 -----------------------------6------------------------------
 Nombre del cliente: Marcos
-Apellido del cliente: G�mez L�pez
+Apellido del cliente: Gomez Lopez
 Direccion: 5ta av. 7-41
 Numero de telefono: 56478945
 Fecha de cumpleaños: 1984-10-10
@@ -60,7 +60,7 @@ Fecha de creacion: 2022-08-22
 
 -----------------------------7------------------------------
 Nombre del cliente: Alejandro
-Apellido del cliente: M�ndez M�ndez
+Apellido del cliente: Mendez
 Direccion: 6ta av. 9-24
 Numero de telefono: 48963178
 Fecha de cumpleaños: 1997-07-31
@@ -79,7 +79,7 @@ Identificador: Pasaporte
 Fecha de creacion: 2022-08-22
 
 -----------------------------9------------------------------
-Nombre del cliente: Edgar Ra�l
+Nombre del cliente: Edgar
 Apellido del cliente: Cetino Ruiz
 Direccion: 6ta av. 7-52
 Numero de telefono: 78547993
@@ -99,8 +99,8 @@ Identificador: DPI
 Fecha de creacion: 2022-08-22
 
 -----------------------------11-----------------------------
-Nombre del cliente: Mar�a Eliza
-Apellido del cliente: V�squez Calder�n
+Nombre del cliente: Maria Eliza
+Apellido del cliente: Vasquez Calderon
 Direccion: 7ma. av. 9-22
 Numero de telefono: 12874395
 Fecha de cumpleaños: 1989-09-20

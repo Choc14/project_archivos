@@ -13,7 +13,7 @@ Categoria: Bebida
 Fecha de creacion: 2022-08-22
 
 -----------------------------3------------------------------
-Nombre del producto: Porci�n de Pepi�n
+Nombre del producto: Porcion de Pepian
 Descripcion: Platillo tradicional
 Price: 25.00
 Categoria: Alimento
@@ -34,7 +34,7 @@ Categoria: Verdura
 Fecha de creacion: 2022-08-22
 
 -----------------------------6------------------------------
-Nombre del producto: At�n
+Nombre del producto: Atun
 Descripcion: Conservado para ser comestible
 Price: 8.00
 Categoria: Producto Enlatado
@@ -44,14 +44,14 @@ Fecha de creacion: 2022-08-22
 Nombre del producto: Leche Lala
 Descripcion: Leche deslactosada
 Price: 12.00
-Categoria: L�cteos
+Categoria: Lacteos
 Fecha de creacion: 2022-08-22
 
 -----------------------------8------------------------------
 Nombre del producto: Subway
 Descripcion: Bocadillo
 Price: 20.00
-Categoria: Refacci�n
+Categoria: Refaccion
 Fecha de creacion: 2022-08-22
 
 -----------------------------9------------------------------
@@ -79,7 +79,7 @@ Fecha de creacion: 2022-08-22
 Nombre del producto: Yogurt
 Descripcion: Derivado de la leche
 Price: 12.00
-Categoria: L�cteos
+Categoria: Lacteos
 Fecha de creacion: 2022-08-22
 
 -----------------------------13-----------------------------
