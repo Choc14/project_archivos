@@ -54,8 +54,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'crum.CurrentRequestUserMiddleware',
+    
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'project_archivos.urls'
 
@@ -78,12 +81,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'project_archivos.wsgi.application'
-
+#WSGI_APPLICATION = 'wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = db.SQLSERVER
+DATABASES = db.SQLITE
 
 
 # Password validation

@@ -1,24 +1,8 @@
 -----------------------------1------------------------------
-Nombre del usuario: Juan Carlos
-Apellido del usuario: Choc Xol
-Correo Electronico: eloicx@gmail.com
-Username: choc1403
-Tipo de usuario: ADMINISTRADOR
-Fecha de creacion: 2022-08-15
-
------------------------------2------------------------------
 Nombre del usuario: 
 Apellido del usuario: 
-Correo Electronico: adminever12@gmail.com
-Username: EverAdmin11
-Tipo de usuario: ADMINISTRADOR
-Fecha de creacion: 2022-08-16
-
------------------------------3------------------------------
-Nombre del usuario: PruebaFinal
-Apellido del usuario: FinalPr
-Correo Electronico: pruebafinal@gmail.com
-Username: EjemploFinal
+Correo Electronico: eloicx@gmail.com
+Username: choc1403
 Tipo de usuario: USUARIO
-Fecha de creacion: 2022-08-22
+Fecha de creacion: 2023-08-25
 
